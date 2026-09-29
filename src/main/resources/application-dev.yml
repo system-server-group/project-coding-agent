@@ -1,0 +1,52 @@
+# =============================================================================
+# 開発系プロファイル (dev)
+#   ローカル開発用。compose.yaml で立ち上がる PostgreSQL/MailHog に接続する。
+#   設定値は開発者に見られて問題ない前提 (プロジェクト決定 4.)。
+#   client-secret 等のシークレットのみ .env (git 管理外) から環境変数で渡す。
+# =============================================================================
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/ai_demo
+    username: ai_demo
+    password: ai_demo
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    clean-disabled: false
+
+  mail:
+    host: localhost
+    port: 1025
+    username: ""
+    password: ""
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+  thymeleaf:
+    cache: false
+
+  # 起動時にコンテナが既に動いていても compose up を実行し、アプリの正常終了時に停止させる
+  # (既定の if-running では、既に動いていたコンテナはアプリ終了後も動き続ける)。
+  docker:
+    compose:
+      start:
+        skip: never
+
+# エージェント実行時に人間ログイン後の JSESSIONID を流用する運用のため、
+# セッションタイムアウトを少し長めに設定する (dev のみ)。
+server:
+  servlet:
+    session:
+      timeout: 8h
+      cookie:
+        http-only: true
+        secure: false
+        same-site: lax
+
+logging:
+  level:
+    "[com.system_server.ai_demo]": DEBUG
+    "[org.mybatis]": DEBUG

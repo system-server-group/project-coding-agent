@@ -1,0 +1,2 @@
+management_code,title,status,client_name,commercial_flow,summary,process,start_date,end_date,skill,headcount,remaining_count,bp_recruitment,bp_recruitment_detail,work_location,estimated_unit_price,contract_type,note,created_by,created_department,created_at,updated_by,updated_department,updated_at
+1,更新対象案件,OPEN,株式会社アルファ,一次請け,更新前の概要,詳細設計,2026-09-01,2026-12-31,Java,3,2,NOT_REQUIRED,,東京都港区,600000,CONTRACT,更新前の備考,営業 太郎,営業部,2026-08-01 10:00:00,営業 太郎,営業部,2026-08-01 10:00:00

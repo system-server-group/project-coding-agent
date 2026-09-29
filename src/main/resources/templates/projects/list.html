@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/common :: layout(~{::content}, 'list', '案件情報一覧画面')}">
+<body>
+<div th:fragment="content">
+    <link rel="stylesheet" th:href="@{/webjars/ag-grid-community/styles/ag-grid.css}">
+    <link rel="stylesheet" th:href="@{/webjars/ag-grid-community/styles/ag-theme-quartz.css}">
+
+    <!-- 案件検索アコーディオン（初期は非表示。モックアップ .search-panel 準拠） -->
+    <div class="search-panel mb-3" id="searchPanel">
+        <div class="search-head" id="searchToggle">
+            <strong>案件検索</strong>
+            <div style="flex:1 1 auto;"></div>
+            <span class="search-chev">
+                <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                    <path d="M2.5 5.5 L8 10.7 L13.5 5.5" stroke="currentColor" stroke-width="1.8"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+        </div>
+        <div class="search-body">
+            <div class="scols">
+                <div class="scol">
+                    <div class="srow">
+                        <label class="search-label" style="width:100px;flex-shrink:0;">検索キーワード</label>
+                        <input type="text" class="fc" style="width:220px;" id="keyword"
+                               maxlength="100">
+                    </div>
+                    <span class="text-danger small" data-error-for="keyword"></span>
+                    <div class="search-label"
+                         style="display:flex;flex-wrap:wrap;gap:14px;padding-left:108px;">
+                        <label class="chk"><input type="checkbox" id="kwTitle" value="title"
+                                checked><span>件名</span></label>
+                        <label class="chk"><input type="checkbox" id="kwSkill"
+                                value="skill"><span>スキル</span></label>
+                        <label class="chk"><input type="checkbox" id="kwFlow"
+                                value="commercialFlow"><span>商流</span></label>
+                    </div>
+                    <div class="search-label"
+                         style="display:flex;flex-wrap:wrap;gap:14px;padding-left:108px;">
+                        <label class="chk"><input type="checkbox" id="kwLoc"
+                                value="workLocation"><span>作業場所</span></label>
+                        <label class="chk"><input type="checkbox" id="kwSummary"
+                                value="summary"><span>案件概要</span></label>
+                        <label class="chk"><input type="checkbox" id="kwNote"
+                                value="note"><span>備考</span></label>
+                    </div>
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">ステータス</label>
+                        <div style="display:flex;gap:18px;">
+                            <label class="chk"><input type="checkbox" id="stOpen" value="OPEN"
+                                    checked><span>オープン</span></label>
+                            <label class="chk"><input type="checkbox" id="stNego"
+                                    value="NEGOTIATING" checked><span>交渉中</span></label>
+                            <label class="chk"><input type="checkbox" id="stClosed"
+                                    value="CLOSED"><span>クローズ</span></label>
+                        </div>
+                    </div>
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">開始日</label>
+                        <div style="display:flex;align-items:center;gap:6px;">
+                            <input type="date" class="fc" style="width:138px;" id="startDateFrom">
+                            <span>〜</span>
+                            <input type="date" class="fc" style="width:138px;" id="startDateTo">
+                        </div>
+                    </div>
+                    <span class="text-danger small" data-error-for="startDateFrom"></span>
+                    <span class="text-danger small" data-error-for="startDateTo"></span>
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">終了日</label>
+                        <div style="display:flex;align-items:center;gap:6px;">
+                            <input type="date" class="fc" style="width:138px;" id="endDateFrom">
+                            <span>〜</span>
+                            <input type="date" class="fc" style="width:138px;" id="endDateTo">
+                        </div>
+                    </div>
+                    <span class="text-danger small" data-error-for="endDateFrom"></span>
+                    <span class="text-danger small" data-error-for="endDateTo"></span>
+                </div>
+                <div class="scol">
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">登録日</label>
+                        <div style="display:flex;align-items:center;gap:6px;">
+                            <input type="date" class="fc" style="width:138px;"
+                                   id="registeredDateFrom">
+                            <span>〜</span>
+                            <input type="date" class="fc" style="width:138px;"
+                                   id="registeredDateTo">
+                        </div>
+                    </div>
+                    <span class="text-danger small" data-error-for="registeredDateFrom"></span>
+                    <span class="text-danger small" data-error-for="registeredDateTo"></span>
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">登録者</label>
+                        <input type="text" class="fc" style="width:180px;" id="registrant"
+                               list="registrantOptions" maxlength="50">
+                        <datalist id="registrantOptions">
+                            <option th:each="o : ${registrantOptions}" th:value="${o}"></option>
+                        </datalist>
+                    </div>
+                    <span class="text-danger small" data-error-for="registrant"></span>
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">登録部署</label>
+                        <input type="text" class="fc" style="width:180px;" id="registrantDepartment"
+                               list="departmentOptions" maxlength="50">
+                        <datalist id="departmentOptions">
+                            <option th:each="o : ${departmentOptions}" th:value="${o}"></option>
+                        </datalist>
+                    </div>
+                    <span class="text-danger small" data-error-for="registrantDepartment"></span>
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">取引先</label>
+                        <input type="text" class="fc" style="width:180px;" id="client"
+                               list="clientOptions" maxlength="200">
+                        <datalist id="clientOptions">
+                            <option th:each="o : ${clientOptions}" th:value="${o}"></option>
+                        </datalist>
+                    </div>
+                    <span class="text-danger small" data-error-for="client"></span>
+                    <div class="srow search-label">
+                        <label style="width:100px;flex-shrink:0;">その他条件</label>
+                        <label class="chk"><input type="checkbox" id="bpOnly"><span>BPが必要な案件のみ</span></label>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top:8px;">
+                <button type="button" id="searchButton" class="btn btn-primary btn-sm w-100">検索</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-toolbar">
+        <button type="button" id="resetLayoutButton" class="btn btn-soft btn-sm">
+            ↺ テーブル初期化
+        </button>
+        <div class="d-flex align-items-center gap-2">
+            <button type="button" id="csvDownloadButton" class="btn btn-soft btn-sm">
+                ⬇ CSVダウンロード
+            </button>
+            <a th:href="@{/projects/new}" class="btn btn-primary btn-sm">＋ 新規登録</a>
+        </div>
+    </div>
+
+    <!-- ページャ（上部）。設計書「テーブル上部と下部で2つある」に準拠。ag-grid 内蔵パネルを抑止し JS で連動 -->
+    <div class="pager" data-pager>
+        <span style="justify-self:start;">取得データ件数: <span data-data-count>0</span>件</span>
+        <div class="pager-nums" data-pager-nums></div>
+        <div class="pager-ctl">
+            <label><span>表示件数</span>
+                <select data-page-size>
+                    <option value="10">10件</option>
+                    <option value="20">20件</option>
+                    <option value="30" selected>30件</option>
+                    <option value="all">全て</option>
+                </select>
+            </label>
+            <label><span>表示ページ</span>
+                <select data-page-jump></select>
+            </label>
+        </div>
+    </div>
+    <div id="projectGrid" class="ag-theme-quartz" style="height: 560px; width: 100%;"></div>
+
+    <!-- ページャ（下部）。上部と同一構成で JS が両方を同期する -->
+    <div class="pager" data-pager>
+        <span style="justify-self:start;">取得データ件数: <span data-data-count>0</span>件</span>
+        <div class="pager-nums" data-pager-nums></div>
+        <div class="pager-ctl">
+            <label><span>表示件数</span>
+                <select data-page-size>
+                    <option value="10">10件</option>
+                    <option value="20">20件</option>
+                    <option value="30" selected>30件</option>
+                    <option value="all">全て</option>
+                </select>
+            </label>
+            <label><span>表示ページ</span>
+                <select data-page-jump></select>
+            </label>
+        </div>
+    </div>
+
+    <script th:src="@{/webjars/ag-grid-community/dist/ag-grid-community.min.js}"></script>
+    <script th:src="@{/js/projects-list.js}"></script>
+    <script th:src="@{/js/autocomplete.js}"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+services:
+  # 開発環境用のデータベース
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_DB: ai_demo
+      POSTGRES_USER: ai_demo
+      POSTGRES_PASSWORD: ai_demo
+      TZ: Asia/Tokyo
+    ports:
+      # ホスト側の 5432 は別 Postgres が占有しているため 5433 を公開する
+      - "5433:5432"
+    volumes:
+      # Postgres 18+ ではメジャーバージョン別サブディレクトリ運用のため /var/lib/postgresql をマウントする
+      - ai-demo-postgres-data:/var/lib/postgresql
+      # - ./src/main/resources/db/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      # - ./src/test/resources/db:/test-data:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ai_demo -d ai_demo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # 開発環境用の SMTP キャッチャ (application-dev.yml の spring.mail と接続先を揃える)
+  # 送信内容は http://localhost:8025 の Web UI で確認できる
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Web UI
+
+volumes:
+  ai-demo-postgres-data:

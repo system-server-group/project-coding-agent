@@ -1,0 +1,3410 @@
+{
+  "version" : 1,
+  "feature" : "02_エラー",
+  "target" : "20260827_単体テスト",
+  "cases" : [ {
+    "no" : "1-1",
+    "name" : "ページ未検出エラーの表示内容と、エラー画面の画面項目が表示される",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. 存在しないURL /no-such-page を開く",
+      "frame" : "No.1-1_01.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:20.355"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "システムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-1_02.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:20.442",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 349.84375,
+        "w" : 400.0,
+        "h" : 22.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラータイトルに「404 Not Found」が表示される",
+      "expected" : "404 Not Found",
+      "actual" : "404 Not Found",
+      "status" : "pass",
+      "frame" : "No.1-1_03.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:20.535",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「ページが見つかりませんでした。」が表示される",
+      "expected" : "ページが見つかりませんでした。",
+      "actual" : "ページが見つかりませんでした。",
+      "status" : "pass",
+      "frame" : "No.1-1_04.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:20.617",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "リロードボタン「RELOAD」が表示される",
+      "expected" : "RELOAD",
+      "actual" : "RELOAD",
+      "status" : "pass",
+      "frame" : "No.1-1_05.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:20.696",
+      "highlight" : [ {
+        "x" : 522.484375,
+        "y" : 476.140625,
+        "w" : 110.15625,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "インデックスボタン「TOINDEX」が表示される",
+      "expected" : "TOINDEX",
+      "actual" : "TOINDEX",
+      "status" : "pass",
+      "frame" : "No.1-1_06.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:20.778",
+      "highlight" : [ {
+        "x" : 640.640625,
+        "y" : 476.140625,
+        "w" : 116.859375,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "共通ヘッダー（ナビゲーション・ユーザ名／部署名・ログアウト）が表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-1_07.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:20.857",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 400.0,
+        "y" : 313.84375,
+        "w" : 480.0,
+        "h" : 232.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:17.310",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:19.176",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:19.177",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:19.178",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:19.237",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:19.238",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:19.238",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:19.238",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:19.238",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:19.239",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:19.239",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:19.239",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:19.240",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:19.240",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:19.240",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:19.241",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:19.241",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:19.241",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:19.241",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:19.242",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:19.242",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:19.242",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:19.258",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:19.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:19.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:19.440",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:19.820",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/no-such-page"
+    }, {
+      "ts" : "14:12:19.820",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 404 ()"
+    }, {
+      "ts" : "14:12:20.355",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. 存在しないURL /no-such-page を開く"
+    }, {
+      "ts" : "14:12:20.498",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】システムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "14:12:20.579",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラータイトルに「404 Not Found」が表示される — 期待: 404 Not Found ／ 実測: 404 Not Found ✓"
+    }, {
+      "ts" : "14:12:20.663",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「ページが見つかりませんでした。」が表示される — 期待: ページが見つかりませんでした。 ／ 実測: ページが見つかりませんでした。 ✓"
+    }, {
+      "ts" : "14:12:20.745",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】リロードボタン「RELOAD」が表示される — 期待: RELOAD ／ 実測: RELOAD ✓"
+    }, {
+      "ts" : "14:12:20.829",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】インデックスボタン「TOINDEX」が表示される — 期待: TOINDEX ／ 実測: TOINDEX ✓"
+    }, {
+      "ts" : "14:12:20.915",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダー（ナビゲーション・ユーザ名／部署名・ログアウト）が表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "1-2",
+    "name" : "権限不足エラーの表示内容",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. 一般ユーザに許可されていない /master/companies を開く",
+      "frame" : "No.1-2_01.jpg",
+      "url" : "/master/companies",
+      "ts" : "14:12:24.594"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラータイトルが「403 Forbidden」である（「404 Not Found」「An Error Occurred」ではない）",
+      "expected" : "403 Forbidden",
+      "actual" : "403 Forbidden",
+      "status" : "pass",
+      "frame" : "No.1-2_02.jpg",
+      "url" : "/master/companies",
+      "ts" : "14:12:24.689",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「ページにアクセスできません。」が表示される",
+      "expected" : "ページにアクセスできません。",
+      "actual" : "ページにアクセスできません。",
+      "status" : "pass",
+      "frame" : "No.1-2_03.jpg",
+      "url" : "/master/companies",
+      "ts" : "14:12:24.801",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "システムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-2_04.jpg",
+      "url" : "/master/companies",
+      "ts" : "14:12:24.882",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 349.84375,
+        "w" : 400.0,
+        "h" : 22.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "リロードボタン「RELOAD」が表示される",
+      "expected" : "RELOAD",
+      "actual" : "RELOAD",
+      "status" : "pass",
+      "frame" : "No.1-2_05.jpg",
+      "url" : "/master/companies",
+      "ts" : "14:12:24.963",
+      "highlight" : [ {
+        "x" : 522.484375,
+        "y" : 476.140625,
+        "w" : 110.15625,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "インデックスボタン「TOINDEX」が表示される",
+      "expected" : "TOINDEX",
+      "actual" : "TOINDEX",
+      "status" : "pass",
+      "frame" : "No.1-2_06.jpg",
+      "url" : "/master/companies",
+      "ts" : "14:12:25.047",
+      "highlight" : [ {
+        "x" : 640.640625,
+        "y" : 476.140625,
+        "w" : 116.859375,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:21.619",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:23.441",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:23.441",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:23.443",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:23.500",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:23.501",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:23.501",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:23.501",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:23.501",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:23.502",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:23.502",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:23.502",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:23.502",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:23.502",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:23.503",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:23.503",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:23.503",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:23.503",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:23.503",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:23.504",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:23.504",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:23.504",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:23.511",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:23.655",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:23.655",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:23.658",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:24.058",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/master/companies"
+    }, {
+      "ts" : "14:12:24.058",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 403 ()"
+    }, {
+      "ts" : "14:12:24.594",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. 一般ユーザに許可されていない /master/companies を開く"
+    }, {
+      "ts" : "14:12:24.751",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラータイトルが「403 Forbidden」である（「404 Not Found」「An Error Occurred」ではない） — 期待: 403 Forbidden ／ 実測: 403 Forbidden ✓"
+    }, {
+      "ts" : "14:12:24.846",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「ページにアクセスできません。」が表示される — 期待: ページにアクセスできません。 ／ 実測: ページにアクセスできません。 ✓"
+    }, {
+      "ts" : "14:12:24.929",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】システムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "14:12:25.014",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】リロードボタン「RELOAD」が表示される — 期待: RELOAD ／ 実測: RELOAD ✓"
+    }, {
+      "ts" : "14:12:25.095",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】インデックスボタン「TOINDEX」が表示される — 期待: TOINDEX ／ 実測: TOINDEX ✓"
+    } ]
+  }, {
+    "no" : "1-3",
+    "name" : "サーバー内部エラー（404・403 以外のエラー）の表示内容",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.1-3_01.jpg",
+      "url" : "/",
+      "ts" : "14:12:26.257"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0009 を入力する",
+      "frame" : "No.1-3_02.jpg",
+      "url" : "/",
+      "ts" : "14:12:26.897",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. パスワードに該当ユーザのパスワードを入力する",
+      "frame" : "No.1-3_03.jpg",
+      "url" : "/",
+      "ts" : "14:12:27.499",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "2. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.1-3_04.jpg",
+      "url" : "/",
+      "ts" : "14:12:27.577",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "2. 「ログイン」を押下する（押下後）",
+      "frame" : "No.1-3_05.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:28.265"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラータイトルが「An Error Occurred」である（「404 Not Found」「403 Forbidden」ではない）",
+      "expected" : "An Error Occurred",
+      "actual" : "An Error Occurred",
+      "status" : "pass",
+      "frame" : "No.1-3_06.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:28.348",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「エラーが発生しました。」が表示される",
+      "expected" : "エラーが発生しました。",
+      "actual" : "エラーが発生しました。",
+      "status" : "pass",
+      "frame" : "No.1-3_07.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:28.436",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "システムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-3_08.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:28.510",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 349.84375,
+        "w" : 400.0,
+        "h" : 22.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "リロードボタン「RELOAD」が表示される",
+      "expected" : "RELOAD",
+      "actual" : "RELOAD",
+      "status" : "pass",
+      "frame" : "No.1-3_09.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:28.594",
+      "highlight" : [ {
+        "x" : 522.484375,
+        "y" : 476.140625,
+        "w" : 110.15625,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "インデックスボタン「TOINDEX」が表示される",
+      "expected" : "TOINDEX",
+      "actual" : "TOINDEX",
+      "status" : "pass",
+      "frame" : "No.1-3_10.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:28.684",
+      "highlight" : [ {
+        "x" : 640.640625,
+        "y" : 476.140625,
+        "w" : 116.859375,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:25.526",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:26.257",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:12:26.850",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0009 を入力する"
+    }, {
+      "ts" : "14:12:27.465",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワードに該当ユーザのパスワードを入力する"
+    }, {
+      "ts" : "14:12:27.548",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:12:27.672",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:27.672",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0009(String)"
+    }, {
+      "ts" : "14:12:27.674",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:27.731",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:27.731",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:27.732",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 4"
+    }, {
+      "ts" : "14:12:27.732",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:27.732",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:27.733",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:27.733",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:27.733",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:27.734",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:27.734",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:27.734",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0009(String)"
+    }, {
+      "ts" : "14:12:27.735",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:27.735",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:27.735",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0009(String)"
+    }, {
+      "ts" : "14:12:27.735",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:27.735",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:27.735",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 999(Integer)"
+    }, {
+      "ts" : "14:12:27.736",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:27.737",
+      "src" : "app",
+      "level" : "ERROR",
+      "logger" : "[/].[dispatcherServlet]",
+      "message" : "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalStateException: department master not found for the logged-in user] with root cause"
+    }, {
+      "ts" : "14:12:27.743",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:27.744",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 500 ()"
+    }, {
+      "ts" : "14:12:28.265",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:12:28.396",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラータイトルが「An Error Occurred」である（「404 Not Found」「403 Forbidden」ではない） — 期待: An Error Occurred ／ 実測: An Error Occurred ✓"
+    }, {
+      "ts" : "14:12:28.480",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「エラーが発生しました。」が表示される — 期待: エラーが発生しました。 ／ 実測: エラーが発生しました。 ✓"
+    }, {
+      "ts" : "14:12:28.561",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】システムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "14:12:28.647",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】リロードボタン「RELOAD」が表示される — 期待: RELOAD ／ 実測: RELOAD ✓"
+    }, {
+      "ts" : "14:12:28.728",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】インデックスボタン「TOINDEX」が表示される — 期待: TOINDEX ／ 実測: TOINDEX ✓"
+    } ]
+  }, {
+    "no" : "1-4",
+    "name" : "ページ未検出エラーはログイン状態に関わらず表示される",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. 未認証の状態で存在しないURL /no-such-page を開く",
+      "frame" : "No.1-4_01.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:29.867"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "ログイン画面へは誘導されず URL は /no-such-page のままである",
+      "expected" : "http://localhost:57950/no-such-page",
+      "actual" : "http://localhost:57950/no-such-page",
+      "status" : "pass",
+      "frame" : "No.1-4_02.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:29.913"
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラータイトルに「404 Not Found」が表示される",
+      "expected" : "404 Not Found",
+      "actual" : "404 Not Found",
+      "status" : "pass",
+      "frame" : "No.1-4_03.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:30.006",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「ページが見つかりませんでした。」が表示される",
+      "expected" : "ページが見つかりませんでした。",
+      "actual" : "ページが見つかりませんでした。",
+      "status" : "pass",
+      "frame" : "No.1-4_04.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:30.081",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "システムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-4_05.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:30.161",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 349.84375,
+        "w" : 400.0,
+        "h" : 22.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン画面の識別要素（ユーザID欄・「ログイン」ボタン）が表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-4_06.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:30.239",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 400.0,
+        "y" : 313.84375,
+        "w" : 480.0,
+        "h" : 232.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:29.216",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/no-such-page"
+    }, {
+      "ts" : "14:12:29.216",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 404 ()"
+    }, {
+      "ts" : "14:12:29.867",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. 未認証の状態で存在しないURL /no-such-page を開く"
+    }, {
+      "ts" : "14:12:29.959",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン画面へは誘導されず URL は /no-such-page のままである — 期待: http://localhost:57950/no-such-page ／ 実測: http://localhost:57950/no-such-page ✓"
+    }, {
+      "ts" : "14:12:30.045",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラータイトルに「404 Not Found」が表示される — 期待: 404 Not Found ／ 実測: 404 Not Found ✓"
+    }, {
+      "ts" : "14:12:30.129",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「ページが見つかりませんでした。」が表示される — 期待: ページが見つかりませんでした。 ／ 実測: ページが見つかりませんでした。 ✓"
+    }, {
+      "ts" : "14:12:30.213",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】システムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "14:12:30.284",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン画面の識別要素（ユーザID欄・「ログイン」ボタン）が表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "2-1",
+    "name" : "リロードボタンで現在表示中のエラー画面が再読み込みされる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. 存在しないURL /no-such-page を開く",
+      "frame" : "No.2-1_01.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:48.425"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "1. エラータイトル「404 Not Found」が表示されている",
+      "expected" : "404 Not Found",
+      "actual" : "404 Not Found",
+      "status" : "pass",
+      "frame" : "No.2-1_02.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:48.507",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. 「RELOAD」を押下する（押下前・操作対象）",
+      "frame" : "No.2-1_03.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:48.589",
+      "highlight" : [ {
+        "x" : 522.484375,
+        "y" : 476.140625,
+        "w" : 110.15625,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "2. 「RELOAD」を押下する（押下後）",
+      "frame" : "No.2-1_04.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:49.194"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラータイトル「404 Not Found」が変わらず表示される",
+      "expected" : "404 Not Found",
+      "actual" : "404 Not Found",
+      "status" : "pass",
+      "frame" : "No.2-1_05.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:49.266",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容「ページが見つかりませんでした。」が変わらず表示される",
+      "expected" : "ページが見つかりませんでした。",
+      "actual" : "ページが見つかりませんでした。",
+      "status" : "pass",
+      "frame" : "No.2-1_06.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:49.349",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "URL は /no-such-page のままで、他の画面へは遷移しない",
+      "expected" : "http://localhost:57950/no-such-page",
+      "actual" : "http://localhost:57950/no-such-page",
+      "status" : "pass",
+      "frame" : "No.2-1_07.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:49.403"
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:45.478",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:47.271",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:47.271",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:47.272",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:47.330",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:47.330",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:47.331",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:47.331",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:47.331",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:47.332",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:47.332",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:47.332",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:47.332",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:47.333",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:47.333",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:47.333",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:47.333",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:47.333",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:47.334",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:47.334",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:47.334",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:47.334",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:47.341",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:47.493",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:47.494",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:47.496",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:47.899",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/no-such-page"
+    }, {
+      "ts" : "14:12:47.899",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 404 ()"
+    }, {
+      "ts" : "14:12:48.425",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. 存在しないURL /no-such-page を開く"
+    }, {
+      "ts" : "14:12:48.547",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】1. エラータイトル「404 Not Found」が表示されている — 期待: 404 Not Found ／ 実測: 404 Not Found ✓"
+    }, {
+      "ts" : "14:12:48.555",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「RELOAD」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:12:48.678",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/no-such-page"
+    }, {
+      "ts" : "14:12:48.679",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 404 ()"
+    }, {
+      "ts" : "14:12:49.194",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「RELOAD」を押下する（押下後）"
+    }, {
+      "ts" : "14:12:49.314",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラータイトル「404 Not Found」が変わらず表示される — 期待: 404 Not Found ／ 実測: 404 Not Found ✓"
+    }, {
+      "ts" : "14:12:49.399",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容「ページが見つかりませんでした。」が変わらず表示される — 期待: ページが見つかりませんでした。 ／ 実測: ページが見つかりませんでした。 ✓"
+    }, {
+      "ts" : "14:12:49.445",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】URL は /no-such-page のままで、他の画面へは遷移しない — 期待: http://localhost:57950/no-such-page ／ 実測: http://localhost:57950/no-such-page ✓"
+    } ]
+  }, {
+    "no" : "2-2",
+    "name" : "インデックスボタンでログイン済み時は案件情報一覧画面へ遷移する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. 存在しないURL /no-such-page を開く",
+      "frame" : "No.2-2_01.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:52.999"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "1. エラー画面（エラーカード）が表示されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.2-2_02.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:53.117",
+      "highlight" : [ {
+        "x" : 400.0,
+        "y" : 313.84375,
+        "w" : 480.0,
+        "h" : 232.296875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. 「TOINDEX」を押下する（押下前・操作対象）",
+      "frame" : "No.2-2_03.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:53.220",
+      "highlight" : [ {
+        "x" : 640.640625,
+        "y" : 476.140625,
+        "w" : 116.859375,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "2. 「TOINDEX」を押下する（押下後）",
+      "frame" : "No.2-2_04.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:53.861"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "/projects（案件情報一覧画面）へ遷移する",
+      "expected" : "http://localhost:57950/projects",
+      "actual" : "http://localhost:57950/projects",
+      "status" : "pass",
+      "frame" : "No.2-2_05.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:53.924"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "画面タイトル「案件情報一覧画面」が表示される",
+      "expected" : "案件情報一覧画面",
+      "actual" : "案件情報一覧画面",
+      "status" : "pass",
+      "frame" : "No.2-2_06.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:54.057",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにユーザ名「営業 太郎」が表示される",
+      "expected" : "営業 太郎",
+      "actual" : "営業 太郎",
+      "status" : "pass",
+      "frame" : "No.2-2_07.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:54.171",
+      "highlight" : [ {
+        "x" : 1141.046875,
+        "y" : 92.25,
+        "w" : 54.953125,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン画面は表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.2-2_08.jpg",
+      "url" : "/projects",
+      "ts" : "14:12:54.260",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:49.931",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:51.840",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:51.840",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:51.841",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:51.900",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:51.900",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:51.901",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:51.901",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:51.901",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:51.901",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:51.901",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:51.901",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:51.902",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:51.902",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:51.902",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:51.903",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:51.903",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:51.903",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:51.903",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:51.903",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:51.903",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:51.904",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:51.910",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:52.068",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:52.068",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:52.071",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:52.464",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/no-such-page"
+    }, {
+      "ts" : "14:12:52.464",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 404 ()"
+    }, {
+      "ts" : "14:12:52.999",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. 存在しないURL /no-such-page を開く"
+    }, {
+      "ts" : "14:12:53.178",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】1. エラー画面（エラーカード）が表示されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:12:53.187",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「TOINDEX」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:12:53.311",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:53.311",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:53.311",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:53.312",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:53.312",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:53.312",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:53.313",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:53.313",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:53.313",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:53.314",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:53.314",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:53.314",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:53.314",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:53.314",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:53.315",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:53.315",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:53.315",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:53.315",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:53.322",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:53.414",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:53.414",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:53.416",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:53.861",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「TOINDEX」を押下する（押下後）"
+    }, {
+      "ts" : "14:12:53.981",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】/projects（案件情報一覧画面）へ遷移する — 期待: http://localhost:57950/projects ／ 実測: http://localhost:57950/projects ✓"
+    }, {
+      "ts" : "14:12:54.119",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面タイトル「案件情報一覧画面」が表示される — 期待: 案件情報一覧画面 ／ 実測: 案件情報一覧画面 ✓"
+    }, {
+      "ts" : "14:12:54.222",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにユーザ名「営業 太郎」が表示される — 期待: 営業 太郎 ／ 実測: 営業 太郎 ✓"
+    }, {
+      "ts" : "14:12:54.325",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン画面は表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "2-3",
+    "name" : "インデックスボタンで未ログイン時はログイン画面へ遷移する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. 未認証の状態で存在しないURL /no-such-page を開く",
+      "frame" : "No.2-3_01.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:55.569"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "1. エラー画面（エラーカード）が表示されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.2-3_02.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:55.681",
+      "highlight" : [ {
+        "x" : 400.0,
+        "y" : 313.84375,
+        "w" : 480.0,
+        "h" : 232.296875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. 「TOINDEX」を押下する（押下前・操作対象）",
+      "frame" : "No.2-3_03.jpg",
+      "url" : "/no-such-page",
+      "ts" : "14:12:55.776",
+      "highlight" : [ {
+        "x" : 640.640625,
+        "y" : 476.140625,
+        "w" : 116.859375,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "2. 「TOINDEX」を押下する（押下後）",
+      "frame" : "No.2-3_04.jpg",
+      "url" : "/",
+      "ts" : "14:12:56.383"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "ログイン画面が表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.2-3_05.jpg",
+      "url" : "/",
+      "ts" : "14:12:56.482",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 252.59375,
+        "w" : 440.0,
+        "h" : 354.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "ユーザID欄が表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.2-3_06.jpg",
+      "url" : "/",
+      "ts" : "14:12:56.594",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 392.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "パスワード欄が表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.2-3_07.jpg",
+      "url" : "/",
+      "ts" : "14:12:56.687",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 471.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "「ログイン」ボタンが表示される",
+      "expected" : "ログイン",
+      "actual" : "ログイン",
+      "status" : "pass",
+      "frame" : "No.2-3_08.jpg",
+      "url" : "/",
+      "ts" : "14:12:56.767",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 533.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "案件情報一覧画面の識別要素（画面タイトル「案件情報一覧画面」）が表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.2-3_09.jpg",
+      "url" : "/",
+      "ts" : "14:12:56.841",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 252.59375,
+        "w" : 440.0,
+        "h" : 354.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:54.931",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/no-such-page"
+    }, {
+      "ts" : "14:12:54.931",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 404 ()"
+    }, {
+      "ts" : "14:12:55.569",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. 未認証の状態で存在しないURL /no-such-page を開く"
+    }, {
+      "ts" : "14:12:55.729",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】1. エラー画面（エラーカード）が表示されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:12:55.738",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「TOINDEX」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:12:55.860",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:56.383",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「TOINDEX」を押下する（押下後）"
+    }, {
+      "ts" : "14:12:56.533",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン画面が表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:12:56.649",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄が表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:12:56.730",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄が表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:12:56.813",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】「ログイン」ボタンが表示される — 期待: ログイン ／ 実測: ログイン ✓"
+    }, {
+      "ts" : "14:12:56.883",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】案件情報一覧画面の識別要素（画面タイトル「案件情報一覧画面」）が表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "1-5",
+    "name" : "ステータス指定URL /error/403 を直接開くと権限不足エラーが表示され、応答のHTTPステータスも403になる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. エラー画面のURL /error/403 を開く",
+      "frame" : "No.1-5_01.jpg",
+      "url" : "/error/403",
+      "ts" : "14:12:33.449"
+    }, {
+      "seq" : 2,
+      "kind" : "machine",
+      "verify" : "response",
+      "desc" : "応答を捕捉する（応答の捕捉）",
+      "expected" : "GET /error/403 の応答を捕捉",
+      "actual" : "GET http://localhost:57950/error/403 → HTTP 403",
+      "status" : "pass",
+      "ts" : "14:12:33.495"
+    }, {
+      "seq" : 3,
+      "kind" : "machine",
+      "verify" : "response",
+      "desc" : "【機械検証】/error/403 のHTTP応答が 403 である",
+      "expected" : "HTTP 403",
+      "actual" : "HTTP 403",
+      "status" : "pass",
+      "ts" : "14:12:33.495"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー画面のエラータイトルが「403 Forbidden」である（「404 Not Found」「An Error Occurred」ではない）",
+      "expected" : "403 Forbidden",
+      "actual" : "403 Forbidden",
+      "status" : "pass",
+      "frame" : "No.1-5_04.jpg",
+      "url" : "/error/403",
+      "ts" : "14:12:33.537",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「ページにアクセスできません。」が表示される",
+      "expected" : "ページにアクセスできません。",
+      "actual" : "ページにアクセスできません。",
+      "status" : "pass",
+      "frame" : "No.1-5_05.jpg",
+      "url" : "/error/403",
+      "ts" : "14:12:33.617",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:30.493",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:32.289",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:32.290",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:32.290",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:32.350",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:32.350",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:32.351",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:32.351",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:32.351",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:32.352",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:32.352",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:32.352",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:32.353",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:32.353",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:32.353",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:32.354",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:32.354",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:32.354",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:32.354",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:32.354",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:32.354",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:32.355",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:32.364",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:32.513",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:32.513",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:32.515",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:32.912",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/error/403"
+    }, {
+      "ts" : "14:12:32.912",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 403 ()"
+    }, {
+      "ts" : "14:12:33.449",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. エラー画面のURL /error/403 を開く"
+    }, {
+      "ts" : "14:12:33.495",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】応答を捕捉する（応答の捕捉） — 期待: GET /error/403 の応答を捕捉 ／ 実測: GET http://localhost:57950/error/403 → HTTP 403 ✓"
+    }, {
+      "ts" : "14:12:33.495",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】【機械検証】/error/403 のHTTP応答が 403 である — 期待: HTTP 403 ／ 実測: HTTP 403 ✓"
+    }, {
+      "ts" : "14:12:33.582",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー画面のエラータイトルが「403 Forbidden」である（「404 Not Found」「An Error Occurred」ではない） — 期待: 403 Forbidden ／ 実測: 403 Forbidden ✓"
+    }, {
+      "ts" : "14:12:33.663",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「ページにアクセスできません。」が表示される — 期待: ページにアクセスできません。 ／ 実測: ページにアクセスできません。 ✓"
+    } ]
+  }, {
+    "no" : "1-6",
+    "name" : "ステータス指定URL /error/404 を直接開くとページ未検出エラーが表示され、応答のHTTPステータスも404になる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. エラー画面のURL /error/404 を開く",
+      "frame" : "No.1-6_01.jpg",
+      "url" : "/error/404",
+      "ts" : "14:12:37.137"
+    }, {
+      "seq" : 2,
+      "kind" : "machine",
+      "verify" : "response",
+      "desc" : "応答を捕捉する（応答の捕捉）",
+      "expected" : "GET /error/404 の応答を捕捉",
+      "actual" : "GET http://localhost:57950/error/404 → HTTP 404",
+      "status" : "pass",
+      "ts" : "14:12:37.178"
+    }, {
+      "seq" : 3,
+      "kind" : "machine",
+      "verify" : "response",
+      "desc" : "【機械検証】/error/404 のHTTP応答が 404 である",
+      "expected" : "HTTP 404",
+      "actual" : "HTTP 404",
+      "status" : "pass",
+      "ts" : "14:12:37.178"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー画面のエラータイトルが「404 Not Found」である（「403 Forbidden」「An Error Occurred」ではない）",
+      "expected" : "404 Not Found",
+      "actual" : "404 Not Found",
+      "status" : "pass",
+      "frame" : "No.1-6_04.jpg",
+      "url" : "/error/404",
+      "ts" : "14:12:37.221",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「ページが見つかりませんでした。」が表示される",
+      "expected" : "ページが見つかりませんでした。",
+      "actual" : "ページが見つかりませんでした。",
+      "status" : "pass",
+      "frame" : "No.1-6_05.jpg",
+      "url" : "/error/404",
+      "ts" : "14:12:37.300",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:34.139",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:35.989",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:35.989",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:35.989",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:36.047",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:36.047",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:36.048",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:36.048",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:36.048",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:36.049",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:36.049",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:36.049",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:36.049",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:36.050",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:36.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:36.057",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:36.210",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:36.210",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:36.212",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:36.611",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/error/404"
+    }, {
+      "ts" : "14:12:36.611",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 404 ()"
+    }, {
+      "ts" : "14:12:37.137",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. エラー画面のURL /error/404 を開く"
+    }, {
+      "ts" : "14:12:37.178",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】応答を捕捉する（応答の捕捉） — 期待: GET /error/404 の応答を捕捉 ／ 実測: GET http://localhost:57950/error/404 → HTTP 404 ✓"
+    }, {
+      "ts" : "14:12:37.178",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】【機械検証】/error/404 のHTTP応答が 404 である — 期待: HTTP 404 ／ 実測: HTTP 404 ✓"
+    }, {
+      "ts" : "14:12:37.266",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー画面のエラータイトルが「404 Not Found」である（「403 Forbidden」「An Error Occurred」ではない） — 期待: 404 Not Found ／ 実測: 404 Not Found ✓"
+    }, {
+      "ts" : "14:12:37.346",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「ページが見つかりませんでした。」が表示される — 期待: ページが見つかりませんでした。 ／ 実測: ページが見つかりませんでした。 ✓"
+    } ]
+  }, {
+    "no" : "1-7",
+    "name" : "ステータス指定URLの403・404以外の指定（500）はサーバー内部エラーとして表示され、応答のHTTPステータスは500になる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. エラー画面のURL /error/500 を開く",
+      "frame" : "No.1-7_01.jpg",
+      "url" : "/error/500",
+      "ts" : "14:12:40.840"
+    }, {
+      "seq" : 2,
+      "kind" : "machine",
+      "verify" : "response",
+      "desc" : "応答を捕捉する（応答の捕捉）",
+      "expected" : "GET /error/500 の応答を捕捉",
+      "actual" : "GET http://localhost:57950/error/500 → HTTP 500",
+      "status" : "pass",
+      "ts" : "14:12:40.879"
+    }, {
+      "seq" : 3,
+      "kind" : "machine",
+      "verify" : "response",
+      "desc" : "【機械検証】/error/500 のHTTP応答が 500 である",
+      "expected" : "HTTP 500",
+      "actual" : "HTTP 500",
+      "status" : "pass",
+      "ts" : "14:12:40.879"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー画面のエラータイトルが「An Error Occurred」である（「403 Forbidden」「404 Not Found」ではない）",
+      "expected" : "An Error Occurred",
+      "actual" : "An Error Occurred",
+      "status" : "pass",
+      "frame" : "No.1-7_04.jpg",
+      "url" : "/error/500",
+      "ts" : "14:12:40.920",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「エラーが発生しました。」が表示される",
+      "expected" : "エラーが発生しました。",
+      "actual" : "エラーが発生しました。",
+      "status" : "pass",
+      "frame" : "No.1-7_05.jpg",
+      "url" : "/error/500",
+      "ts" : "14:12:41.000",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:37.861",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:39.690",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:39.690",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:39.691",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:39.748",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:39.748",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:39.749",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:39.749",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:39.749",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:39.750",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:39.750",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:39.750",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:39.750",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:39.750",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:39.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:39.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:39.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:39.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:39.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:39.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:39.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:39.752",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:39.760",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:39.929",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:39.929",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:39.931",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:40.302",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/error/500"
+    }, {
+      "ts" : "14:12:40.303",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 500 ()"
+    }, {
+      "ts" : "14:12:40.840",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. エラー画面のURL /error/500 を開く"
+    }, {
+      "ts" : "14:12:40.879",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】応答を捕捉する（応答の捕捉） — 期待: GET /error/500 の応答を捕捉 ／ 実測: GET http://localhost:57950/error/500 → HTTP 500 ✓"
+    }, {
+      "ts" : "14:12:40.879",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】【機械検証】/error/500 のHTTP応答が 500 である — 期待: HTTP 500 ／ 実測: HTTP 500 ✓"
+    }, {
+      "ts" : "14:12:40.963",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー画面のエラータイトルが「An Error Occurred」である（「403 Forbidden」「404 Not Found」ではない） — 期待: An Error Occurred ／ 実測: An Error Occurred ✓"
+    }, {
+      "ts" : "14:12:41.063",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「エラーが発生しました。」が表示される — 期待: エラーが発生しました。 ／ 実測: エラーが発生しました。 ✓"
+    } ]
+  }, {
+    "no" : "1-8",
+    "name" : "エラー画面のURL /error（ステータス指定なし）は直接アクセスでき、ユーザー通知を目的としたエラー画面の表示のみを行う",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. エラー画面のURL /error を開く",
+      "frame" : "No.1-8_01.jpg",
+      "url" : "/error",
+      "ts" : "14:12:44.504"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー画面のエラータイトルに「An Error Occurred」が表示される",
+      "expected" : "An Error Occurred",
+      "actual" : "An Error Occurred",
+      "status" : "pass",
+      "frame" : "No.1-8_02.jpg",
+      "url" : "/error",
+      "ts" : "14:12:44.585",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容に「エラーが発生しました。」が表示される",
+      "expected" : "エラーが発生しました。",
+      "actual" : "エラーが発生しました。",
+      "status" : "pass",
+      "frame" : "No.1-8_03.jpg",
+      "url" : "/error",
+      "ts" : "14:12:44.663",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "システムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-8_04.jpg",
+      "url" : "/error",
+      "ts" : "14:12:44.747",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 349.84375,
+        "w" : 400.0,
+        "h" : 22.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "リロードボタン「RELOAD」が表示される",
+      "expected" : "RELOAD",
+      "actual" : "RELOAD",
+      "status" : "pass",
+      "frame" : "No.1-8_05.jpg",
+      "url" : "/error",
+      "ts" : "14:12:44.830",
+      "highlight" : [ {
+        "x" : 522.484375,
+        "y" : 476.140625,
+        "w" : 110.15625,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "インデックスボタン「TOINDEX」が表示される",
+      "expected" : "TOINDEX",
+      "actual" : "TOINDEX",
+      "status" : "pass",
+      "frame" : "No.1-8_06.jpg",
+      "url" : "/error",
+      "ts" : "14:12:44.911",
+      "highlight" : [ {
+        "x" : 640.640625,
+        "y" : 476.140625,
+        "w" : 116.859375,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "業務画面へは遷移せず、URL は /error のままである",
+      "expected" : "http://localhost:57950/error",
+      "actual" : "http://localhost:57950/error",
+      "status" : "pass",
+      "frame" : "No.1-8_07.jpg",
+      "url" : "/error",
+      "ts" : "14:12:44.964"
+    } ],
+    "logs" : [ {
+      "ts" : "14:12:41.546",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/"
+    }, {
+      "ts" : "14:12:43.355",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:43.356",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:43.356",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:43.413",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:12:43.413",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:43.414",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:43.414",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:12:43.414",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:43.415",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:12:43.415",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:12:43.415",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:12:43.416",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:12:43.416",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:43.416",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:43.416",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:43.417",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:12:43.417",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:12:43.417",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:43.417",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:12:43.417",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:12:43.417",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:12:43.427",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/projects"
+    }, {
+      "ts" : "14:12:43.570",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:12:43.570",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:12:43.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:12:43.972",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:57950/error"
+    }, {
+      "ts" : "14:12:44.504",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. エラー画面のURL /error を開く"
+    }, {
+      "ts" : "14:12:44.630",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー画面のエラータイトルに「An Error Occurred」が表示される — 期待: An Error Occurred ／ 実測: An Error Occurred ✓"
+    }, {
+      "ts" : "14:12:44.712",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容に「エラーが発生しました。」が表示される — 期待: エラーが発生しました。 ／ 実測: エラーが発生しました。 ✓"
+    }, {
+      "ts" : "14:12:44.798",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】システムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "14:12:44.878",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】リロードボタン「RELOAD」が表示される — 期待: RELOAD ／ 実測: RELOAD ✓"
+    }, {
+      "ts" : "14:12:44.962",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】インデックスボタン「TOINDEX」が表示される — 期待: TOINDEX ／ 実測: TOINDEX ✓"
+    }, {
+      "ts" : "14:12:45.011",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】業務画面へは遷移せず、URL は /error のままである — 期待: http://localhost:57950/error ／ 実測: http://localhost:57950/error ✓"
+    } ]
+  } ]
+}

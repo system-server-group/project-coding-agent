@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "vscjava.vscode-java-pack",
+    "shengchen.vscode-checkstyle",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig"
+  ]
+}

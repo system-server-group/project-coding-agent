@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AiDemoApplication<ai-demo-project-coding-agent>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.system_server.ai_demo.AiDemoApplication",
+      "projectName": "ai-demo-project-coding-agent",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+  ]
+}

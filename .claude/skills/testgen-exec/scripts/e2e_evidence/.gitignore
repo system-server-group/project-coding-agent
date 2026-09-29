@@ -1,0 +1,11 @@
+## Python (e2e_evidence) ###
+__pycache__/
+*.py[cod]
+
+### 一時ファイル・バックアップ ###
+*.bak
+*.orig
+*.tmp
+*~
+# 検証用の一時 HTML（命名規約: _verify_ 始まり）
+_verify_*.html

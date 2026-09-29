@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system_server.ai_demo.database.mapper.ProjectAttachmentsMapper">
+
+    <!-- 一覧表示・件数判定は実ファイル(BLOB)を必要としないため file_data は取得しない。 -->
+    <select id="findByManagementCode"
+            resultType="com.system_server.ai_demo.database.entity.ProjectAttachmentsSummaryEntity">
+        SELECT file_id, management_code, file_name, file_size,
+               created_by, created_department, created_at
+        FROM project_attachments
+        WHERE management_code = #{managementCode}
+        ORDER BY file_id ASC
+    </select>
+
+    <select id="findByFileId"
+            resultType="com.system_server.ai_demo.database.entity.ProjectAttachmentsEntity">
+        SELECT file_id, management_code, file_name, file_data, file_size,
+               created_by, created_department, created_at
+        FROM project_attachments
+        WHERE file_id = #{fileId}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="fileId" keyColumn="file_id">
+        INSERT INTO project_attachments (management_code, file_name, file_data, file_size,
+            created_by, created_department, created_at)
+        VALUES (#{managementCode}, #{fileName}, #{fileData}, #{fileSize},
+            #{createdBy}, #{createdDepartment}, #{createdAt})
+    </insert>
+
+    <delete id="deleteByFileId">
+        DELETE FROM project_attachments
+        WHERE file_id = #{fileId}
+    </delete>
+</mapper>

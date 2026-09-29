@@ -1,0 +1,969 @@
+/* ============================================================================
+   営業情報管理システム — 画面テーマ
+   基本設計の画面モックアップ（.docgen/.../画面モックアップ/mockup.css）を視覚仕様の
+   正本とし、その配色・フォント・寸法・コンポーネント様式を移植する。基盤は Bootstrap
+   ＋ ag-grid を維持し、本ファイルで上書き・補完して見た目をモックアップへ寄せる。
+   スタイル値はモックアップから転記し、手で再発明しない。
+   ============================================================================ */
+:root {
+    --accent: #0e7490;
+    --accent-hover: #0b5e74;
+    --accent-ink: #155e63;
+    --accent-ink-strong: #134449;
+    --title-bg: #eef5f5;
+    --title-ink: #0f3a40;
+    --panel-border: #e6eaeb;
+    --th-bg: #eef2f3;
+    --th-hover: #e2e8ea;
+    --hover-bg: #f1f6f6;
+    --sel-bg: #cfe8ea;
+    --row-alt: #fafbfc;
+    --app-bg: #f3f5f6;
+    --input-border: #cdd3d6;
+    --radius: 6px;
+    --shadow-card: 0 1px 2px rgba(15, 30, 35, 0.05);
+    --font: "Noto Sans JP", "Segoe UI", "Meiryo", "Hiragino Sans", sans-serif;
+}
+
+body {
+    font-family: var(--font);
+    color: #222;
+}
+
+/* ---- Bootstrap テーマ上書き（teal） ---- */
+.btn-primary {
+    --bs-btn-bg: var(--accent);
+    --bs-btn-border-color: var(--accent);
+    --bs-btn-hover-bg: var(--accent-hover);
+    --bs-btn-hover-border-color: var(--accent-hover);
+    --bs-btn-active-bg: var(--accent-hover);
+    --bs-btn-active-border-color: var(--accent-hover);
+    --bs-btn-disabled-bg: #cfd6d8;
+    --bs-btn-disabled-border-color: #cfd6d8;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--accent);
+    --bs-btn-border-color: var(--accent);
+    --bs-btn-hover-bg: var(--accent);
+    --bs-btn-hover-border-color: var(--accent);
+    --bs-btn-active-bg: var(--accent-hover);
+    --bs-btn-active-border-color: var(--accent-hover);
+}
+
+/* モックアップ .btn-soft（白ベース・淡いボーダー）を Bootstrap ボタン変数で再現 */
+.btn-soft {
+    --bs-btn-bg: #fff;
+    --bs-btn-border-color: #9aa8ab;
+    --bs-btn-color: #333;
+    --bs-btn-hover-bg: var(--hover-bg);
+    --bs-btn-hover-border-color: #7f9298;
+    --bs-btn-hover-color: #333;
+    --bs-btn-active-bg: var(--hover-bg);
+    --bs-btn-active-border-color: #7f9298;
+    --bs-btn-active-color: #333;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #6aa6b2;
+    box-shadow: 0 0 0 0.2rem rgba(14, 116, 144, .18);
+}
+
+/* ============================================================================
+   登録／更新フォームのグリッド（モックアップ .form-grid / .f-cell 準拠）
+   ラベルを各項目の左に置き、2列グリッド（full=全幅）で配置する。
+   ============================================================================ */
+/* フォームのカード枠（モックアップ .form-card 準拠）。
+   幅は画面に追従して伸縮させ（max-width を設けない）、外側の余白は .app-content の
+   padding により左右一定に保つ。 */
+.form-card {
+    padding: 16px 20px 18px;
+    background: #fff;
+    border: 1px solid #b8c2c5;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-grid .f-cell {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.form-grid .f-cell.full {
+    grid-column: 1 / -1;
+}
+
+.f-lab {
+    width: 92px;
+    flex-shrink: 0;
+    padding-top: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: .02em;
+    color: var(--accent-ink);
+}
+
+.f-lab .req {
+    margin-left: 3px;
+    color: #c43030;
+}
+
+.f-body {
+    flex: 1;
+    min-width: 0;
+}
+
+/* 登録／更新情報などの読み取り専用値（モックアップ .meta-txt 準拠） */
+.meta-txt {
+    padding: 7px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #222;
+}
+
+/* 狭幅では1列に落とす */
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================================
+   アプリ枠（モックアップ .app-shell を踏襲）
+   ============================================================================ */
+.app-shell {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    overflow: hidden;
+}
+
+.app-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 16px 28px 22px;
+}
+
+/* ---- アプリヘッダ ---- */
+.app-header {
+    display: flex;
+    align-items: stretch;
+    background: #fff;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 6px 24px 0;
+    flex-shrink: 0;
+}
+
+.app-title {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: .01em;
+    text-decoration: none;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.app-header-spacer {
+    flex: 1 1 auto;
+}
+
+.app-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 4px 0 0;
+}
+
+.user-info {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #444;
+}
+
+.user-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #e3edf6;
+    color: #1a4d7a;
+    flex-shrink: 0;
+}
+
+.user-name {
+    font-weight: 600;
+    color: #222;
+}
+
+.user-dept {
+    color: #666;
+}
+
+.app-nav {
+    display: flex;
+    align-items: flex-end;
+}
+
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 8px;
+}
+
+.nav-group-label {
+    font-size: 10px;
+    color: #7a8489;
+    font-weight: 600;
+    letter-spacing: .04em;
+    padding: 0 4px 2px;
+    text-align: center;
+}
+
+.nav-group-btns {
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.nav-btn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    padding: 7px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    background: transparent;
+    color: #222;
+    border-radius: var(--radius);
+    border-bottom: 2px solid transparent;
+    text-decoration: none;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    background: var(--hover-bg);
+}
+
+.nav-btn.active {
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid var(--accent);
+}
+
+.nav-divider {
+    width: 1px;
+    align-self: stretch;
+    background: #d4d4d4;
+    margin: 0 4px;
+}
+
+.nav-logout {
+    margin: 0;
+}
+
+/* ---- 画面タイトル帯 ---- */
+.screen-title {
+    background: var(--title-bg);
+    border-bottom: 1px solid var(--panel-border);
+    padding: 11px 24px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--title-ink);
+    flex-shrink: 0;
+}
+
+/* 画面タイトル右のIDバッジ（モックアップ .screen-title .id-badge 準拠） */
+.screen-title .id-badge {
+    margin-left: 14px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #3a5e66;
+    letter-spacing: .02em;
+}
+
+/* ============================================================================
+   ツールバー
+   ============================================================================ */
+.table-toolbar {
+    background: #fff;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 8px;
+}
+
+.table-toolbar.end {
+    justify-content: flex-end;
+}
+
+/* 登録／更新画面の下部操作ボタンは中央寄せ（モックアップ準拠） */
+.table-toolbar.center {
+    justify-content: center;
+}
+
+/* ツールバーのボタンは既定 300px 幅（モックアップ準拠）。狭幅では縮小せず折り返して
+   横溢れを防ぐ（レスポンシブ。3 ボタンが 900px を要求して画面に収まらない状況を避ける）。
+   ビューポートが 300px 未満になった場合のみ max-width:100% でボタン自体を縮める。 */
+.table-toolbar .btn {
+    flex: 0 0 300px;
+    max-width: 100%;
+}
+
+/* 画面上部の戻るボタン等をツールバーボタンと同一幅(300px)に揃える */
+.btn-wide {
+    width: 300px;
+    max-width: 100%;
+}
+
+.table-toolbar > div {
+    min-width: 0;
+    flex-wrap: wrap;
+    row-gap: 8px;
+}
+
+.data-count {
+    margin: 12px 0 6px;
+    font-size: 13px;
+    color: #333;
+}
+
+/* ============================================================================
+   検索パネル（モックアップ .search-panel 一式を踏襲。一覧画面専用クラスで
+   Bootstrap の card と衝突しない）
+   ============================================================================ */
+.search-panel {
+    background: var(--panel-bg, #f8fafa);
+    border: 1px solid #d6dfe2;
+    border-radius: var(--radius);
+}
+
+.search-head {
+    display: flex;
+    align-items: center;
+    padding: 8px 14px;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.search-head strong {
+    font-size: 15px;
+    color: var(--accent-ink);
+}
+
+.search-chev {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    color: var(--accent-ink);
+    width: 22px;
+    flex-shrink: 0;
+}
+
+.search-chev svg {
+    transition: transform .2s ease-in-out;
+}
+
+.search-panel.open .search-head {
+    border-bottom: 1px solid #e2e8ea;
+}
+
+.search-panel.open .search-chev svg {
+    transform: rotate(-180deg);
+}
+
+.search-body {
+    padding: 6px 22px 14px;
+}
+
+.search-panel:not(.open) .search-body {
+    display: none;
+}
+
+.search-label {
+    color: var(--accent-ink);
+    font-size: 14px;
+}
+
+.srow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.scols {
+    display: flex;
+    gap: 36px;
+}
+
+.scol {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+}
+
+/* 狭幅では検索条件を1列に折りたたむ（登録／更新フォームと同様） */
+@media (max-width: 640px) {
+    .scols {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+.chk {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.chk input[type="checkbox"] {
+    accent-color: var(--accent);
+    width: 14px;
+    height: 14px;
+}
+
+/* モックアップ .fc（Bootstrap 風フォームコントロール）を検索パネル内で使用 */
+.search-panel .fc {
+    display: block;
+    width: 100%;
+    height: 31px;
+    padding: 4px 9px;
+    font-family: inherit;
+    font-size: 13px;
+    color: #222;
+    border: 1px solid var(--input-border);
+    border-radius: var(--radius);
+    background: #fff;
+    line-height: 1.4;
+}
+
+.search-panel select.fc {
+    cursor: pointer;
+}
+
+.search-panel .fc:focus {
+    outline: none;
+    border-color: #6aa6b2;
+    box-shadow: 0 0 0 0.2rem rgba(14, 116, 144, .18);
+}
+
+/* ============================================================================
+   ページャ（モックアップ .pager 一式を踏襲。ag-grid 内蔵パネルを抑止し独自実装）
+   ============================================================================ */
+.pager {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 14px 2px 18px;
+    font-size: 13px;
+    color: #333;
+    gap: 12px;
+}
+
+.pager-nums {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    justify-self: center;
+}
+
+.pg-btn {
+    min-width: 26px;
+    height: 26px;
+    padding: 0 8px;
+    border: 1px solid #c8c8c8;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: inherit;
+    border-radius: var(--radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pg-btn:disabled {
+    color: #bbb;
+    cursor: default;
+}
+
+.pg-btn.active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: #fff;
+}
+
+.pager-ctl {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-self: end;
+}
+
+.pager-ctl label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+}
+
+.pager-ctl select {
+    height: 28px;
+    padding: 3px 8px;
+    font-size: 13px;
+    border: 1px solid #c8c8c8;
+    border-radius: var(--radius);
+    background: #fff;
+    color: #222;
+    font-family: inherit;
+}
+
+/* ---- 一覧テーブルのバッジ（モックアップ .bp-pill / .bp-none） ---- */
+.bp-pill {
+    display: inline-block;
+    padding: 1px 9px;
+    /* セル(ag-grid)の行高に引っ張られて縦伸びしないよう明示。モックの算出値 1.45 に合わせる */
+    line-height: 1.45;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    background: #fbe3ce;
+    color: #8a4400;
+    border: 1px solid #e8c4a0;
+}
+
+.bp-none {
+    color: #999;
+    font-weight: 500;
+}
+
+/* ---- ユーザマスタ ロール列のバッジ（モックアップ .role-badge / .role-admin / .role-user） ---- */
+.role-badge {
+    display: inline-block;
+    padding: 1px 8px;
+    /* セル(ag-grid)の行高に引っ張られて縦伸びしないよう明示（bp-pill と同様） */
+    line-height: 1.45;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.role-admin {
+    background: #fde2e2;
+    color: #a02828;
+}
+
+.role-user {
+    background: #e3edf6;
+    color: #1a4d7a;
+}
+
+/* ---- マスタ画面下部の説明カード（モックアップ .info-card / .info-cards） ---- */
+.info-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.info-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+    background: #fff;
+    border: 1px solid #d6e0e6;
+    border-radius: var(--radius);
+}
+
+.info-card .icon {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.info-card .title {
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a3a4a;
+}
+
+.info-card .body {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #333;
+    white-space: pre-wrap;
+}
+
+/* ============================================================================
+   CSV エラー（モックアップ .csv-error）
+   ============================================================================ */
+.csv-error {
+    background: #fdecec;
+    border: 1px solid #ecbcbc;
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin: 10px 0;
+}
+
+.csv-error .title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #a02828;
+    margin-bottom: 6px;
+}
+
+.csv-error ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* ============================================================================
+   ログイン / エラー（中央カード）
+   ============================================================================ */
+.center-screen {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--app-bg);
+    padding: 20px;
+}
+
+.login-card {
+    width: 440px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+.login-body {
+    padding: 40px 44px 36px;
+}
+
+.login-title {
+    text-align: center;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: .01em;
+}
+
+.accent-rule {
+    margin: 16px auto 28px;
+    height: 3px;
+    width: 60px;
+    background: var(--accent);
+    border-radius: var(--radius);
+}
+
+.login-alert {
+    background: #fdecec;
+    border: 1px solid #f3c9c9;
+    color: #c43030;
+    font-size: 13px;
+    border-radius: 4px;
+    padding: 8px 12px;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 22px;
+}
+
+.field-label {
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.btn-eye {
+    border: 1px solid var(--input-border);
+    border-left: 0;
+    background: #fff;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding: 0 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    color: #555;
+}
+
+.error-card {
+    width: 480px;
+    max-width: 100%;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+    padding: 36px 40px 32px;
+    text-align: center;
+}
+
+.error-brand {
+    margin: 0 0 18px;
+    font-size: 15px;
+    font-weight: 400;
+    color: #1a1a1a;
+    letter-spacing: .01em;
+}
+
+.error-title {
+    margin: 0 0 14px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--title-ink);
+}
+
+.error-message {
+    margin: 0 0 24px;
+    font-size: 14px;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* ============================================================================
+   ag-grid quartz テーマの配色（teal に合わせる。変数名は 32.2.0 実体に準拠）
+   ============================================================================ */
+/* 変数の上書きは後から読み込まれる ag-theme-quartz.css に打ち消されないよう、
+   html 詞頭で詳細度を上げて確実に適用する。
+   行高・ヘッダ高は CSS 変数では確実に効かないため JS(gridOptions の rowHeight/headerHeight)で指定。 */
+html .ag-theme-quartz {
+    --ag-font-family: var(--font);
+    --ag-font-size: 13px;
+    --ag-cell-horizontal-padding: 8px;
+    --ag-header-background-color: var(--th-bg);
+    --ag-header-foreground-color: var(--accent-ink-strong);
+    --ag-header-column-resize-handle-color: var(--input-border);
+    --ag-active-color: var(--accent);
+    --ag-selected-row-background-color: var(--sel-bg);
+    --ag-row-hover-color: var(--hover-bg);
+    --ag-odd-row-background-color: var(--row-alt);
+    --ag-border-color: #e6e6e6;
+    --ag-wrapper-border-radius: 2px;
+}
+
+/* ヘッダ見出しを mk-table（太字 700）に合わせる */
+.ag-theme-quartz .ag-header-cell-text {
+    font-weight: 700;
+}
+
+/* 固定列の右端に accent の境界線（mk-table .pin-last 相当）。
+   border-right（ag-grid 構造CSSの 1px 含む）は overflow:hidden と相まって最終固定列の
+   リサイズハンドルの掴み代を覆い、列幅を変更できなくする。border は消し、レイアウト・
+   ポインタ判定に影響しない inset box-shadow で境界線を描く（見た目は同等）。 */
+.ag-theme-quartz .ag-pinned-left-cols-container,
+.ag-theme-quartz .ag-pinned-left-header {
+    border-right: none;
+    box-shadow: inset -3px 0 0 0 var(--accent);
+}
+
+/* ボディ側は各セルの不透明な背景が上記コンテナの inset 影を覆うため境界線が見えない。
+   セル単位に影を描くと行間ボーダーで縦線が分割され途切れて見えるため、固定列ボディ
+   コンテナ全体へ 1 本の縦線をセルの上に重ね、行をまたいで途切れない境界線にする。
+   pointer-events:none で操作・リサイズには影響させない。 */
+.ag-theme-quartz .ag-pinned-left-cols-container {
+    position: relative;
+}
+.ag-theme-quartz .ag-pinned-left-cols-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ============================================================================
+   添付ファイル ドロップ領域・一覧（モックアップ .drop-area / .att-list を踏襲）
+   ============================================================================ */
+.drop-area {
+    border: 2px dashed #bfbfbf;
+    background: var(--row-alt);
+    padding: 22px 16px;
+    text-align: center;
+    border-radius: var(--radius);
+    cursor: pointer;
+    color: #5a6e74;
+    font-size: 13px;
+    user-select: none;
+}
+
+/* ドラッグ中のハイライト（モックアップには無い実挙動用の状態）。 */
+.drop-area.dragover {
+    border-color: var(--accent);
+    background: #eef7f9;
+    color: var(--accent-ink);
+}
+
+/* 編集保護オン時の読み取り専用表示（クリック・ドロップは JS 側で抑止）。 */
+.drop-area.is-readonly {
+    cursor: default;
+    opacity: 0.6;
+}
+
+.drop-icon {
+    font-size: 22px;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 6px;
+}
+
+.drop-sub {
+    font-size: 11px;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* 選択済みファイルの解除リンク（ドロップ領域クリックの伝播を止めて使用）。 */
+.drop-clear {
+    margin-left: 8px;
+    color: var(--accent);
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.att-list {
+    list-style: none;
+    margin: 10px 0 0;
+    padding: 0;
+    border: 1px solid #e2e6e8;
+    border-radius: var(--radius);
+    background: #fff;
+}
+
+.att-list li {
+    padding: 8px 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.att-list li + li {
+    border-top: 1px solid #ececec;
+}
+
+.att-list li:hover {
+    background: #f4f9fa;
+}
+
+.att-icon {
+    color: var(--accent);
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.att-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.att-name {
+    font-size: 13px;
+    color: #1a5fb4;
+    text-decoration: underline;
+}
+
+.att-meta {
+    font-size: 11px;
+    color: #777;
+    margin-top: 2px;
+}
+
+.att-action {
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 500;
+    flex-shrink: 0;
+}
+
+/* ============================================================================
+   オートコンプリート候補メニュー（画面部品仕様準拠。ネイティブ datalist を置換）
+   一度に8件表示・9件以上は縦スクロール。1件 ≒ 30px（padding 6+6 + 行 18）で 8件分を上限とする。
+   ============================================================================ */
+.ac-menu {
+    position: absolute;
+    z-index: 1080;
+    margin: 0;
+    padding: 4px 0;
+    list-style: none;
+    background: #fff;
+    border: 1px solid #cfd6d9;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
+    max-height: 248px;
+    overflow-y: auto;
+    font-size: 13px;
+    color: #222;
+}
+
+.ac-item {
+    padding: 6px 12px;
+    line-height: 1.4;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ac-item:hover,
+.ac-item.ac-active {
+    background: #eef7f9;
+    color: var(--accent-ink);
+}

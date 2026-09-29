@@ -1,0 +1,4 @@
+user_id,user_name,email,department_id,role,password
+SM0001,営業 太郎,sm0001@example.com,1,0,$2a$10$N2zw1FoNixuLDKcuPVeghO.hr2Hef1b54vCgOEjNsKeAlA8bi2KjG
+SM0002,管理 花子,sm0002@example.com,3,9,$2a$10$0hUscRPnC4cdAs3fqrwQgulUZNmmmOwSaP38QqtM/.dCaGJnqzd7e
+SM0003,開発 次郎,sm0003@example.com,2,0,$2a$10$ztQUy8EqNm/WbK.E3lCmhOsOjlhe8Zt7JNi.uMAUg2MYHvPTvQCwC

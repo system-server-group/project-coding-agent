@@ -1,0 +1,23 @@
+# =============================================================================
+# E2E 専用プロファイル (e2e)
+#   E2E テスト (testgen-exec ハーネス) は本プロファイルで動かす (@ActiveProfiles("e2e"))。
+#   - データソースは Testcontainers (@ServiceConnection) が上書きするため記載しない。
+#     dev の DB (localhost:5433) には接続せず、実行ごとの使い捨てコンテナを使う。
+#   - dev 固有の Bean (FlywayDevConfig の clean / DevDataInitializer のシード) は
+#     @Profile("dev") のため本プロファイルでは読み込まれず、ベースラインを汚染しない。
+#   - 設定値は開発環境専用のダミーのみ (シークレットは置かない)。
+# =============================================================================
+spring:
+  # JavaMailSender の自動構成は spring.mail.host の存在が条件のため、ダミー値を置く
+  # (SalesMailService が JavaMailSender を必須とする)。メールを検証するケースは
+  # E2eMailServer (MailHog コンテナ) を @Import し、実際の接続先 (自動割当ポート) は
+  # DynamicPropertyRegistrar が本設定を上書きする。
+  mail:
+    host: localhost
+    port: 1025
+
+logging:
+  level:
+    # 証跡ログ (steps.json) へ自アプリのログを残すため DEBUG まで出す
+    # (E2eLogCollector は自アプリ配下を全レベル、その他を WARN 以上で拾う)。
+    "[com.system_server.ai_demo]": DEBUG

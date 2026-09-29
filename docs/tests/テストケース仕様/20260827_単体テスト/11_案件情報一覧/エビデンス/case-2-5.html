@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>No.2-5 列固定境界より左側の2列は、テーブルを横スクロールしても左端に固定表示される — 11_案件情報一覧</title>
+<style>
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;color:#1f2733;background:#f4f6f9}
+.toc{position:fixed;left:0;top:0;width:250px;height:100vh;overflow:auto;background:#1f2733;
+ color:#e8edf3;padding:14px 10px}
+.toc h1{font-size:.95rem;margin:4px 6px 12px;color:#fff}
+.toc h1 small{font-weight:400;font-size:.78rem;color:#94a3b8}
+.toc a{display:block;padding:7px 8px;margin:2px 0;border-radius:6px;color:#cdd6e2;
+ text-decoration:none;font-size:.82rem;line-height:1.3}
+.toc a:hover{background:#2d3846;color:#fff}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.dot.pass{background:#22c55e}.dot.fail{background:#ef4444}
+.dot.other{background:#eab308}.dot.none{background:#94a3b8}
+.main{margin-left:250px;height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;
+ scroll-behavior:smooth}
+.case{height:100vh;scroll-snap-align:start;padding:16px 22px;display:flex;flex-direction:column}
+.case-head{flex:0 0 auto;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.badge{background:#2563eb;color:#fff;font-weight:700;font-size:.8rem;padding:3px 10px;
+ border-radius:999px}
+.name{font-size:1.05rem;font-weight:700}
+.verdict{font-weight:700;font-size:.72rem;padding:2px 9px;border-radius:999px}
+.verdict.pass{background:#dcfce7;color:#166534}
+.verdict.fail{background:#fee2e2;color:#991b1b}
+.verdict.other{background:#fef9c3;color:#854d0e}
+.verdict.none{background:#e5e9ef;color:#64748b}
+.case-body{flex:1 1 auto;display:flex;gap:18px;min-height:0}
+.media{flex:1 1 62%;display:flex;flex-direction:column;min-height:0}
+.media .shot,.media .clip{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;
+ object-position:top;background:#fff;border:1px solid #d5dce6;border-radius:8px}
+.toggle{flex:0 0 auto;margin-top:8px;display:flex;gap:6px}
+.toggle button{border:1px solid #c4ccd8;background:#fff;border-radius:6px;padding:4px 14px;
+ cursor:pointer;font-size:.82rem}
+.toggle button.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.spec{flex:1 1 38%;min-height:0;overflow:auto;background:#fff;border:1px solid #d5dce6;
+ border-radius:8px;padding:14px 16px}
+.spec h3{font-size:.8rem;color:#5b6675;margin:14px 0 6px;letter-spacing:.04em}
+.spec h3:first-child{margin-top:0}
+.pre{white-space:pre-wrap;font-size:.92rem;line-height:1.6}
+.data{white-space:pre-wrap;font-size:.92rem;line-height:1.9}
+.data a{color:#2563eb}
+.data .muted{color:#94a3b8}
+.summary td .data{font-size:inherit;line-height:1.7}
+.summary{overflow:auto;display:block}
+.summary .name{font-size:1.15rem}
+.counts{display:flex;gap:20px;font-size:1rem;margin:10px 0 14px}
+.counts b{font-size:1.35rem}
+.counts .ok b{color:#16a34a}.counts .ng b{color:#dc2626}.counts .na b{color:#64748b}
+.summary table{border-collapse:collapse;width:100%;font-size:.9rem}
+.summary th,.summary td{border:1px solid #dbe2ea;padding:6px 10px;text-align:left;
+ vertical-align:top}
+.summary th{background:#eef2f7;position:sticky;top:0}
+.csv-open{margin:2px 0 2px 6px;border:1px solid #2563eb;background:#fff;color:#2563eb;
+ border-radius:6px;padding:1px 9px;font-size:.78rem;cursor:pointer;vertical-align:middle}
+.csv-open:hover{background:#2563eb;color:#fff}
+dialog.csvdlg{border:none;border-radius:10px;padding:0;max-width:90vw;max-height:85vh;
+ box-shadow:0 12px 48px rgba(15,23,35,.35);overflow:hidden}
+dialog.csvdlg::backdrop{background:rgba(15,23,35,.55)}
+.csvdlg-head{display:flex;align-items:center;justify-content:space-between;gap:20px;
+ margin:0;padding:10px 16px;background:#1f2733;color:#fff}
+.csvdlg-title{font-weight:700;font-size:.95rem}
+.csvdlg-close{border:none;background:transparent;color:#fff;font-size:1.05rem;
+ line-height:1;cursor:pointer;padding:2px 6px}
+.csvdlg-body{padding:12px 16px;max-height:calc(85vh - 48px);overflow:auto}
+.csvtable{border-collapse:collapse;font-size:.85rem;white-space:nowrap}
+.csvtable th,.csvtable td{border:1px solid #dbe2ea;padding:5px 11px;text-align:left}
+.csvtable thead th{background:#eef2f7;position:sticky;top:0}
+.csvdlg-body .muted{color:#94a3b8;margin:8px 2px 0}
+.fmeta{font-size:.75rem;color:#5b6675;margin-left:auto;white-space:nowrap}
+.media.v2 .stage{flex:1 1 auto;min-height:0;display:flex}
+.fstep{margin:0;flex:1;display:flex;flex-direction:column;min-height:0;min-width:0}
+.fstep img{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;object-position:top;
+ background:#fff;border:1px solid #d5dce6;border-radius:8px}
+.fcaps{flex:0 0 auto;margin-top:6px;min-height:3.6em}
+.fcap{padding:7px 12px;border-radius:6px;
+ font-size:.88rem;line-height:1.5;background:#eef2f7;color:#1f2733}
+.fcap.cap-verify{background:#dcfce7;color:#14532d}
+.fcap.cap-fail{background:#fee2e2;color:#991b1b}
+.fcap{max-height:32vh;overflow:auto}
+.longv{display:inline-block;vertical-align:top;max-width:100%}
+.longv summary{cursor:pointer;display:inline}
+.longv-full{max-height:180px;overflow:auto;white-space:pre-wrap;word-break:break-all;
+  background:rgba(0,0,0,.06);padding:6px 8px;border-radius:4px;margin-top:4px}
+.cap-note{color:#7c3aed;font-size:.78rem;margin-top:2px}
+.fnav{flex:0 0 auto;display:flex;align-items:center;gap:10px;margin-top:6px}
+.fnav button{border:1px solid #c4ccd8;background:#fff;border-radius:6px;padding:4px 14px;
+ cursor:pointer;font-size:.82rem}
+.fnav button:hover{background:#eef2f7}
+.fcount{font-size:.85rem;color:#5b6675}
+.thumbs{flex:0 0 auto;display:flex;gap:6px;margin-top:6px;overflow-x:auto}
+.thumbs img{height:52px;border:2px solid #d5dce6;border-radius:4px;cursor:pointer;
+ background:#fff}
+.thumbs img.on{border-color:#2563eb}
+.thumbs img.fail{border-color:#ef4444}
+details.whole{flex:0 0 auto;margin-top:6px;font-size:.85rem;color:#5b6675}
+details.whole summary{cursor:pointer}
+details.whole img{max-width:340px;border:1px solid #eab308;border-radius:6px;display:block;
+ margin-top:6px}
+.mlog{list-style:none;padding:0;margin:4px 0;font-size:.85rem}
+.mlog li{padding:4px 0;border-bottom:1px dashed #e2e8f0;line-height:1.5}
+.mlog .ok{color:#16a34a;font-weight:700}
+.mlog .ng{color:#dc2626;font-weight:700}
+.mlog .muted{color:#94a3b8}
+.pagenav{display:flex;gap:12px;margin:14px 22px 0;font-size:.9rem;flex-wrap:wrap}
+.pagenav a{color:#2563eb;text-decoration:none;border:1px solid #c4ccd8;background:#fff;
+ border-radius:6px;padding:5px 12px}
+.pagenav a:hover{background:#eef2f7}
+.pagenav .off{color:#94a3b8;border:1px solid #e2e8f0;border-radius:6px;padding:5px 12px}
+.cpage{height:auto;min-height:0}
+.cpage .stage{position:relative;display:block;height:62vh;overflow:hidden;
+ overscroll-behavior:contain;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;
+ cursor:grab}
+.cpage .stage.dragging{cursor:grabbing}
+.cpage .fstep{position:absolute;left:0;top:0;flex:none;display:block;margin:0;
+ width:auto;max-width:none;transform-origin:0 0}
+.cpage .fstep img{width:auto;height:auto;max-width:none;max-height:none;display:block;
+ border:none;border-radius:0}
+.fnav .zoom{margin-left:auto;display:flex;align-items:center;gap:6px}
+.fnav .zval{font-size:.85rem;color:#5b6675;min-width:46px;text-align:center}
+.cap-ts{float:right;color:#94a3b8;font-size:.75rem;margin-left:10px}
+details.console{margin-top:8px;font-size:.85rem;color:#5b6675}
+details.console summary{cursor:pointer}
+.lbox{margin-top:6px;background:#0f172a;color:#d7dde6;
+ font:12px/1.65 ui-monospace,Consolas,monospace;border-radius:8px;padding:10px 12px;
+ height:170px;min-height:60px;max-height:70vh;resize:vertical;overflow:auto}
+.lrow{display:flex;gap:10px;white-space:pre-wrap;word-break:break-all}
+.lrow .lts{color:#64748b;flex:0 0 auto}
+.lrow .lsrc{color:#94a3b8;flex:0 0 auto;width:60px}
+.lrow .lsrc.lbrowser{color:#c084fc}
+.lrow .lsrc.lharness{color:#5eead4}
+.lrow .llvl{flex:0 0 auto;width:46px}
+.lrow.lwarn .llvl,.lrow.lwarn .lmsg{color:#fbbf24}
+.lrow.lerr .llvl,.lrow.lerr .lmsg{color:#f87171}
+.lrow .llog{color:#7dd3fc;flex:0 0 auto;max-width:220px;overflow:hidden;
+ text-overflow:ellipsis}
+.lrow .lmsg{flex:1 1 auto}
+.tocbtn{position:absolute;left:6px;top:8px;border:1px solid #c4ccd8;
+ background:#fff;border-radius:6px;padding:3px 9px;cursor:pointer;font-size:.95rem}
+.tocbtn:hover{background:#eef2f7}
+.toc{padding-top:46px}
+html.toc-hidden .toc{width:38px;padding:46px 0 10px;overflow:hidden}
+html.toc-hidden .toc h1,html.toc-hidden .toc a{display:none}
+html.toc-hidden .tocbtn{left:5px;right:5px;padding:4px 0;text-align:center}
+html.toc-hidden .main{margin-left:38px}
+.main.pagemode{height:100vh;overflow:hidden;display:flex;flex-direction:column;
+ scroll-snap-type:none}
+.main.pagemode .pagenav{flex:0 0 auto;margin-bottom:10px}
+.main.pagemode .case{flex:1 1 auto;min-height:0;height:auto;scroll-snap-align:none}
+.cpage .case-body{flex:1 1 auto;min-height:0}
+.cpage .media{overflow-y:auto;min-height:0;overscroll-behavior:contain;padding-right:4px}
+.cpage .spec{position:static;max-height:none;overflow-y:auto;
+ overscroll-behavior:contain}
+</style>
+</head>
+<body>
+<script>try{if(localStorage.getItem('e2eTocHidden')==='1')document.documentElement.classList.add('toc-hidden')}catch(e){}</script>
+<nav class="toc">
+<button type="button" class="tocbtn" title="メニュー表示切替">☰</button>
+<h1>11_案件情報一覧<br>エビデンス<br><small>20260827_単体テスト</small></h1>
+<a href="#summary"><span class="dot none"></span>サマリ・一覧</a>
+<a href="case-1-1.html"><span class="dot pass"></span>No.1-1　案件情報一覧画面の初期表示（画面項目・…</a>
+<a href="case-1-2.html"><span class="dot pass"></span>No.1-2　案件検索フォームの初期表示（各検索条件…</a>
+<a href="case-1-3.html"><span class="dot pass"></span>No.1-3　案件情報テーブルの列構成・区分値の表示…</a>
+<a href="case-1-4.html"><span class="dot pass"></span>No.1-4　値のない項目は空欄で表示され、案件概要…</a>
+<a href="case-1-5.html"><span class="dot pass"></span>No.1-5　表示内容が列幅に収まらない場合、先頭か…</a>
+<a href="case-1-6.html"><span class="dot pass"></span>No.1-6　テーブルの行が画面に収まらない場合、テ…</a>
+<a href="case-2-1.html"><span class="dot pass"></span>No.2-1　案件検索アコーディオンのクリックで検索…</a>
+<a href="case-2-2.html"><span class="dot pass"></span>No.2-2　登録者・登録部署・取引先のオートコンプ…</a>
+<a href="case-2-3.html"><span class="dot pass"></span>No.2-3　列ヘッダーのドラッグ＆ドロップで列の順…</a>
+<a href="case-2-4.html"><span class="dot pass"></span>No.2-4　管理コード（ID）列は移動不可であり、…</a>
+<a href="case-2-5.html"><span class="dot pass"></span>No.2-5　列固定境界より左側の2列は、テーブルを…</a>
+<a href="case-2-6.html"><span class="dot pass"></span>No.2-6　列ヘッダーの境界をドラッグして列幅を変…</a>
+<a href="case-2-7.html"><span class="dot pass"></span>No.2-7　表示件数の変更とページ送りができ、テー…</a>
+<a href="case-2-8.html"><span class="dot pass"></span>No.2-8　列ヘッダーのダブルクリックでソート状態…</a>
+<a href="case-2-9.html"><span class="dot pass"></span>No.2-9　検索条件と列レイアウトがローカルストレ…</a>
+<a href="case-2-10.html"><span class="dot pass"></span>No.2-10　テーブル初期化ボタンで列レイアウトが既…</a>
+<a href="case-3-1.html"><span class="dot pass"></span>No.3-1　新規登録ボタンで案件情報登録画面へ遷移…</a>
+<a href="case-3-2.html"><span class="dot pass"></span>No.3-2　テーブルの行をクリックすると、該当する…</a>
+<a href="case-4-1.html"><span class="dot pass"></span>No.4-1　既定の検索条件で検索を実行し、結果がテ…</a>
+<a href="case-4-2.html"><span class="dot pass"></span>No.4-2　キーワード検索は指定した属性で部分一致…</a>
+<a href="case-4-3.html"><span class="dot pass"></span>No.4-3　キーワード検索対象を複数選択した場合は…</a>
+<a href="case-4-4.html"><span class="dot pass"></span>No.4-4　ステータス検索は複数指定でOR検索になる</a>
+<a href="case-4-5.html"><span class="dot pass"></span>No.4-5　開始日範囲検索は下限値・上限値そのもの…</a>
+<a href="case-4-6.html"><span class="dot pass"></span>No.4-6　範囲検索は片側のみでも実施でき、対象項…</a>
+<a href="case-4-7.html"><span class="dot pass"></span>No.4-7　登録日範囲検索は登録日時の時間・分・秒…</a>
+<a href="case-4-8.html"><span class="dot pass"></span>No.4-8　登録者検索は入力された文字列で部分一致…</a>
+<a href="case-4-9.html"><span class="dot pass"></span>No.4-9　登録部署検索は入力された文字列で部分一…</a>
+<a href="case-4-10.html"><span class="dot pass"></span>No.4-10　取引先検索は入力された文字列で部分一致…</a>
+<a href="case-4-11.html"><span class="dot pass"></span>No.4-11　BP条件検索はBP募集(要否)が「必要…</a>
+<a href="case-4-12.html"><span class="dot pass"></span>No.4-12　複数の検索条件が入力された場合は全ての…</a>
+<a href="case-4-13.html"><span class="dot pass"></span>No.4-13　いずれの検索条件も入力されていない場合…</a>
+<a href="case-4-14.html"><span class="dot pass"></span>No.4-14　検索対象が一件もチェックされていない場…</a>
+<a href="case-4-15.html"><span class="dot pass"></span>No.4-15　検索結果が0件の場合の画面表示</a>
+<a href="case-5-1.html"><span class="dot pass"></span>No.5-1　【境界値】検索キーワードが101文字の…</a>
+<a href="case-5-2.html"><span class="dot pass"></span>No.5-2　同じ項目内で複数の入力値チェックに違反…</a>
+<a href="case-5-3.html"><span class="dot pass"></span>No.5-3　検索キーワードに使用できない文字を含む…</a>
+<a href="case-5-4.html"><span class="dot pass"></span>No.5-4　開始日(自)が日付として解釈できない場…</a>
+<a href="case-5-5.html"><span class="dot pass"></span>No.5-5　開始日(至)が日付として解釈できない場…</a>
+<a href="case-5-6.html"><span class="dot pass"></span>No.5-6　開始日(至)が開始日(自)より前の場合…</a>
+<a href="case-5-7.html"><span class="dot pass"></span>No.5-7　終了日(至)が終了日(自)より前の場合…</a>
+<a href="case-5-8.html"><span class="dot pass"></span>No.5-8　登録日(至)が登録日(自)より前の場合…</a>
+<a href="case-5-9.html"><span class="dot pass"></span>No.5-9　【境界値】登録者が51文字の場合、最大…</a>
+<a href="case-5-10.html"><span class="dot pass"></span>No.5-10　登録者に使用できない文字を含む場合、使…</a>
+<a href="case-5-11.html"><span class="dot pass"></span>No.5-11　【境界値】登録部署が51文字の場合、最…</a>
+<a href="case-5-12.html"><span class="dot pass"></span>No.5-12　【境界値】取引先が201文字の場合、最…</a>
+<a href="case-5-13.html"><span class="dot pass"></span>No.5-13　取引先に使用できない文字を含む場合、使…</a>
+<a href="case-5-14.html"><span class="dot pass"></span>No.5-14　チェック違反のあった全ての画面項目にエ…</a>
+<a href="case-5-15.html"><span class="dot pass"></span>No.5-15　入力値チェック違反後に再度検索を実施す…</a>
+<a href="case-6-1.html"><span class="dot pass"></span>No.6-1　CSVダウンロードで表示中の案件情報が…</a>
+<a href="case-6-2.html"><span class="dot pass"></span>No.6-2　ダウンロード対象は押下時点で取得済みの…</a>
+<a href="case-6-3.html"><span class="dot pass"></span>No.6-3　CSVのボディ行の順序と列の順序は、表…</a>
+<a href="case-6-4.html"><span class="dot pass"></span>No.6-4　案件情報テーブルのデータが0件の場合、…</a>
+<a href="case-7-1.html"><span class="dot pass"></span>No.7-1　検索時にログインの有効期限が切れている…</a>
+<a href="case-7-2.html"><span class="dot pass"></span>No.7-2　検索でデータベース例外が発生した場合、…</a>
+</nav>
+<div class="main pagemode">
+<div class="pagenav"><a href="index.html">≡ 一覧へ</a><a href="case-2-4.html">◀ No.2-4</a><a href="case-2-6.html">No.2-6 ▶</a></div>
+<section class="case cpage" id="case-2-5">
+<div class="case-head">
+<span class="badge">No.2-5</span>
+<span class="name">列固定境界より左側の2列は、テーブルを横スクロールしても左端に固定表示される</span>
+<span class="verdict pass">PASS</span>
+<span class="fmeta">フレーム 12枚 ／ 検証 可視10・機械4</span>
+</div>
+<div class="case-body">
+<div class="media v2">
+<div class="stage"><figure class="fstep"><img src="No.2-5_01.jpg" loading="lazy" alt="1. /projects を開く"></figure><figure class="fstep" hidden><img src="No.2-5_03.jpg" loading="lazy" alt="1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 1/5・列範囲 ステータス〜商流）"></figure><figure class="fstep" hidden><img src="No.2-5_04.jpg" loading="lazy" alt="1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 2/5・列範囲 商流〜スキル）"></figure><figure class="fstep" hidden><img src="No.2-5_05.jpg" loading="lazy" alt="1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 3/5・列範囲 スキル〜BP募集(詳細)）"></figure><figure class="fstep" hidden><img src="No.2-5_06.jpg" loading="lazy" alt="1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 4/5・列範囲 BP募集(詳細)〜備考）"></figure><figure class="fstep" hidden><img src="No.2-5_07.jpg" loading="lazy" alt="1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 5/5・列範囲 契約種別〜更新日時）"></figure><figure class="fstep" hidden><img src="No.2-5_09.jpg" loading="lazy" alt="3. 「件名」の列ヘッダーをドラッグし、「ステータス」の列ヘッダーの上でドロップする"></figure><figure class="fstep" hidden><img src="No.2-5_11.jpg" loading="lazy" alt="3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 1/5・列範囲 件名〜商流）"></figure><figure class="fstep" hidden><img src="No.2-5_12.jpg" loading="lazy" alt="3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 2/5・列範囲 商流〜スキル）"></figure><figure class="fstep" hidden><img src="No.2-5_13.jpg" loading="lazy" alt="3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 3/5・列範囲 スキル〜作業場所）"></figure><figure class="fstep" hidden><img src="No.2-5_14.jpg" loading="lazy" alt="3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 4/5・列範囲 作業場所〜更新部署）"></figure><figure class="fstep" hidden><img src="No.2-5_15.jpg" loading="lazy" alt="3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 5/5・列範囲 見込単価〜更新日時）"></figure></div>
+<div class="fnav"><button type="button" class="prev">◀ 前</button><span class="fcount"></span><button type="button" class="next">次 ▶</button><span class="zoom"><button type="button" class="zfit">全体</button><button type="button" class="zout">−</button><span class="zval">100%</span><button type="button" class="zin">＋</button></span></div>
+<div class="fcaps"><div class="fcap cap-op"><span class="cap-ts">18:04:48.522</span>【操作】1. /projects を開く</div><div class="fcap cap-verify" hidden><span class="cap-ts">18:04:51.306</span>【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 1/5・列範囲 ステータス〜商流） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 1/5・完全可視の 5 列を検証。固定列（ID・件名）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:04:51.839</span>【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 2/5・列範囲 商流〜スキル） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 2/5・完全可視の 5 列を検証（直前フレームと1列重複）。固定列（ID・件名）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:04:52.340</span>【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 3/5・列範囲 スキル〜BP募集(詳細)） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 3/5・完全可視の 6 列を検証（直前フレームと1列重複）。固定列（ID・件名）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:04:52.863</span>【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 4/5・列範囲 BP募集(詳細)〜備考） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 4/5・完全可視の 5 列を検証（直前フレームと1列重複）。固定列（ID・件名）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:04:53.342</span>【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 5/5・列範囲 契約種別〜更新日時） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 5/5・完全可視の 6 列を検証（直前フレームと2列重複）。固定列（ID・件名）は毎フレーム表示・検証</div></div><div class="fcap cap-op" hidden><span class="cap-ts">18:04:56.596</span>【操作】3. 「件名」の列ヘッダーをドラッグし、「ステータス」の列ヘッダーの上でドロップする</div><div class="fcap cap-verify" hidden><span class="cap-ts">18:04:59.379</span>【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 1/5・列範囲 件名〜商流） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 1/5・完全可視の 5 列を検証。固定列（ID・ステータス）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:04:59.827</span>【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 2/5・列範囲 商流〜スキル） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 2/5・完全可視の 5 列を検証（直前フレームと1列重複）。固定列（ID・ステータス）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:05:00.366</span>【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 3/5・列範囲 スキル〜作業場所） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 3/5・完全可視の 7 列を検証（直前フレームと1列重複）。固定列（ID・ステータス）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:05:00.883</span>【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 4/5・列範囲 作業場所〜更新部署） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 4/5・完全可視の 7 列を検証（直前フレームと1列重複）。固定列（ID・ステータス）は毎フレーム表示・検証</div></div><div class="fcap cap-verify" hidden><span class="cap-ts">18:05:01.418</span>【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 5/5・列範囲 見込単価〜更新日時） ― 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓<div class="cap-note">連続フレーム 5/5・完全可視の 7 列を検証（直前フレームと6列重複）。固定列（ID・ステータス）は毎フレーム表示・検証</div></div></div>
+<div class="thumbs"><img src="No.2-5_01.jpg" loading="lazy" data-idx="0"><img src="No.2-5_03.jpg" loading="lazy" data-idx="1"><img src="No.2-5_04.jpg" loading="lazy" data-idx="2"><img src="No.2-5_05.jpg" loading="lazy" data-idx="3"><img src="No.2-5_06.jpg" loading="lazy" data-idx="4"><img src="No.2-5_07.jpg" loading="lazy" data-idx="5"><img src="No.2-5_09.jpg" loading="lazy" data-idx="6"><img src="No.2-5_11.jpg" loading="lazy" data-idx="7"><img src="No.2-5_12.jpg" loading="lazy" data-idx="8"><img src="No.2-5_13.jpg" loading="lazy" data-idx="9"><img src="No.2-5_14.jpg" loading="lazy" data-idx="10"><img src="No.2-5_15.jpg" loading="lazy" data-idx="11"></div>
+<details class="console" open><summary>証跡ログ（64件）</summary><div class="lbox"><div class="lrow "><span class="lts">18:04:45.312</span><span class="lsrc lharness">harness</span><span class="llvl">NAV</span><span class="llog"></span><span class="lmsg">画面遷移: http://localhost:56035/</span></div><div class="lrow "><span class="lts">18:04:47.215</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt;  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?</span></div><div class="lrow "><span class="lts">18:04:47.215</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt; Parameters: SM0001(String)</span></div><div class="lrow "><span class="lts">18:04:47.216</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">&lt;==      Total: 1</span></div><div class="lrow "><span class="lts">18:04:47.286</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findAll</span><span class="lmsg">==&gt;  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC</span></div><div class="lrow "><span class="lts">18:04:47.286</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findAll</span><span class="lmsg">==&gt; Parameters: </span></div><div class="lrow "><span class="lts">18:04:47.287</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findAll</span><span class="lmsg">&lt;==      Total: 3</span></div><div class="lrow "><span class="lts">18:04:47.287</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findAll</span><span class="lmsg">==&gt;  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC</span></div><div class="lrow "><span class="lts">18:04:47.287</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findAll</span><span class="lmsg">==&gt; Parameters: </span></div><div class="lrow "><span class="lts">18:04:47.287</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findAll</span><span class="lmsg">&lt;==      Total: 3</span></div><div class="lrow "><span class="lts">18:04:47.287</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">CompaniesMapper.findAll</span><span class="lmsg">==&gt;  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC</span></div><div class="lrow "><span class="lts">18:04:47.287</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">CompaniesMapper.findAll</span><span class="lmsg">==&gt; Parameters: </span></div><div class="lrow "><span class="lts">18:04:47.288</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">CompaniesMapper.findAll</span><span class="lmsg">&lt;==      Total: 12</span></div><div class="lrow "><span class="lts">18:04:47.288</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt;  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?</span></div><div class="lrow "><span class="lts">18:04:47.288</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt; Parameters: SM0001(String)</span></div><div class="lrow "><span class="lts">18:04:47.289</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">&lt;==      Total: 1</span></div><div class="lrow "><span class="lts">18:04:47.289</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt;  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?</span></div><div class="lrow "><span class="lts">18:04:47.289</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt; Parameters: SM0001(String)</span></div><div class="lrow "><span class="lts">18:04:47.289</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">&lt;==      Total: 1</span></div><div class="lrow "><span class="lts">18:04:47.289</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findByDepartmentId</span><span class="lmsg">==&gt;  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?</span></div><div class="lrow "><span class="lts">18:04:47.289</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findByDepartmentId</span><span class="lmsg">==&gt; Parameters: 1(Integer)</span></div><div class="lrow "><span class="lts">18:04:47.289</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findByDepartmentId</span><span class="lmsg">&lt;==      Total: 1</span></div><div class="lrow "><span class="lts">18:04:47.298</span><span class="lsrc lharness">harness</span><span class="llvl">NAV</span><span class="llog"></span><span class="lmsg">画面遷移: http://localhost:56035/projects</span></div><div class="lrow "><span class="lts">18:04:47.432</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">ProjectsMapper.search</span><span class="lmsg">==&gt;  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC</span></div><div class="lrow "><span class="lts">18:04:47.432</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">ProjectsMapper.search</span><span class="lmsg">==&gt; Parameters: OPEN(String), NEGOTIATING(String)</span></div><div class="lrow "><span class="lts">18:04:47.434</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">ProjectsMapper.search</span><span class="lmsg">&lt;==      Total: 0</span></div><div class="lrow "><span class="lts">18:04:47.854</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findAll</span><span class="lmsg">==&gt;  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC</span></div><div class="lrow "><span class="lts">18:04:47.854</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findAll</span><span class="lmsg">==&gt; Parameters: </span></div><div class="lrow "><span class="lts">18:04:47.854</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findAll</span><span class="lmsg">&lt;==      Total: 3</span></div><div class="lrow "><span class="lts">18:04:47.854</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findAll</span><span class="lmsg">==&gt;  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC</span></div><div class="lrow "><span class="lts">18:04:47.854</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findAll</span><span class="lmsg">==&gt; Parameters: </span></div><div class="lrow "><span class="lts">18:04:47.855</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findAll</span><span class="lmsg">&lt;==      Total: 3</span></div><div class="lrow "><span class="lts">18:04:47.855</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">CompaniesMapper.findAll</span><span class="lmsg">==&gt;  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC</span></div><div class="lrow "><span class="lts">18:04:47.855</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">CompaniesMapper.findAll</span><span class="lmsg">==&gt; Parameters: </span></div><div class="lrow "><span class="lts">18:04:47.855</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">CompaniesMapper.findAll</span><span class="lmsg">&lt;==      Total: 12</span></div><div class="lrow "><span class="lts">18:04:47.855</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt;  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?</span></div><div class="lrow "><span class="lts">18:04:47.855</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt; Parameters: SM0001(String)</span></div><div class="lrow "><span class="lts">18:04:47.856</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">&lt;==      Total: 1</span></div><div class="lrow "><span class="lts">18:04:47.856</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt;  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?</span></div><div class="lrow "><span class="lts">18:04:47.856</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">==&gt; Parameters: SM0001(String)</span></div><div class="lrow "><span class="lts">18:04:47.856</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">UsersMapper.findByUserId</span><span class="lmsg">&lt;==      Total: 1</span></div><div class="lrow "><span class="lts">18:04:47.856</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findByDepartmentId</span><span class="lmsg">==&gt;  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?</span></div><div class="lrow "><span class="lts">18:04:47.856</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findByDepartmentId</span><span class="lmsg">==&gt; Parameters: 1(Integer)</span></div><div class="lrow "><span class="lts">18:04:47.856</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">DepartmentsMapper.findByDepartmentId</span><span class="lmsg">&lt;==      Total: 1</span></div><div class="lrow "><span class="lts">18:04:47.862</span><span class="lsrc lharness">harness</span><span class="llvl">NAV</span><span class="llog"></span><span class="lmsg">画面遷移: http://localhost:56035/projects</span></div><div class="lrow "><span class="lts">18:04:47.950</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">ProjectsMapper.search</span><span class="lmsg">==&gt;  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC</span></div><div class="lrow "><span class="lts">18:04:47.950</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">ProjectsMapper.search</span><span class="lmsg">==&gt; Parameters: OPEN(String), NEGOTIATING(String)</span></div><div class="lrow "><span class="lts">18:04:47.951</span><span class="lsrc">app</span><span class="llvl">DEBUG</span><span class="llog">ProjectsMapper.search</span><span class="lmsg">&lt;==      Total: 4</span></div><div class="lrow "><span class="lts">18:04:48.522</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【操作】1. /projects を開く</span></div><div class="lrow "><span class="lts">18:04:50.890</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【機械検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（走査した列の数と並び・固定列を除く） — 期待: 22列: ステータス／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時 ／ 実測: 22列: ステータス／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時 ✓</span></div><div class="lrow "><span class="lts">18:04:51.356</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 1/5・列範囲 ステータス〜商流） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:04:51.889</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 2/5・列範囲 商流〜スキル） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:04:52.393</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 3/5・列範囲 スキル〜BP募集(詳細)） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:04:52.932</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 4/5・列範囲 BP募集(詳細)〜備考） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:04:53.393</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 5/5・列範囲 契約種別〜更新日時） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:04:53.568</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【機械検証】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレームによる全列の被覆・固定列を除く） — 期待: 全22列 ／ 実測: 22列 ✓</span></div><div class="lrow "><span class="lts">18:04:56.540</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【操作】3. 「件名」の列ヘッダーをドラッグし、「ステータス」の列ヘッダーの上でドロップする</span></div><div class="lrow "><span class="lts">18:04:58.921</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【機械検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（走査した列の数と並び・固定列を除く） — 期待: 22列: 件名／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時 ／ 実測: 22列: 件名／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時 ✓</span></div><div class="lrow "><span class="lts">18:04:59.422</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 1/5・列範囲 件名〜商流） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:04:59.876</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 2/5・列範囲 商流〜スキル） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:05:00.432</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 3/5・列範囲 スキル〜作業場所） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:05:00.955</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 4/5・列範囲 作業場所〜更新部署） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:05:01.478</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 5/5・列範囲 見込単価〜更新日時） — 期待: 列ヘッダーが表示順どおり ／ 実測: 一致 ✓</span></div><div class="lrow "><span class="lts">18:05:01.666</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【機械検証】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレームによる全列の被覆・固定列を除く） — 期待: 全22列 ／ 実測: 22列 ✓</span></div></div></details>
+<details class="whole"><summary>動画（補助）</summary><video controls preload="none" src="No.2-5_列固定境界より左側の2列は、テーブルを横スクロールしても左端に固定表示される.webm" style="width:100%"></video></details>
+</div>
+<aside class="spec">
+<h3>操作手順</h3>
+<div class="pre">1. /projects を開き、左端2列が「ID」「件名」であることを確認する
+2. テーブルを右方向へ、末尾の「更新日時」列が見えるまで順に横スクロールする
+3. 「件名」の列ヘッダーをドラッグし、「ステータス」の列ヘッダーの上でドロップして固定される右側の列を入れ替える
+4. 再びテーブルを右方向へ横スクロールする</div>
+<h3>期待する結果</h3>
+<div class="pre">手順2で「ID」「件名」の2列はテーブル左端に固定表示されたまま、他の列がスクロールする（各フレームは直前フレームの末尾1列以上を重複して含み、キャプションにフレーム n/N と列範囲を記録する）。
+手順3の後、左端2列が「ID」「ステータス」になる（固定される列数は2列のまま変わらない）。
+手順4で「ID」「ステータス」の2列が左端に固定表示されたままスクロールする。</div>
+<h3>参照テストデータ・期待値</h3>
+<div class="data"><a href="../data/案件情報_シード.csv">11_案件情報一覧/data/案件情報_シード.csv</a><button type="button" class="csv-open" data-dialog="csvdlg0">表で表示</button>
+<a href="../../_baseline/data/users.csv">_baseline/data/users.csv</a><button type="button" class="csv-open" data-dialog="csvdlg1">表で表示</button>
+<a href="../../_baseline/data/departments.csv">_baseline/data/departments.csv</a><button type="button" class="csv-open" data-dialog="csvdlg2">表で表示</button></div>
+<h3>検証ログ</h3>
+<ul class="mlog"><li><span class="ok">✓</span> 【機械】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（走査した列の数と並び・固定列を除く） <span class="muted">期待: 22列: ステータス／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時 ／ 実測: 22列: ステータス／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時</span></li><li><span class="ok">✓</span> 【可視】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 1/5・列範囲 ステータス〜商流） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 2/5・列範囲 商流〜スキル） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 3/5・列範囲 スキル〜BP募集(詳細)） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 4/5・列範囲 BP募集(詳細)〜備考） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレーム 5/5・列範囲 契約種別〜更新日時） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【機械】1. 左端2列が「ID」「件名」であり、2. 横スクロールしても左端に固定表示されたまま他の列がスクロールする（連続フレームによる全列の被覆・固定列を除く） <span class="muted">期待: 全22列 ／ 実測: 22列</span></li><li><span class="ok">✓</span> 【機械】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（走査した列の数と並び・固定列を除く） <span class="muted">期待: 22列: 件名／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時 ／ 実測: 22列: 件名／登録者／登録部署／取引先／商流／案件概要／開始日／終了日／スキル／工程／人数／残数／BP募集(要否)／BP募集(詳細)／作業場所／見込単価／契約種別／備考／登録日時／更新者／更新部署／更新日時</span></li><li><span class="ok">✓</span> 【可視】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 1/5・列範囲 件名〜商流） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 2/5・列範囲 商流〜スキル） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 3/5・列範囲 スキル〜作業場所） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 4/5・列範囲 作業場所〜更新部署） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【可視】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレーム 5/5・列範囲 見込単価〜更新日時） <span class="muted">期待: 列ヘッダーが表示順どおり ／ 実測: 一致</span></li><li><span class="ok">✓</span> 【機械】3. 左端2列が「ID」「ステータス」になり、4. 再び横スクロールしても2列が左端に固定表示されたままである（連続フレームによる全列の被覆・固定列を除く） <span class="muted">期待: 全22列 ／ 実測: 22列</span></li></ul>
+</aside>
+</div>
+</section>
+</div>
+<dialog id="csvdlg0" class="csvdlg"><form method="dialog" class="csvdlg-head"><span class="csvdlg-title">案件情報_シード.csv</span><button class="csvdlg-close" aria-label="閉じる">✕</button></form><div class="csvdlg-body"><table class="csvtable"><thead><tr><th>management_code</th><th>title</th><th>status</th><th>client_name</th><th>commercial_flow</th><th>summary</th><th>process</th><th>start_date</th><th>end_date</th><th>skill</th><th>headcount</th><th>remaining_count</th><th>bp_recruitment</th><th>bp_recruitment_detail</th><th>work_location</th><th>estimated_unit_price</th><th>contract_type</th><th>note</th><th>created_by</th><th>created_department</th><th>created_at</th><th>updated_by</th><th>updated_department</th><th>updated_at</th></tr></thead><tbody><tr><td>1</td><td>Java開発案件</td><td>OPEN</td><td>株式会社アルファ</td><td>一次請け</td><td>基幹システムの改修。
+二次開発フェーズ。</td><td>詳細設計</td><td>2026-09-01</td><td>2026-12-31</td><td>Java Spring</td><td>3</td><td>2</td><td>REQUIRED</td><td>即戦力歓迎</td><td>東京都港区</td><td>600000</td><td>CONTRACT</td><td>長期案件</td><td>営業 太郎</td><td>営業部</td><td>2026-08-01 10:00:00</td><td>営業 太郎</td><td>営業部</td><td>2026-08-01 10:00:00</td></tr><tr><td>2</td><td>Python分析案件</td><td>NEGOTIATING</td><td>株式会社ブラボー</td><td>二次請け</td><td></td><td>基本設計</td><td>2026-10-01</td><td>2027-03-31</td><td>Python</td><td>2</td><td>1</td><td>NOT_REQUIRED</td><td></td><td>大阪府大阪市</td><td>550000</td><td>QUASI_MANDATE</td><td></td><td>開発 次郎</td><td>開発部</td><td>2026-08-05 09:30:00</td><td>開発 次郎</td><td>開発部</td><td>2026-08-05 09:30:00</td></tr><tr><td>3</td><td>クローズ済み案件</td><td>CLOSED</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>NOT_REQUIRED</td><td></td><td></td><td></td><td></td><td></td><td>管理 花子</td><td>管理部</td><td>2026-07-01 08:00:00</td><td>管理 花子</td><td>管理部</td><td>2026-07-01 08:00:00</td></tr><tr><td>4</td><td>区切り文字の案件</td><td>OPEN</td><td>株式会社チャーリー</td><td>一次請け</td><td>要件定義から参画。</td><td>要件定義</td><td>2026-11-01</td><td>2027-01-31</td><td>SQL</td><td>1</td><td>1</td><td>NOT_REQUIRED</td><td></td><td>東京都新宿区</td><td>500000</td><td>DISPATCH</td><td>区切り,と&quot;引用符&quot;の確認</td><td>営業 太郎</td><td>営業部</td><td>2026-08-10 11:00:00</td><td>営業 太郎</td><td>営業部</td><td>2026-08-10 11:00:00</td></tr><tr><td>5</td><td>BP募集の案件</td><td>OPEN</td><td>株式会社デルタ</td><td>三次請け</td><td>増員募集。</td><td>製造</td><td>2026-09-15</td><td>2027-02-28</td><td>JavaScript</td><td>5</td><td>3</td><td>REQUIRED</td><td>未経験可</td><td>福岡県福岡市</td><td>450000</td><td>CONTRACT</td><td>備考テスト</td><td>開発 次郎</td><td>開発部</td><td>2026-08-15 14:00:00</td><td>開発 次郎</td><td>開発部</td><td>2026-08-15 14:00:00</td></tr></tbody></table></div></dialog>
+<dialog id="csvdlg1" class="csvdlg"><form method="dialog" class="csvdlg-head"><span class="csvdlg-title">users.csv</span><button class="csvdlg-close" aria-label="閉じる">✕</button></form><div class="csvdlg-body"><table class="csvtable"><thead><tr><th>user_id</th><th>user_name</th><th>email</th><th>department_id</th><th>role</th><th>password</th></tr></thead><tbody><tr><td>SM0001</td><td>営業 太郎</td><td>sm0001@example.com</td><td>1</td><td>0</td><td>$2a$10$N2zw1FoNixuLDKcuPVeghO.hr2Hef1b54vCgOEjNsKeAlA8bi2KjG</td></tr><tr><td>SM0002</td><td>管理 花子</td><td>sm0002@example.com</td><td>3</td><td>9</td><td>$2a$10$0hUscRPnC4cdAs3fqrwQgulUZNmmmOwSaP38QqtM/.dCaGJnqzd7e</td></tr><tr><td>SM0003</td><td>開発 次郎</td><td>sm0003@example.com</td><td>2</td><td>0</td><td>$2a$10$ztQUy8EqNm/WbK.E3lCmhOsOjlhe8Zt7JNi.uMAUg2MYHvPTvQCwC</td></tr></tbody></table></div></dialog>
+<dialog id="csvdlg2" class="csvdlg"><form method="dialog" class="csvdlg-head"><span class="csvdlg-title">departments.csv</span><button class="csvdlg-close" aria-label="閉じる">✕</button></form><div class="csvdlg-body"><table class="csvtable"><thead><tr><th>department_id</th><th>department_name</th></tr></thead><tbody><tr><td>1</td><td>営業部</td></tr><tr><td>2</td><td>開発部</td></tr><tr><td>3</td><td>管理部</td></tr></tbody></table></div></dialog>
+<script>
+document.querySelectorAll('.media').forEach(function(media){
+  var shot=media.querySelector('.shot');
+  var clip=media.querySelector('.clip');
+  if(!clip) return;
+  media.querySelectorAll('.toggle button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var view=btn.dataset.view;
+      media.querySelectorAll('.toggle button').forEach(function(b){b.classList.remove('on');});
+      btn.classList.add('on');
+      if(view==='clip'){shot.hidden=true;clip.hidden=false;}
+      else{clip.hidden=true;if(clip.pause)clip.pause();shot.hidden=false;}
+    });
+  });
+});
+document.querySelectorAll('.csv-open').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var dlg=document.getElementById(btn.dataset.dialog);
+    if(dlg&&dlg.showModal){dlg.showModal();}
+  });
+});
+document.querySelectorAll('dialog.csvdlg').forEach(function(dlg){
+  dlg.addEventListener('click',function(e){if(e.target===dlg){dlg.close();}});
+});
+var tocbtn=document.querySelector('.tocbtn');
+if(tocbtn){tocbtn.addEventListener('click',function(){
+  var hidden=document.documentElement.classList.toggle('toc-hidden');
+  try{localStorage.setItem('e2eTocHidden',hidden?'1':'0');}catch(e){}
+});}
+// 目次のスクロール位置をページ間で維持し、現在ページの項目が見えないときだけ追従する。
+var tocNav=document.querySelector('.toc');
+if(tocNav){
+  try{
+    var ts0=parseInt(localStorage.getItem('e2eTocScroll')||'',10);
+    if(ts0>=0){tocNav.scrollTop=ts0;}
+  }catch(e){}
+  var here=location.pathname.split('/').pop();
+  var cur=here?tocNav.querySelector('a[href="'+here+'"]'):null;
+  if(cur){
+    var nr=tocNav.getBoundingClientRect(),cr=cur.getBoundingClientRect();
+    if(cr.top<nr.top||cr.bottom>nr.bottom){cur.scrollIntoView({block:'center'});}
+  }
+  tocNav.addEventListener('scroll',function(){
+    try{localStorage.setItem('e2eTocScroll',String(Math.round(tocNav.scrollTop)));}catch(e){}
+  });
+}
+var lbox=document.querySelector('.lbox');
+if(lbox){
+  try{
+    var lh=parseInt(localStorage.getItem('e2eLogH')||'',10);
+    if(lh>=60){lbox.style.height=lh+'px';}
+  }catch(e){}
+  if(window.ResizeObserver){
+    new ResizeObserver(function(){
+      var hh=Math.round(lbox.getBoundingClientRect().height);
+      if(hh>0){try{localStorage.setItem('e2eLogH',String(hh));}catch(e){}}
+    }).observe(lbox);
+  }
+}
+document.querySelectorAll('.media.v2').forEach(function(m){
+  var figs=[].slice.call(m.querySelectorAll('.fstep'));
+  if(!figs.length) return;
+  var caps=[].slice.call(m.querySelectorAll('.fcap'));
+  var thumbs=[].slice.call(m.querySelectorAll('.thumbs img'));
+  var label=m.querySelector('.fcount');
+  var stage=m.querySelector('.stage');
+  var zval=m.querySelector('.zval');
+  var idx=0,s=1,tx=0,ty=0,fitS=1,touched=false;
+  function activeImg(){return figs[idx]?figs[idx].querySelector('img'):null;}
+  function imgSize(){
+    var im=activeImg();
+    return {w:(im&&im.naturalWidth)||1280,h:(im&&im.naturalHeight)||800};
+  }
+  function clampPan(){
+    var r=stage.getBoundingClientRect(),z=imgSize(),w=z.w*s,h=z.h*s;
+    if(w<=r.width){tx=(r.width-w)/2;}else{tx=Math.min(0,Math.max(r.width-w,tx));}
+    if(h<=r.height){ty=(r.height-h)/2;}else{ty=Math.min(0,Math.max(r.height-h,ty));}
+  }
+  function render(){
+    clampPan();
+    figs.forEach(function(f,j){
+      f.hidden=j!==idx;
+      if(j===idx){f.style.transform='translate('+tx+'px,'+ty+'px) scale('+s+')';}
+    });
+    caps.forEach(function(c,j){c.hidden=j!==idx;});
+    thumbs.forEach(function(t,j){t.classList.toggle('on',j===idx);});
+    if(label){label.textContent=(idx+1)+' / '+figs.length;}
+    if(zval){zval.textContent=Math.round(s*100)+'%';}
+  }
+  function fit(){
+    var r=stage.getBoundingClientRect(),z=imgSize();
+    fitS=Math.min(r.width/z.w,r.height/z.h,1);
+    s=fitS;touched=false;render();
+  }
+  function zoomAt(k,cx,cy){
+    var ns=Math.min(4,Math.max(fitS,s*k));
+    if(ns===s){return;}
+    k=ns/s;
+    tx=cx-(cx-tx)*k;ty=cy-(cy-ty)*k;s=ns;touched=true;render();
+  }
+  function show(i){idx=(i+figs.length)%figs.length;render();}
+  var prev=m.querySelector('.prev');
+  var next=m.querySelector('.next');
+  if(prev){prev.addEventListener('click',function(){show(idx-1);});}
+  if(next){next.addEventListener('click',function(){show(idx+1);});}
+  thumbs.forEach(function(t,j){t.addEventListener('click',function(){show(j);});});
+  stage.addEventListener('wheel',function(e){
+    e.preventDefault();
+    var r=stage.getBoundingClientRect();
+    zoomAt(e.deltaY<0?1.15:1/1.15,e.clientX-r.left,e.clientY-r.top);
+  },{passive:false});
+  var drag=null;
+  stage.addEventListener('mousedown',function(e){
+    if(e.button!==0){return;}
+    drag={x:e.clientX,y:e.clientY};stage.classList.add('dragging');e.preventDefault();
+  });
+  window.addEventListener('mousemove',function(e){
+    if(!drag){return;}
+    tx+=e.clientX-drag.x;ty+=e.clientY-drag.y;
+    drag={x:e.clientX,y:e.clientY};touched=true;render();
+  });
+  window.addEventListener('mouseup',function(){drag=null;stage.classList.remove('dragging');});
+  stage.addEventListener('dblclick',function(){fit();});
+  function centerZoom(k){var r=stage.getBoundingClientRect();zoomAt(k,r.width/2,r.height/2);}
+  var zin=m.querySelector('.zin');
+  var zout=m.querySelector('.zout');
+  var zfit=m.querySelector('.zfit');
+  if(zin){zin.addEventListener('click',function(){centerZoom(1.25);});}
+  if(zout){zout.addEventListener('click',function(){centerZoom(1/1.25);});}
+  if(zfit){zfit.addEventListener('click',function(){fit();});}
+  figs.forEach(function(f){
+    var im=f.querySelector('img');
+    if(im&&!im.complete){
+      im.addEventListener('load',function(){if(!touched){fit();}else{render();}});
+    }
+  });
+  window.addEventListener('resize',function(){if(!touched){fit();}else{render();}});
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey){return;}
+    if(e.key==='ArrowRight'){show(idx+1);e.preventDefault();}
+    else if(e.key==='ArrowLeft'){show(idx-1);e.preventDefault();}
+  });
+  show(0);
+  fit();
+});
+</script>
+</body>
+</html>
