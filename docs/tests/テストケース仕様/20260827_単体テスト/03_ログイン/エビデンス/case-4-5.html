@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>No.4-5 【クライアント検証】【境界値】ユーザID 61文字は最大文字数エラーになる — 03_ログイン</title>
+<style>
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;font-family:'Noto Sans JP',system-ui,sans-serif;color:#1f2733;background:#f4f6f9}
+.toc{position:fixed;left:0;top:0;width:250px;height:100vh;overflow:auto;background:#1f2733;
+ color:#e8edf3;padding:14px 10px}
+.toc h1{font-size:.95rem;margin:4px 6px 12px;color:#fff}
+.toc h1 small{font-weight:400;font-size:.78rem;color:#94a3b8}
+.toc a{display:block;padding:7px 8px;margin:2px 0;border-radius:6px;color:#cdd6e2;
+ text-decoration:none;font-size:.82rem;line-height:1.3}
+.toc a:hover{background:#2d3846;color:#fff}
+.dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.dot.pass{background:#22c55e}.dot.fail{background:#ef4444}
+.dot.other{background:#eab308}.dot.none{background:#94a3b8}
+.main{margin-left:250px;height:100vh;overflow-y:scroll;scroll-snap-type:y mandatory;
+ scroll-behavior:smooth}
+.case{height:100vh;scroll-snap-align:start;padding:16px 22px;display:flex;flex-direction:column}
+.case-head{flex:0 0 auto;display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.badge{background:#2563eb;color:#fff;font-weight:700;font-size:.8rem;padding:3px 10px;
+ border-radius:999px}
+.name{font-size:1.05rem;font-weight:700}
+.verdict{font-weight:700;font-size:.72rem;padding:2px 9px;border-radius:999px}
+.verdict.pass{background:#dcfce7;color:#166534}
+.verdict.fail{background:#fee2e2;color:#991b1b}
+.verdict.other{background:#fef9c3;color:#854d0e}
+.verdict.none{background:#e5e9ef;color:#64748b}
+.case-body{flex:1 1 auto;display:flex;gap:18px;min-height:0}
+.media{flex:1 1 62%;display:flex;flex-direction:column;min-height:0}
+.media .shot,.media .clip{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;
+ object-position:top;background:#fff;border:1px solid #d5dce6;border-radius:8px}
+.toggle{flex:0 0 auto;margin-top:8px;display:flex;gap:6px}
+.toggle button{border:1px solid #c4ccd8;background:#fff;border-radius:6px;padding:4px 14px;
+ cursor:pointer;font-size:.82rem}
+.toggle button.on{background:#2563eb;border-color:#2563eb;color:#fff}
+.spec{flex:1 1 38%;min-height:0;overflow:auto;background:#fff;border:1px solid #d5dce6;
+ border-radius:8px;padding:14px 16px}
+.spec h3{font-size:.8rem;color:#5b6675;margin:14px 0 6px;letter-spacing:.04em}
+.spec h3:first-child{margin-top:0}
+.pre{white-space:pre-wrap;font-size:.92rem;line-height:1.6}
+.data{white-space:pre-wrap;font-size:.92rem;line-height:1.9}
+.data a{color:#2563eb}
+.data .muted{color:#94a3b8}
+.summary td .data{font-size:inherit;line-height:1.7}
+.summary{overflow:auto;display:block}
+.summary .name{font-size:1.15rem}
+.counts{display:flex;gap:20px;font-size:1rem;margin:10px 0 14px}
+.counts b{font-size:1.35rem}
+.counts .ok b{color:#16a34a}.counts .ng b{color:#dc2626}.counts .na b{color:#64748b}
+.summary table{border-collapse:collapse;width:100%;font-size:.9rem}
+.summary th,.summary td{border:1px solid #dbe2ea;padding:6px 10px;text-align:left;
+ vertical-align:top}
+.summary th{background:#eef2f7;position:sticky;top:0}
+.csv-open{margin:2px 0 2px 6px;border:1px solid #2563eb;background:#fff;color:#2563eb;
+ border-radius:6px;padding:1px 9px;font-size:.78rem;cursor:pointer;vertical-align:middle}
+.csv-open:hover{background:#2563eb;color:#fff}
+dialog.csvdlg{border:none;border-radius:10px;padding:0;max-width:90vw;max-height:85vh;
+ box-shadow:0 12px 48px rgba(15,23,35,.35);overflow:hidden}
+dialog.csvdlg::backdrop{background:rgba(15,23,35,.55)}
+.csvdlg-head{display:flex;align-items:center;justify-content:space-between;gap:20px;
+ margin:0;padding:10px 16px;background:#1f2733;color:#fff}
+.csvdlg-title{font-weight:700;font-size:.95rem}
+.csvdlg-close{border:none;background:transparent;color:#fff;font-size:1.05rem;
+ line-height:1;cursor:pointer;padding:2px 6px}
+.csvdlg-body{padding:12px 16px;max-height:calc(85vh - 48px);overflow:auto}
+.csvtable{border-collapse:collapse;font-size:.85rem;white-space:nowrap}
+.csvtable th,.csvtable td{border:1px solid #dbe2ea;padding:5px 11px;text-align:left}
+.csvtable thead th{background:#eef2f7;position:sticky;top:0}
+.csvdlg-body .muted{color:#94a3b8;margin:8px 2px 0}
+.fmeta{font-size:.75rem;color:#5b6675;margin-left:auto;white-space:nowrap}
+.media.v2 .stage{flex:1 1 auto;min-height:0;display:flex}
+.fstep{margin:0;flex:1;display:flex;flex-direction:column;min-height:0;min-width:0}
+.fstep img{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;object-position:top;
+ background:#fff;border:1px solid #d5dce6;border-radius:8px}
+.fcaps{flex:0 0 auto;margin-top:6px;min-height:3.6em}
+.fcap{padding:7px 12px;border-radius:6px;
+ font-size:.88rem;line-height:1.5;background:#eef2f7;color:#1f2733}
+.fcap.cap-verify{background:#dcfce7;color:#14532d}
+.fcap.cap-fail{background:#fee2e2;color:#991b1b}
+.fcap{max-height:32vh;overflow:auto}
+.longv{display:inline-block;vertical-align:top;max-width:100%}
+.longv summary{cursor:pointer;display:inline}
+.longv-full{max-height:180px;overflow:auto;white-space:pre-wrap;word-break:break-all;
+  background:rgba(0,0,0,.06);padding:6px 8px;border-radius:4px;margin-top:4px}
+.cap-note{color:#7c3aed;font-size:.78rem;margin-top:2px}
+.fnav{flex:0 0 auto;display:flex;align-items:center;gap:10px;margin-top:6px}
+.fnav button{border:1px solid #c4ccd8;background:#fff;border-radius:6px;padding:4px 14px;
+ cursor:pointer;font-size:.82rem}
+.fnav button:hover{background:#eef2f7}
+.fcount{font-size:.85rem;color:#5b6675}
+.thumbs{flex:0 0 auto;display:flex;gap:6px;margin-top:6px;overflow-x:auto}
+.thumbs img{height:52px;border:2px solid #d5dce6;border-radius:4px;cursor:pointer;
+ background:#fff}
+.thumbs img.on{border-color:#2563eb}
+.thumbs img.fail{border-color:#ef4444}
+details.whole{flex:0 0 auto;margin-top:6px;font-size:.85rem;color:#5b6675}
+details.whole summary{cursor:pointer}
+details.whole img{max-width:340px;border:1px solid #eab308;border-radius:6px;display:block;
+ margin-top:6px}
+.mlog{list-style:none;padding:0;margin:4px 0;font-size:.85rem}
+.mlog li{padding:4px 0;border-bottom:1px dashed #e2e8f0;line-height:1.5}
+.mlog .ok{color:#16a34a;font-weight:700}
+.mlog .ng{color:#dc2626;font-weight:700}
+.mlog .muted{color:#94a3b8}
+.pagenav{display:flex;gap:12px;margin:14px 22px 0;font-size:.9rem;flex-wrap:wrap}
+.pagenav a{color:#2563eb;text-decoration:none;border:1px solid #c4ccd8;background:#fff;
+ border-radius:6px;padding:5px 12px}
+.pagenav a:hover{background:#eef2f7}
+.pagenav .off{color:#94a3b8;border:1px solid #e2e8f0;border-radius:6px;padding:5px 12px}
+.cpage{height:auto;min-height:0}
+.cpage .stage{position:relative;display:block;height:62vh;overflow:hidden;
+ overscroll-behavior:contain;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;
+ cursor:grab}
+.cpage .stage.dragging{cursor:grabbing}
+.cpage .fstep{position:absolute;left:0;top:0;flex:none;display:block;margin:0;
+ width:auto;max-width:none;transform-origin:0 0}
+.cpage .fstep img{width:auto;height:auto;max-width:none;max-height:none;display:block;
+ border:none;border-radius:0}
+.fnav .zoom{margin-left:auto;display:flex;align-items:center;gap:6px}
+.fnav .zval{font-size:.85rem;color:#5b6675;min-width:46px;text-align:center}
+.cap-ts{float:right;color:#94a3b8;font-size:.75rem;margin-left:10px}
+details.console{margin-top:8px;font-size:.85rem;color:#5b6675}
+details.console summary{cursor:pointer}
+.lbox{margin-top:6px;background:#0f172a;color:#d7dde6;
+ font:12px/1.65 ui-monospace,Consolas,monospace;border-radius:8px;padding:10px 12px;
+ height:170px;min-height:60px;max-height:70vh;resize:vertical;overflow:auto}
+.lrow{display:flex;gap:10px;white-space:pre-wrap;word-break:break-all}
+.lrow .lts{color:#64748b;flex:0 0 auto}
+.lrow .lsrc{color:#94a3b8;flex:0 0 auto;width:60px}
+.lrow .lsrc.lbrowser{color:#c084fc}
+.lrow .lsrc.lharness{color:#5eead4}
+.lrow .llvl{flex:0 0 auto;width:46px}
+.lrow.lwarn .llvl,.lrow.lwarn .lmsg{color:#fbbf24}
+.lrow.lerr .llvl,.lrow.lerr .lmsg{color:#f87171}
+.lrow .llog{color:#7dd3fc;flex:0 0 auto;max-width:220px;overflow:hidden;
+ text-overflow:ellipsis}
+.lrow .lmsg{flex:1 1 auto}
+.tocbtn{position:absolute;left:6px;top:8px;border:1px solid #c4ccd8;
+ background:#fff;border-radius:6px;padding:3px 9px;cursor:pointer;font-size:.95rem}
+.tocbtn:hover{background:#eef2f7}
+.toc{padding-top:46px}
+html.toc-hidden .toc{width:38px;padding:46px 0 10px;overflow:hidden}
+html.toc-hidden .toc h1,html.toc-hidden .toc a{display:none}
+html.toc-hidden .tocbtn{left:5px;right:5px;padding:4px 0;text-align:center}
+html.toc-hidden .main{margin-left:38px}
+.main.pagemode{height:100vh;overflow:hidden;display:flex;flex-direction:column;
+ scroll-snap-type:none}
+.main.pagemode .pagenav{flex:0 0 auto;margin-bottom:10px}
+.main.pagemode .case{flex:1 1 auto;min-height:0;height:auto;scroll-snap-align:none}
+.cpage .case-body{flex:1 1 auto;min-height:0}
+.cpage .media{overflow-y:auto;min-height:0;overscroll-behavior:contain;padding-right:4px}
+.cpage .spec{position:static;max-height:none;overflow-y:auto;
+ overscroll-behavior:contain}
+</style>
+</head>
+<body>
+<script>try{if(localStorage.getItem('e2eTocHidden')==='1')document.documentElement.classList.add('toc-hidden')}catch(e){}</script>
+<nav class="toc">
+<button type="button" class="tocbtn" title="メニュー表示切替">☰</button>
+<h1>03_ログイン<br>エビデンス<br><small>20260827_単体テスト</small></h1>
+<a href="#summary"><span class="dot none"></span>サマリ・一覧</a>
+<a href="case-1-1.html"><span class="dot pass"></span>No.1-1　ログイン画面の初期表示（画面項目・プレ…</a>
+<a href="case-1-2.html"><span class="dot pass"></span>No.1-2　ログイン画面の表示時に、保存されていた…</a>
+<a href="case-2-1.html"><span class="dot pass"></span>No.2-1　パスワード表示トグルでパスワードの表示…</a>
+<a href="case-3-1.html"><span class="dot pass"></span>No.3-1　正しいユーザID・パスワードでユーザ認…</a>
+<a href="case-3-2.html"><span class="dot pass"></span>No.3-2　存在しないユーザIDではユーザ認証に失…</a>
+<a href="case-3-3.html"><span class="dot pass"></span>No.3-3　実在するユーザIDでパスワードが異なる…</a>
+<a href="case-4-1.html"><span class="dot pass"></span>No.4-1　【クライアント検証】ユーザIDが未入力…</a>
+<a href="case-4-2.html"><span class="dot pass"></span>No.4-2　【クライアント検証】パスワードが未入力…</a>
+<a href="case-4-3.html"><span class="dot pass"></span>No.4-3　【クライアント検証】ユーザID・パスワ…</a>
+<a href="case-4-4.html"><span class="dot pass"></span>No.4-4　【クライアント検証】【境界値】ユーザI…</a>
+<a href="case-4-5.html"><span class="dot pass"></span>No.4-5　【クライアント検証】【境界値】ユーザI…</a>
+<a href="case-4-6.html"><span class="dot pass"></span>No.4-6　【クライアント検証】ユーザIDに半角英…</a>
+<a href="case-4-7.html"><span class="dot pass"></span>No.4-7　【クライアント検証】【境界値】パスワー…</a>
+<a href="case-4-8.html"><span class="dot pass"></span>No.4-8　【クライアント検証】【境界値】パスワー…</a>
+<a href="case-4-9.html"><span class="dot pass"></span>No.4-9　【クライアント検証】パスワードに半角英…</a>
+<a href="case-4-10.html"><span class="dot pass"></span>No.4-10　【クライアント検証】入力値チェック違反…</a>
+</nav>
+<div class="main pagemode">
+<div class="pagenav"><a href="index.html">≡ 一覧へ</a><a href="case-4-4.html">◀ No.4-4</a><a href="case-4-6.html">No.4-6 ▶</a></div>
+<section class="case cpage" id="case-4-5">
+<div class="case-head">
+<span class="badge">No.4-5</span>
+<span class="name">【クライアント検証】【境界値】ユーザID 61文字は最大文字数エラーになる</span>
+<span class="verdict pass">PASS</span>
+<span class="fmeta">フレーム 8枚 ／ 検証 可視3・機械1</span>
+</div>
+<div class="case-body">
+<div class="media v2">
+<div class="stage"><figure class="fstep"><img src="No.4-5_01.jpg" loading="lazy" alt="1. / を開く"></figure><figure class="fstep" hidden><img src="No.4-5_03.jpg" loading="lazy" alt="3. ユーザID に半角英字61文字（a を61回）を入力する"></figure><figure class="fstep" hidden><img src="No.4-5_04.jpg" loading="lazy" alt="4. パスワードに「Passw0rd!」を入力する"></figure><figure class="fstep" hidden><img src="No.4-5_05.jpg" loading="lazy" alt="5. 「ログイン」を押下する（押下前・操作対象）"></figure><figure class="fstep" hidden><img src="No.4-5_06.jpg" loading="lazy" alt="5. 「ログイン」を押下する（押下後）"></figure><figure class="fstep" hidden><img src="No.4-5_07.jpg" loading="lazy" alt="画面遷移せずログイン画面のままである"></figure><figure class="fstep" hidden><img src="No.4-5_08.jpg" loading="lazy" alt="ユーザID欄の直下に表示されるのは「60文字以内で入力してください。」のみである（「使用不可能な文字が含まれています。」は表示されない）"></figure><figure class="fstep" hidden><img src="No.4-5_09.jpg" loading="lazy" alt="ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）"></figure></div>
+<div class="fnav"><button type="button" class="prev">◀ 前</button><span class="fcount"></span><button type="button" class="next">次 ▶</button><span class="zoom"><button type="button" class="zfit">全体</button><button type="button" class="zout">−</button><span class="zval">100%</span><button type="button" class="zin">＋</button></span></div>
+<div class="fcaps"><div class="fcap cap-op"><span class="cap-ts">18:00:06.322</span>【操作】1. / を開く</div><div class="fcap cap-op" hidden><span class="cap-ts">18:00:06.992</span>【操作】3. ユーザID に半角英字61文字（a を61回）を入力する</div><div class="fcap cap-op" hidden><span class="cap-ts">18:00:07.614</span>【操作】4. パスワードに「Passw0rd!」を入力する</div><div class="fcap cap-op" hidden><span class="cap-ts">18:00:07.723</span>【操作】5. 「ログイン」を押下する（押下前・操作対象）</div><div class="fcap cap-op" hidden><span class="cap-ts">18:00:08.339</span>【操作】5. 「ログイン」を押下する（押下後）</div><div class="fcap cap-verify" hidden><span class="cap-ts">18:00:08.414</span>【検証】画面遷移せずログイン画面のままである ― 期待: 表示 ／ 実測: 表示 ✓</div><div class="fcap cap-verify" hidden><span class="cap-ts">18:00:08.499</span>【検証】ユーザID欄の直下に表示されるのは「60文字以内で入力してください。」のみである（「使用不可能な文字が含まれています。」は表示されない） ― 期待: 60文字以内で入力してください。 ／ 実測: 60文字以内で入力してください。 ✓</div><div class="fcap cap-verify" hidden><span class="cap-ts">18:00:08.585</span>【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） ― 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓<div class="cap-note">無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証</div></div></div>
+<div class="thumbs"><img src="No.4-5_01.jpg" loading="lazy" data-idx="0"><img src="No.4-5_03.jpg" loading="lazy" data-idx="1"><img src="No.4-5_04.jpg" loading="lazy" data-idx="2"><img src="No.4-5_05.jpg" loading="lazy" data-idx="3"><img src="No.4-5_06.jpg" loading="lazy" data-idx="4"><img src="No.4-5_07.jpg" loading="lazy" data-idx="5"><img src="No.4-5_08.jpg" loading="lazy" data-idx="6"><img src="No.4-5_09.jpg" loading="lazy" data-idx="7"></div>
+<details class="console" open><summary>証跡ログ（10件）</summary><div class="lbox"><div class="lrow "><span class="lts">18:00:05.586</span><span class="lsrc lharness">harness</span><span class="llvl">NAV</span><span class="llog"></span><span class="lmsg">画面遷移: http://localhost:56735/</span></div><div class="lrow "><span class="lts">18:00:06.322</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【操作】1. / を開く</span></div><div class="lrow "><span class="lts">18:00:06.419</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【機械検証】2. ユーザID入力欄の maxlength 属性を解除する（除去前の maxlength=60） — 期待: 属性なし ／ 実測: 属性なし ✓</span></div><div class="lrow "><span class="lts">18:00:06.949</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【操作】3. ユーザID に半角英字61文字（a を61回）を入力する</span></div><div class="lrow "><span class="lts">18:00:07.570</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【操作】4. パスワードに「Passw0rd!」を入力する</span></div><div class="lrow "><span class="lts">18:00:07.680</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【操作】5. 「ログイン」を押下する（押下前・操作対象）</span></div><div class="lrow "><span class="lts">18:00:08.339</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【操作】5. 「ログイン」を押下する（押下後）</span></div><div class="lrow "><span class="lts">18:00:08.465</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓</span></div><div class="lrow "><span class="lts">18:00:08.552</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】ユーザID欄の直下に表示されるのは「60文字以内で入力してください。」のみである（「使用不可能な文字が含まれています。」は表示されない） — 期待: 60文字以内で入力してください。 ／ 実測: 60文字以内で入力してください。 ✓</span></div><div class="lrow "><span class="lts">18:00:08.660</span><span class="lsrc lharness">harness</span><span class="llvl">INFO</span><span class="llog"></span><span class="lmsg">【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓</span></div></div></details>
+<details class="whole"><summary>動画（補助）</summary><video controls preload="none" src="No.4-5_【クライアント検証】【境界値】ユーザID_61文字は最大文字数エラーになる.webm" style="width:100%"></video></details>
+</div>
+<aside class="spec">
+<h3>操作手順</h3>
+<div class="pre">1. / を開く
+2. 開発者ツール相当の合成操作でユーザID入力欄の maxlength 属性を解除する
+3. ユーザID に半角英字61文字（a を61回）を入力する
+4. パスワードに「Passw0rd!」を入力する
+5. 「ログイン」を押下する</div>
+<h3>期待する結果</h3>
+<div class="pre">画面遷移せずログイン画面のままで、ユーザID欄の直下に「60文字以内で入力してください。」が表示される。
+ユーザID欄には「使用不可能な文字が含まれています。」は表示されない（同じ項目内で複数違反しても、より小さな番号のエラーメッセージ1つのみを表示する）。
+ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）。
+【機械検証】手順2の前後でユーザID入力欄の maxlength 属性が解除されている。</div>
+<h3>参照テストデータ・期待値</h3>
+<div class="data"><span class="muted">—</span></div>
+<h3>検証ログ</h3>
+<ul class="mlog"><li><span class="ok">✓</span> 【機械】2. ユーザID入力欄の maxlength 属性を解除する（除去前の maxlength=60） <span class="muted">期待: 属性なし ／ 実測: 属性なし</span></li><li><span class="ok">✓</span> 【可視】画面遷移せずログイン画面のままである <span class="muted">期待: 表示 ／ 実測: 表示</span></li><li><span class="ok">✓</span> 【可視】ユーザID欄の直下に表示されるのは「60文字以内で入力してください。」のみである（「使用不可能な文字が含まれています。」は表示されない） <span class="muted">期待: 60文字以内で入力してください。 ／ 実測: 60文字以内で入力してください。</span></li><li><span class="ok">✓</span> 【可視】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） <span class="muted">期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし）</span></li></ul>
+</aside>
+</div>
+</section>
+</div>
+
+<script>
+document.querySelectorAll('.media').forEach(function(media){
+  var shot=media.querySelector('.shot');
+  var clip=media.querySelector('.clip');
+  if(!clip) return;
+  media.querySelectorAll('.toggle button').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var view=btn.dataset.view;
+      media.querySelectorAll('.toggle button').forEach(function(b){b.classList.remove('on');});
+      btn.classList.add('on');
+      if(view==='clip'){shot.hidden=true;clip.hidden=false;}
+      else{clip.hidden=true;if(clip.pause)clip.pause();shot.hidden=false;}
+    });
+  });
+});
+document.querySelectorAll('.csv-open').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var dlg=document.getElementById(btn.dataset.dialog);
+    if(dlg&&dlg.showModal){dlg.showModal();}
+  });
+});
+document.querySelectorAll('dialog.csvdlg').forEach(function(dlg){
+  dlg.addEventListener('click',function(e){if(e.target===dlg){dlg.close();}});
+});
+var tocbtn=document.querySelector('.tocbtn');
+if(tocbtn){tocbtn.addEventListener('click',function(){
+  var hidden=document.documentElement.classList.toggle('toc-hidden');
+  try{localStorage.setItem('e2eTocHidden',hidden?'1':'0');}catch(e){}
+});}
+// 目次のスクロール位置をページ間で維持し、現在ページの項目が見えないときだけ追従する。
+var tocNav=document.querySelector('.toc');
+if(tocNav){
+  try{
+    var ts0=parseInt(localStorage.getItem('e2eTocScroll')||'',10);
+    if(ts0>=0){tocNav.scrollTop=ts0;}
+  }catch(e){}
+  var here=location.pathname.split('/').pop();
+  var cur=here?tocNav.querySelector('a[href="'+here+'"]'):null;
+  if(cur){
+    var nr=tocNav.getBoundingClientRect(),cr=cur.getBoundingClientRect();
+    if(cr.top<nr.top||cr.bottom>nr.bottom){cur.scrollIntoView({block:'center'});}
+  }
+  tocNav.addEventListener('scroll',function(){
+    try{localStorage.setItem('e2eTocScroll',String(Math.round(tocNav.scrollTop)));}catch(e){}
+  });
+}
+var lbox=document.querySelector('.lbox');
+if(lbox){
+  try{
+    var lh=parseInt(localStorage.getItem('e2eLogH')||'',10);
+    if(lh>=60){lbox.style.height=lh+'px';}
+  }catch(e){}
+  if(window.ResizeObserver){
+    new ResizeObserver(function(){
+      var hh=Math.round(lbox.getBoundingClientRect().height);
+      if(hh>0){try{localStorage.setItem('e2eLogH',String(hh));}catch(e){}}
+    }).observe(lbox);
+  }
+}
+document.querySelectorAll('.media.v2').forEach(function(m){
+  var figs=[].slice.call(m.querySelectorAll('.fstep'));
+  if(!figs.length) return;
+  var caps=[].slice.call(m.querySelectorAll('.fcap'));
+  var thumbs=[].slice.call(m.querySelectorAll('.thumbs img'));
+  var label=m.querySelector('.fcount');
+  var stage=m.querySelector('.stage');
+  var zval=m.querySelector('.zval');
+  var idx=0,s=1,tx=0,ty=0,fitS=1,touched=false;
+  function activeImg(){return figs[idx]?figs[idx].querySelector('img'):null;}
+  function imgSize(){
+    var im=activeImg();
+    return {w:(im&&im.naturalWidth)||1280,h:(im&&im.naturalHeight)||800};
+  }
+  function clampPan(){
+    var r=stage.getBoundingClientRect(),z=imgSize(),w=z.w*s,h=z.h*s;
+    if(w<=r.width){tx=(r.width-w)/2;}else{tx=Math.min(0,Math.max(r.width-w,tx));}
+    if(h<=r.height){ty=(r.height-h)/2;}else{ty=Math.min(0,Math.max(r.height-h,ty));}
+  }
+  function render(){
+    clampPan();
+    figs.forEach(function(f,j){
+      f.hidden=j!==idx;
+      if(j===idx){f.style.transform='translate('+tx+'px,'+ty+'px) scale('+s+')';}
+    });
+    caps.forEach(function(c,j){c.hidden=j!==idx;});
+    thumbs.forEach(function(t,j){t.classList.toggle('on',j===idx);});
+    if(label){label.textContent=(idx+1)+' / '+figs.length;}
+    if(zval){zval.textContent=Math.round(s*100)+'%';}
+  }
+  function fit(){
+    var r=stage.getBoundingClientRect(),z=imgSize();
+    fitS=Math.min(r.width/z.w,r.height/z.h,1);
+    s=fitS;touched=false;render();
+  }
+  function zoomAt(k,cx,cy){
+    var ns=Math.min(4,Math.max(fitS,s*k));
+    if(ns===s){return;}
+    k=ns/s;
+    tx=cx-(cx-tx)*k;ty=cy-(cy-ty)*k;s=ns;touched=true;render();
+  }
+  function show(i){idx=(i+figs.length)%figs.length;render();}
+  var prev=m.querySelector('.prev');
+  var next=m.querySelector('.next');
+  if(prev){prev.addEventListener('click',function(){show(idx-1);});}
+  if(next){next.addEventListener('click',function(){show(idx+1);});}
+  thumbs.forEach(function(t,j){t.addEventListener('click',function(){show(j);});});
+  stage.addEventListener('wheel',function(e){
+    e.preventDefault();
+    var r=stage.getBoundingClientRect();
+    zoomAt(e.deltaY<0?1.15:1/1.15,e.clientX-r.left,e.clientY-r.top);
+  },{passive:false});
+  var drag=null;
+  stage.addEventListener('mousedown',function(e){
+    if(e.button!==0){return;}
+    drag={x:e.clientX,y:e.clientY};stage.classList.add('dragging');e.preventDefault();
+  });
+  window.addEventListener('mousemove',function(e){
+    if(!drag){return;}
+    tx+=e.clientX-drag.x;ty+=e.clientY-drag.y;
+    drag={x:e.clientX,y:e.clientY};touched=true;render();
+  });
+  window.addEventListener('mouseup',function(){drag=null;stage.classList.remove('dragging');});
+  stage.addEventListener('dblclick',function(){fit();});
+  function centerZoom(k){var r=stage.getBoundingClientRect();zoomAt(k,r.width/2,r.height/2);}
+  var zin=m.querySelector('.zin');
+  var zout=m.querySelector('.zout');
+  var zfit=m.querySelector('.zfit');
+  if(zin){zin.addEventListener('click',function(){centerZoom(1.25);});}
+  if(zout){zout.addEventListener('click',function(){centerZoom(1/1.25);});}
+  if(zfit){zfit.addEventListener('click',function(){fit();});}
+  figs.forEach(function(f){
+    var im=f.querySelector('img');
+    if(im&&!im.complete){
+      im.addEventListener('load',function(){if(!touched){fit();}else{render();}});
+    }
+  });
+  window.addEventListener('resize',function(){if(!touched){fit();}else{render();}});
+  document.addEventListener('keydown',function(e){
+    if(e.altKey||e.ctrlKey||e.metaKey||e.shiftKey){return;}
+    if(e.key==='ArrowRight'){show(idx+1);e.preventDefault();}
+    else if(e.key==='ArrowLeft'){show(idx-1);e.preventDefault();}
+  });
+  show(0);
+  fit();
+});
+</script>
+</body>
+</html>

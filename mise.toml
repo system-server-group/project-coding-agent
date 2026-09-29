@@ -1,0 +1,5 @@
+# 開発に必要なランタイムの版。mise (https://mise.jdx.dev) で導入する:
+#   mise trust && mise install
+[tools]
+java = "corretto-25.0.4.8.1"   # build.gradle.kts の java.toolchain (25) に合わせる
+python = "3.14.7"              # requirements.txt の確認環境 (3.14) に合わせる

@@ -1,0 +1,49 @@
+# 改行コードを LF に統一する。
+# Windows での checkout 時に core.autocrlf=true でも CRLF 化されないようにし、
+# Spotless / Checkstyle / CI の結果がローカルと一致するようにする。
+* text=auto eol=lf
+
+# 明示的にテキスト扱い・LF 強制
+*.java         text eol=lf
+*.kt           text eol=lf
+*.kts          text eol=lf
+*.xml          text eol=lf
+*.yml          text eol=lf
+*.yaml         text eol=lf
+*.properties   text eol=lf
+*.html         text eol=lf
+*.css          text eol=lf
+*.js           text eol=lf
+*.json         text eol=lf
+*.md           text eol=lf
+*.sql          text eol=lf
+*.sh           text eol=lf
+.gitignore     text eol=lf
+.gitattributes text eol=lf
+.editorconfig  text eol=lf
+/gradlew       text eol=lf
+
+# Windows 用バッチは CRLF 維持
+*.bat          text eol=crlf
+*.cmd          text eol=crlf
+
+# CSV は改行コードもテストの検証対象（CSV ダウンロードは CR+LF 出力）。
+# 正規化するとファイルの内容が作成時と変わるため、eol 変換を行わない。
+# `binary` マクロではなく `-text` を用いるのは、diff をテキスト表示のまま保つため。
+*.csv          -text
+
+# バイナリ
+*.jar          binary
+*.png          binary
+*.jpg          binary
+*.jpeg         binary
+*.gif          binary
+*.ico          binary
+*.pdf          binary
+*.zip          binary
+
+# Office 文書 (docx/xlsx) は ZIP バイナリ。改行正規化(eol)を無効化する。
+# `binary` マクロ (= -diff -merge -text) ではなく `-text` を用いるのは、
+# diff=astextplain（docx を本文テキストで差分表示する設定）を維持するため。
+*.docx         -text
+*.xlsx         -text

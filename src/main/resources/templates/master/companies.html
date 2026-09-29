@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{layout/common :: layout(~{::content}, 'company', '会社マスタ管理画面')}">
+<body>
+<div th:fragment="content">
+    <link rel="stylesheet" th:href="@{/webjars/ag-grid-community/styles/ag-grid.css}">
+    <link rel="stylesheet" th:href="@{/webjars/ag-grid-community/styles/ag-theme-quartz.css}">
+
+    <div id="errorArea" class="csv-error" th:if="${errorTitle}">
+        <p class="title" th:text="${errorTitle}">エラータイトル</p>
+        <ul>
+            <li th:each="message : ${errorMessages}" th:text="${message}">エラー内容</li>
+        </ul>
+    </div>
+
+    <div class="table-toolbar end">
+        <form id="csvUploadForm" th:action="@{/master/companies/csv}" method="post"
+              enctype="multipart/form-data" class="d-inline">
+            <input type="file" id="csvFileInput" name="csvFile" accept=".csv" class="d-none">
+            <button type="button" id="csvUploadButton"
+                    class="btn btn-outline-secondary btn-sm btn-wide">
+                ⬆ CSVアップロード
+            </button>
+        </form>
+        <button type="button" id="csvDownloadButton" class="btn btn-primary btn-sm">
+            ⬇ CSVダウンロード
+        </button>
+    </div>
+
+    <div class="pager" data-pager>
+        <span style="justify-self:start;">取得データ件数: <span data-data-count
+                th:text="${companyCount}">0</span>件</span>
+        <div class="pager-nums" data-pager-nums></div>
+        <div class="pager-ctl">
+            <label><span>表示件数</span>
+                <select data-page-size>
+                    <option value="10">10件</option>
+                    <option value="20">20件</option>
+                    <option value="30" selected>30件</option>
+                    <option value="all">全て</option>
+                </select>
+            </label>
+            <label><span>表示ページ</span>
+                <select data-page-jump></select>
+            </label>
+        </div>
+    </div>
+    <div id="companyGrid" class="ag-theme-quartz" style="height: 480px; width: 100%;"></div>
+    <div class="pager" data-pager>
+        <span style="justify-self:start;">取得データ件数: <span data-data-count
+                th:text="${companyCount}">0</span>件</span>
+        <div class="pager-nums" data-pager-nums></div>
+        <div class="pager-ctl">
+            <label><span>表示件数</span>
+                <select data-page-size>
+                    <option value="10">10件</option>
+                    <option value="20">20件</option>
+                    <option value="30" selected>30件</option>
+                    <option value="all">全て</option>
+                </select>
+            </label>
+            <label><span>表示ページ</span>
+                <select data-page-jump></select>
+            </label>
+        </div>
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        window.COMPANY_ROWS = /*[[${companies}]]*/ [];
+        /*]]>*/
+    </script>
+    <script th:src="@{/webjars/ag-grid-community/dist/ag-grid-community.min.js}"></script>
+    <script th:src="@{/js/pager.js}"></script>
+    <script th:src="@{/js/company-master.js}"></script>
+</div>
+</body>
+</html>

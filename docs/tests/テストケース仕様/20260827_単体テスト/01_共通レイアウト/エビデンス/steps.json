@@ -1,0 +1,4580 @@
+{
+  "version" : 1,
+  "feature" : "01_共通レイアウト",
+  "target" : "20260827_単体テスト",
+  "cases" : [ {
+    "no" : "1-1",
+    "name" : "一般ユーザの共通ヘッダーに項目が表示され、マスタ管理のナビゲーションは表示されない",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /projects（案件情報一覧画面）を開く",
+      "frame" : "No.1-1_01.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:37.751"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーのシステムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-1_02.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:37.889",
+      "highlight" : [ {
+        "x" : 24.0,
+        "y" : 86.0,
+        "w" : 261.828125,
+        "h" : 88.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにユーザ名「営業 太郎」が表示される",
+      "expected" : "営業 太郎",
+      "actual" : "営業 太郎",
+      "status" : "pass",
+      "frame" : "No.1-1_03.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:37.991",
+      "highlight" : [ {
+        "x" : 1141.046875,
+        "y" : 92.25,
+        "w" : 54.953125,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "containsText",
+      "desc" : "共通ヘッダーに部署名「営業部」が表示される",
+      "expected" : "「営業部」を含む",
+      "actual" : "「営業部」を含む",
+      "status" : "pass",
+      "frame" : "No.1-1_04.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:38.093",
+      "highlight" : [ {
+        "x" : 1204.0,
+        "y" : 92.25,
+        "w" : 52.0,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにナビゲーション「一覧・検索」が表示される",
+      "expected" : "一覧・検索",
+      "actual" : "一覧・検索",
+      "status" : "pass",
+      "frame" : "No.1-1_05.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:38.200",
+      "highlight" : [ {
+        "x" : 941.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにナビゲーション「新規登録」が表示される",
+      "expected" : "新規登録",
+      "actual" : "新規登録",
+      "status" : "pass",
+      "frame" : "No.1-1_06.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:38.309",
+      "highlight" : [ {
+        "x" : 1041.0,
+        "y" : 137.0,
+        "w" : 84.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーに「ログアウト」が表示される",
+      "expected" : "ログアウト",
+      "actual" : "ログアウト",
+      "status" : "pass",
+      "frame" : "No.1-1_07.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:38.413",
+      "highlight" : [ {
+        "x" : 1150.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "positioned-above",
+      "desc" : "共通ヘッダーの下にメインビューポートがある",
+      "expected" : "対象の下端 ≦ 基準の上端",
+      "actual" : "対象の下端 ≦ 基準の上端",
+      "status" : "pass",
+      "frame" : "No.1-1_08.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:38.531",
+      "note" : "対象（上）と基準（下）の両方をハイライトし、対象の下端が基準の上端より上にあることの実測を規格内の機械記録として残す",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 80.0,
+        "w" : 1280.0,
+        "h" : 95.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      }, {
+        "x" : 0.0,
+        "y" : 222.0,
+        "w" : 1280.0,
+        "h" : 578.0,
+        "badge" : 2,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "machine",
+      "verify" : "positioned-above",
+      "desc" : "共通ヘッダーの下にメインビューポートがある（位置の実測）",
+      "expected" : "対象の下端 ≦ 基準の上端",
+      "actual" : "対象下端 175.0px ／ 基準上端 222.0px",
+      "status" : "pass",
+      "ts" : "17:48:38.589"
+    }, {
+      "seq" : 10,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "メインビューポートに案件情報一覧画面の内容（画面タイトル）が表示される",
+      "expected" : "案件情報一覧画面",
+      "actual" : "案件情報一覧画面",
+      "status" : "pass",
+      "frame" : "No.1-1_10.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:38.639",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 11,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ナビゲーション「会社マスタ」「ユーザマスタ」「部署マスタ」が表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-1_11.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:38.734",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 933.0,
+        "y" : 120.0,
+        "w" : 200.0,
+        "h" : 54.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:48:34.617",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:48:36.506",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:36.506",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:36.508",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:36.567",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:36.567",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:36.568",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:36.568",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:36.568",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:36.569",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:36.569",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:36.569",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:36.569",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:36.570",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:36.570",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:36.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:36.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:36.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:36.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:36.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:36.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:36.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:36.586",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:36.751",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:36.752",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:36.756",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:37.126",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:37.126",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:37.127",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:37.127",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:37.127",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:37.128",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:37.128",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:37.128",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:37.129",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:37.129",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:37.129",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:37.130",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:37.130",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:37.130",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:37.131",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:37.131",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:37.131",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:37.132",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:37.138",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:37.226",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:37.227",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:37.230",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:37.751",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /projects（案件情報一覧画面）を開く"
+    }, {
+      "ts" : "17:48:37.945",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーのシステムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "17:48:38.043",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにユーザ名「営業 太郎」が表示される — 期待: 営業 太郎 ／ 実測: 営業 太郎 ✓"
+    }, {
+      "ts" : "17:48:38.146",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーに部署名「営業部」が表示される — 期待: 「営業部」を含む ／ 実測: 「営業部」を含む ✓"
+    }, {
+      "ts" : "17:48:38.261",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにナビゲーション「一覧・検索」が表示される — 期待: 一覧・検索 ／ 実測: 一覧・検索 ✓"
+    }, {
+      "ts" : "17:48:38.360",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにナビゲーション「新規登録」が表示される — 期待: 新規登録 ／ 実測: 新規登録 ✓"
+    }, {
+      "ts" : "17:48:38.466",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーに「ログアウト」が表示される — 期待: ログアウト ／ 実測: ログアウト ✓"
+    }, {
+      "ts" : "17:48:38.589",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーの下にメインビューポートがある — 期待: 対象の下端 ≦ 基準の上端 ／ 実測: 対象の下端 ≦ 基準の上端 ✓"
+    }, {
+      "ts" : "17:48:38.589",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】共通ヘッダーの下にメインビューポートがある（位置の実測） — 期待: 対象の下端 ≦ 基準の上端 ／ 実測: 対象下端 175.0px ／ 基準上端 222.0px ✓"
+    }, {
+      "ts" : "17:48:38.692",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】メインビューポートに案件情報一覧画面の内容（画面タイトル）が表示される — 期待: 案件情報一覧画面 ／ 実測: 案件情報一覧画面 ✓"
+    }, {
+      "ts" : "17:48:38.802",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ナビゲーション「会社マスタ」「ユーザマスタ」「部署マスタ」が表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "1-2",
+    "name" : "システム管理者の共通ヘッダーにマスタ管理のナビゲーションが表示される",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /projects（案件情報一覧画面）を開く",
+      "frame" : "No.1-2_01.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:42.720"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーのシステムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-2_02.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:42.843",
+      "highlight" : [ {
+        "x" : 24.0,
+        "y" : 86.0,
+        "w" : 261.828125,
+        "h" : 88.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにユーザ名「管理 花子」が表示される",
+      "expected" : "管理 花子",
+      "actual" : "管理 花子",
+      "status" : "pass",
+      "frame" : "No.1-2_03.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:42.977",
+      "highlight" : [ {
+        "x" : 1141.046875,
+        "y" : 92.25,
+        "w" : 54.953125,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "containsText",
+      "desc" : "共通ヘッダーに部署名「管理部」が表示される",
+      "expected" : "「管理部」を含む",
+      "actual" : "「管理部」を含む",
+      "status" : "pass",
+      "frame" : "No.1-2_04.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:43.073",
+      "highlight" : [ {
+        "x" : 1204.0,
+        "y" : 92.25,
+        "w" : 52.0,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにナビゲーション「一覧・検索」が表示される",
+      "expected" : "一覧・検索",
+      "actual" : "一覧・検索",
+      "status" : "pass",
+      "frame" : "No.1-2_05.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:43.171",
+      "highlight" : [ {
+        "x" : 604.265625,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにナビゲーション「新規登録」が表示される",
+      "expected" : "新規登録",
+      "actual" : "新規登録",
+      "status" : "pass",
+      "frame" : "No.1-2_06.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:43.274",
+      "highlight" : [ {
+        "x" : 704.265625,
+        "y" : 137.0,
+        "w" : 84.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにナビゲーション「会社マスタ」が表示される",
+      "expected" : "会社マスタ",
+      "actual" : "会社マスタ",
+      "status" : "pass",
+      "frame" : "No.1-2_07.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:43.377",
+      "highlight" : [ {
+        "x" : 813.265625,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにナビゲーション「ユーザマスタ」が表示される",
+      "expected" : "ユーザマスタ",
+      "actual" : "ユーザマスタ",
+      "status" : "pass",
+      "frame" : "No.1-2_08.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:43.476",
+      "highlight" : [ {
+        "x" : 913.265625,
+        "y" : 137.0,
+        "w" : 111.734375,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにナビゲーション「部署マスタ」が表示される",
+      "expected" : "部署マスタ",
+      "actual" : "部署マスタ",
+      "status" : "pass",
+      "frame" : "No.1-2_09.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:43.576",
+      "highlight" : [ {
+        "x" : 1027.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーに「ログアウト」が表示される",
+      "expected" : "ログアウト",
+      "actual" : "ログアウト",
+      "status" : "pass",
+      "frame" : "No.1-2_10.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:43.686",
+      "highlight" : [ {
+        "x" : 1150.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:48:39.650",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:48:41.451",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:41.451",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:41.451",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:41.509",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:41.510",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:41.511",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:41.511",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:41.511",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:41.512",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:41.512",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:41.512",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:41.512",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:41.512",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:41.512",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:41.513",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:41.513",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:41.513",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:41.514",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:41.514",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:41.514",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:48:41.514",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:41.524",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:41.672",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:41.672",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:41.676",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:42.071",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:42.071",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:42.071",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:42.071",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:42.071",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:42.073",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:42.073",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:42.073",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:42.073",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:42.073",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:42.073",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:42.074",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:42.074",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:42.074",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:42.074",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:42.075",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:42.075",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:48:42.075",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:42.084",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:42.181",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:42.182",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:42.184",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:42.720",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /projects（案件情報一覧画面）を開く"
+    }, {
+      "ts" : "17:48:42.911",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーのシステムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "17:48:43.026",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにユーザ名「管理 花子」が表示される — 期待: 管理 花子 ／ 実測: 管理 花子 ✓"
+    }, {
+      "ts" : "17:48:43.126",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーに部署名「管理部」が表示される — 期待: 「管理部」を含む ／ 実測: 「管理部」を含む ✓"
+    }, {
+      "ts" : "17:48:43.229",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにナビゲーション「一覧・検索」が表示される — 期待: 一覧・検索 ／ 実測: 一覧・検索 ✓"
+    }, {
+      "ts" : "17:48:43.330",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにナビゲーション「新規登録」が表示される — 期待: 新規登録 ／ 実測: 新規登録 ✓"
+    }, {
+      "ts" : "17:48:43.428",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにナビゲーション「会社マスタ」が表示される — 期待: 会社マスタ ／ 実測: 会社マスタ ✓"
+    }, {
+      "ts" : "17:48:43.528",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにナビゲーション「ユーザマスタ」が表示される — 期待: ユーザマスタ ／ 実測: ユーザマスタ ✓"
+    }, {
+      "ts" : "17:48:43.627",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにナビゲーション「部署マスタ」が表示される — 期待: 部署マスタ ／ 実測: 部署マスタ ✓"
+    }, {
+      "ts" : "17:48:43.748",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーに「ログアウト」が表示される — 期待: ログアウト ／ 実測: ログアウト ✓"
+    } ]
+  }, {
+    "no" : "1-3",
+    "name" : "メインビューポートに表示中の画面に対応するナビゲーションが強調表示される（案件情報管理）",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /projects を開く",
+      "frame" : "No.1-3_01.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:47.443"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "1. 「一覧・検索」が強調表示（active）されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-3_02.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:47.556",
+      "highlight" : [ {
+        "x" : 941.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "1. 「新規登録」は強調表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-3_03.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:47.650",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 933.0,
+        "y" : 120.0,
+        "w" : 200.0,
+        "h" : 54.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "2. /projects/new を開く",
+      "frame" : "No.1-3_04.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:48:48.311"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "2. 「新規登録」が強調表示（active）されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-3_05.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:48:48.408",
+      "highlight" : [ {
+        "x" : 1041.0,
+        "y" : 137.0,
+        "w" : 84.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "2. 「一覧・検索」は強調表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-3_06.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:48:48.491",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 933.0,
+        "y" : 120.0,
+        "w" : 200.0,
+        "h" : 54.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:48:44.358",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:48:46.183",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:46.183",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:46.184",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:46.243",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:46.243",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:46.244",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:46.244",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:46.244",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:46.245",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:46.245",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:46.245",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:46.246",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:46.246",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:46.246",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:46.247",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:46.247",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:46.247",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:46.247",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:46.247",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:46.247",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:46.248",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:46.255",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:46.404",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:46.404",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:46.406",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:46.805",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:46.805",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:46.805",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:46.805",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:46.805",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:46.806",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:46.806",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:46.806",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:46.806",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:46.806",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:46.806",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:46.807",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:46.807",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:46.807",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:46.808",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:46.808",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:46.808",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:46.808",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:46.815",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:46.911",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:46.911",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:46.912",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:47.443",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /projects を開く"
+    }, {
+      "ts" : "17:48:47.611",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】1. 「一覧・検索」が強調表示（active）されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "17:48:47.699",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】1. 「新規登録」は強調表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "17:48:47.707",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:47.707",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:47.708",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:47.709",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:47.709",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:47.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:47.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:47.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:47.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:47.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:47.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:47.711",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:47.724",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects/new"
+    }, {
+      "ts" : "17:48:48.311",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. /projects/new を開く"
+    }, {
+      "ts" : "17:48:48.460",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. 「新規登録」が強調表示（active）されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "17:48:48.548",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. 「一覧・検索」は強調表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "1-4",
+    "name" : "メインビューポートに表示中の画面に対応するナビゲーションが強調表示される（マスタ管理）",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /master/companies を開く",
+      "frame" : "No.1-4_01.jpg",
+      "url" : "/master/companies",
+      "ts" : "17:48:52.342"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "1. 「会社マスタ」が強調表示（active）されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-4_02.jpg",
+      "url" : "/master/companies",
+      "ts" : "17:48:52.445",
+      "highlight" : [ {
+        "x" : 813.265625,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "1. 「ユーザマスタ」「部署マスタ」は強調表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-4_03.jpg",
+      "url" : "/master/companies",
+      "ts" : "17:48:52.536",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 596.265625,
+        "y" : 120.0,
+        "w" : 200.0,
+        "h" : 54.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "2. /master/users を開く",
+      "frame" : "No.1-4_04.jpg",
+      "url" : "/master/users",
+      "ts" : "17:48:53.273"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "2. 「ユーザマスタ」が強調表示（active）されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-4_05.jpg",
+      "url" : "/master/users",
+      "ts" : "17:48:53.374",
+      "highlight" : [ {
+        "x" : 913.265625,
+        "y" : 137.0,
+        "w" : 111.734375,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "2. 「会社マスタ」「部署マスタ」は強調表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-4_06.jpg",
+      "url" : "/master/users",
+      "ts" : "17:48:53.465",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 596.265625,
+        "y" : 120.0,
+        "w" : 200.0,
+        "h" : 54.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "op",
+      "desc" : "3. /master/departments を開く",
+      "frame" : "No.1-4_07.jpg",
+      "url" : "/master/departments",
+      "ts" : "17:48:54.170"
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "3. 「部署マスタ」が強調表示（active）されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-4_08.jpg",
+      "url" : "/master/departments",
+      "ts" : "17:48:54.272",
+      "highlight" : [ {
+        "x" : 1027.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "3. 「会社マスタ」「ユーザマスタ」は強調表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-4_09.jpg",
+      "url" : "/master/departments",
+      "ts" : "17:48:54.364",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 596.265625,
+        "y" : 120.0,
+        "w" : 200.0,
+        "h" : 54.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:48:49.128",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:48:51.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:51.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:51.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:51.126",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:51.126",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:51.130",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:51.130",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:51.130",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:51.133",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:51.133",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:51.134",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:51.136",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:51.137",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:51.137",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:51.139",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:51.139",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:51.139",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:51.141",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:51.141",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:51.141",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:48:51.143",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:51.158",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:51.333",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:51.333",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:51.335",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:51.709",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:51.709",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:51.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:51.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:51.710",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:51.711",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:51.711",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:51.711",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:51.712",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:51.712",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:51.712",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:48:51.712",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:51.724",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/master/companies"
+    }, {
+      "ts" : "17:48:52.342",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /master/companies を開く"
+    }, {
+      "ts" : "17:48:52.497",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】1. 「会社マスタ」が強調表示（active）されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "17:48:52.600",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】1. 「ユーザマスタ」「部署マスタ」は強調表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "17:48:52.623",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:52.623",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:52.624",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:52.624",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:52.624",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:52.624",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:52.624",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:52.624",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:52.626",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:52.626",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:52.626",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:48:52.626",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:52.639",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/master/users"
+    }, {
+      "ts" : "17:48:53.273",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. /master/users を開く"
+    }, {
+      "ts" : "17:48:53.428",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. 「ユーザマスタ」が強調表示（active）されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "17:48:53.534",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. 「会社マスタ」「部署マスタ」は強調表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "17:48:53.544",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:53.544",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:53.544",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:53.544",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:53.544",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:53.545",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:53.545",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:53.545",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:48:53.546",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:53.546",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:53.546",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:48:53.546",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:53.560",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/master/departments"
+    }, {
+      "ts" : "17:48:54.169",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. /master/departments を開く"
+    }, {
+      "ts" : "17:48:54.326",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】3. 「部署マスタ」が強調表示（active）されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "17:48:54.416",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】3. 「会社マスタ」「ユーザマスタ」は強調表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "2-1",
+    "name" : "システムタイトルのクリックで案件情報一覧画面へ遷移する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /projects/new（案件情報登録画面）を開く",
+      "frame" : "No.2-1_01.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:48:58.247"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. 共通ヘッダーのシステムタイトル「営業情報管理システム」をクリックする（押下前・操作対象）",
+      "frame" : "No.2-1_02.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:48:58.348",
+      "highlight" : [ {
+        "x" : 24.0,
+        "y" : 86.0,
+        "w" : 261.828125,
+        "h" : 88.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. 共通ヘッダーのシステムタイトル「営業情報管理システム」をクリックする（押下後）",
+      "frame" : "No.2-1_03.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:58.967"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "/projects へ遷移する",
+      "expected" : "http://localhost:56735/projects",
+      "actual" : "http://localhost:56735/projects",
+      "status" : "pass",
+      "frame" : "No.2-1_04.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:59.031"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "画面タイトル「案件情報一覧画面」が表示される",
+      "expected" : "案件情報一覧画面",
+      "actual" : "案件情報一覧画面",
+      "status" : "pass",
+      "frame" : "No.2-1_05.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:59.124",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "共通ヘッダーの「一覧・検索」が強調表示（active）されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.2-1_06.jpg",
+      "url" : "/projects",
+      "ts" : "17:48:59.227",
+      "highlight" : [ {
+        "x" : 941.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:48:55.207",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:48:57.019",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:57.019",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:57.020",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:57.080",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:57.080",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:57.081",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:57.081",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:57.081",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:57.081",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:57.081",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:57.081",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:57.082",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:57.084",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:57.089",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:57.236",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:57.236",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:57.237",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:57.639",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:57.639",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:57.640",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:57.640",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:57.640",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:57.640",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:57.640",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:57.640",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:57.641",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:57.641",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:57.641",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:57.641",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:57.650",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects/new"
+    }, {
+      "ts" : "17:48:58.246",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /projects/new（案件情報登録画面）を開く"
+    }, {
+      "ts" : "17:48:58.307",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 共通ヘッダーのシステムタイトル「営業情報管理システム」をクリックする（押下前・操作対象）"
+    }, {
+      "ts" : "17:48:58.432",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:48:58.432",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:58.433",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:58.433",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:48:58.433",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:58.434",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:48:58.434",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:48:58.434",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:48:58.434",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:48:58.434",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:58.434",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:58.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:58.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:48:58.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:48:58.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:58.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:48:58.435",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:48:58.436",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:48:58.440",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:48:58.529",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:48:58.529",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:48:58.531",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:48:58.967",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 共通ヘッダーのシステムタイトル「営業情報管理システム」をクリックする（押下後）"
+    }, {
+      "ts" : "17:48:59.074",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】/projects へ遷移する — 期待: http://localhost:56735/projects ／ 実測: http://localhost:56735/projects ✓"
+    }, {
+      "ts" : "17:48:59.181",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面タイトル「案件情報一覧画面」が表示される — 期待: 案件情報一覧画面 ／ 実測: 案件情報一覧画面 ✓"
+    }, {
+      "ts" : "17:48:59.278",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーの「一覧・検索」が強調表示（active）されている — 期待: 表示 ／ 実測: 表示 ✓"
+    } ]
+  }, {
+    "no" : "2-2",
+    "name" : "「一覧・検索」「新規登録」のクリックで対応する画面へ遷移する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /projects を開く",
+      "frame" : "No.2-2_01.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:02.820"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. 共通ヘッダーの「新規登録」をクリックする（押下前・操作対象）",
+      "frame" : "No.2-2_02.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:02.952",
+      "highlight" : [ {
+        "x" : 1041.0,
+        "y" : 137.0,
+        "w" : 84.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. 共通ヘッダーの「新規登録」をクリックする（押下後）",
+      "frame" : "No.2-2_03.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:49:03.590"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "2. /projects/new へ遷移する",
+      "expected" : "http://localhost:56735/projects/new",
+      "actual" : "http://localhost:56735/projects/new",
+      "status" : "pass",
+      "frame" : "No.2-2_04.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:49:03.645"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "2. 画面タイトル「案件情報登録画面」が表示される",
+      "expected" : "案件情報登録画面",
+      "actual" : "案件情報登録画面",
+      "status" : "pass",
+      "frame" : "No.2-2_05.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:49:03.740",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "op",
+      "desc" : "3. 共通ヘッダーの「一覧・検索」をクリックする（押下前・操作対象）",
+      "frame" : "No.2-2_06.jpg",
+      "url" : "/projects/new",
+      "ts" : "17:49:03.845",
+      "highlight" : [ {
+        "x" : 941.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "op",
+      "desc" : "3. 共通ヘッダーの「一覧・検索」をクリックする（押下後）",
+      "frame" : "No.2-2_07.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:04.487"
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "3. /projects へ遷移する",
+      "expected" : "http://localhost:56735/projects",
+      "actual" : "http://localhost:56735/projects",
+      "status" : "pass",
+      "frame" : "No.2-2_08.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:04.547"
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "3. 画面タイトル「案件情報一覧画面」が表示される",
+      "expected" : "案件情報一覧画面",
+      "actual" : "案件情報一覧画面",
+      "status" : "pass",
+      "frame" : "No.2-2_09.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:04.653",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:48:59.757",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:49:01.555",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:01.555",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:01.556",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:01.614",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:49:01.614",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:01.615",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:01.615",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:49:01.615",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:01.616",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:01.616",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:01.616",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:01.616",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:01.616",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:01.616",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:01.617",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:01.617",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:01.617",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:01.617",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:01.617",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:01.617",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:49:01.618",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:01.627",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:49:01.782",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:49:01.782",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:49:01.783",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:49:02.174",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:49:02.174",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:02.175",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:02.175",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:49:02.175",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:02.175",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:02.175",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:02.175",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:02.176",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:02.176",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:02.176",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:02.176",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:02.176",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:02.176",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:02.177",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:02.177",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:02.177",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:49:02.177",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:02.184",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:49:02.288",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:49:02.288",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:49:02.291",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:49:02.820",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /projects を開く"
+    }, {
+      "ts" : "17:49:02.894",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 共通ヘッダーの「新規登録」をクリックする（押下前・操作対象）"
+    }, {
+      "ts" : "17:49:03.051",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:03.051",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:03.051",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:03.051",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:03.051",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:03.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:03.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:03.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:03.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:03.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:03.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:49:03.053",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:03.060",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects/new"
+    }, {
+      "ts" : "17:49:03.590",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 共通ヘッダーの「新規登録」をクリックする（押下後）"
+    }, {
+      "ts" : "17:49:03.692",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. /projects/new へ遷移する — 期待: http://localhost:56735/projects/new ／ 実測: http://localhost:56735/projects/new ✓"
+    }, {
+      "ts" : "17:49:03.794",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. 画面タイトル「案件情報登録画面」が表示される — 期待: 案件情報登録画面 ／ 実測: 案件情報登録画面 ✓"
+    }, {
+      "ts" : "17:49:03.804",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 共通ヘッダーの「一覧・検索」をクリックする（押下前・操作対象）"
+    }, {
+      "ts" : "17:49:03.934",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:49:03.934",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:03.935",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:03.935",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:49:03.935",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:03.936",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:03.936",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:03.936",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:03.936",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:03.937",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "17:49:03.938",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:03.944",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:49:04.045",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:49:04.045",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:49:04.046",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:49:04.487",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 共通ヘッダーの「一覧・検索」をクリックする（押下後）"
+    }, {
+      "ts" : "17:49:04.590",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】3. /projects へ遷移する — 期待: http://localhost:56735/projects ／ 実測: http://localhost:56735/projects ✓"
+    }, {
+      "ts" : "17:49:04.699",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】3. 画面タイトル「案件情報一覧画面」が表示される — 期待: 案件情報一覧画面 ／ 実測: 案件情報一覧画面 ✓"
+    } ]
+  }, {
+    "no" : "2-3",
+    "name" : "「会社マスタ」「ユーザマスタ」「部署マスタ」のクリックで対応する画面へ遷移する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /projects を開く",
+      "frame" : "No.2-3_01.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:08.395"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. 共通ヘッダーの「会社マスタ」をクリックする（押下前・操作対象）",
+      "frame" : "No.2-3_02.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:08.516",
+      "highlight" : [ {
+        "x" : 813.265625,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. 共通ヘッダーの「会社マスタ」をクリックする（押下後）",
+      "frame" : "No.2-3_03.jpg",
+      "url" : "/master/companies",
+      "ts" : "17:49:09.136"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "2. /master/companies へ遷移する",
+      "expected" : "http://localhost:56735/master/companies",
+      "actual" : "http://localhost:56735/master/companies",
+      "status" : "pass",
+      "frame" : "No.2-3_04.jpg",
+      "url" : "/master/companies",
+      "ts" : "17:49:09.195"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "2. 画面タイトル「会社マスタ管理画面」が表示される",
+      "expected" : "会社マスタ管理画面",
+      "actual" : "会社マスタ管理画面",
+      "status" : "pass",
+      "frame" : "No.2-3_05.jpg",
+      "url" : "/master/companies",
+      "ts" : "17:49:09.287",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "op",
+      "desc" : "3. 共通ヘッダーの「ユーザマスタ」をクリックする（押下前・操作対象）",
+      "frame" : "No.2-3_06.jpg",
+      "url" : "/master/companies",
+      "ts" : "17:49:09.401",
+      "highlight" : [ {
+        "x" : 913.265625,
+        "y" : 137.0,
+        "w" : 111.734375,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "op",
+      "desc" : "3. 共通ヘッダーの「ユーザマスタ」をクリックする（押下後）",
+      "frame" : "No.2-3_07.jpg",
+      "url" : "/master/users",
+      "ts" : "17:49:10.036"
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "3. /master/users へ遷移する",
+      "expected" : "http://localhost:56735/master/users",
+      "actual" : "http://localhost:56735/master/users",
+      "status" : "pass",
+      "frame" : "No.2-3_08.jpg",
+      "url" : "/master/users",
+      "ts" : "17:49:10.096"
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "3. 画面タイトル「ユーザマスタ管理画面」が表示される",
+      "expected" : "ユーザマスタ管理画面",
+      "actual" : "ユーザマスタ管理画面",
+      "status" : "pass",
+      "frame" : "No.2-3_09.jpg",
+      "url" : "/master/users",
+      "ts" : "17:49:10.187",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "op",
+      "desc" : "4. 共通ヘッダーの「部署マスタ」をクリックする（押下前・操作対象）",
+      "frame" : "No.2-3_10.jpg",
+      "url" : "/master/users",
+      "ts" : "17:49:10.307",
+      "highlight" : [ {
+        "x" : 1027.0,
+        "y" : 137.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 11,
+      "kind" : "op",
+      "desc" : "4. 共通ヘッダーの「部署マスタ」をクリックする（押下後）",
+      "frame" : "No.2-3_11.jpg",
+      "url" : "/master/departments",
+      "ts" : "17:49:10.940"
+    }, {
+      "seq" : 12,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "4. /master/departments へ遷移する",
+      "expected" : "http://localhost:56735/master/departments",
+      "actual" : "http://localhost:56735/master/departments",
+      "status" : "pass",
+      "frame" : "No.2-3_12.jpg",
+      "url" : "/master/departments",
+      "ts" : "17:49:10.994"
+    }, {
+      "seq" : 13,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "4. 画面タイトル「部署マスタ管理画面」が表示される",
+      "expected" : "部署マスタ管理画面",
+      "actual" : "部署マスタ管理画面",
+      "status" : "pass",
+      "frame" : "No.2-3_13.jpg",
+      "url" : "/master/departments",
+      "ts" : "17:49:11.085",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 14,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "いずれもエラー画面には遷移しない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.2-3_14.jpg",
+      "url" : "/master/departments",
+      "ts" : "17:49:11.164",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:49:05.323",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:49:07.152",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:07.152",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:07.153",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:07.210",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:49:07.210",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:07.210",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:07.211",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:49:07.211",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:07.211",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:07.211",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:07.211",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:07.212",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:07.212",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:07.212",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:07.212",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:07.212",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:07.212",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:07.213",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:07.213",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:07.213",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:49:07.213",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:07.222",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:49:07.366",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:49:07.367",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:49:07.368",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:49:07.762",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:49:07.762",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:07.763",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:07.763",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:49:07.763",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:07.764",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:07.764",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:07.764",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:07.765",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:07.765",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:07.765",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:07.765",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:07.766",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:07.766",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:07.766",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:07.766",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:07.766",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:49:07.766",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:07.773",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:49:07.864",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "17:49:07.865",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "17:49:07.868",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:49:08.395",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /projects を開く"
+    }, {
+      "ts" : "17:49:08.459",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 共通ヘッダーの「会社マスタ」をクリックする（押下前・操作対象）"
+    }, {
+      "ts" : "17:49:08.602",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:08.602",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:08.602",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:08.603",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:08.603",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:08.604",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:08.604",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:08.604",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:08.604",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:08.604",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:08.604",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:49:08.605",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:08.612",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/master/companies"
+    }, {
+      "ts" : "17:49:09.136",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 共通ヘッダーの「会社マスタ」をクリックする（押下後）"
+    }, {
+      "ts" : "17:49:09.241",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. /master/companies へ遷移する — 期待: http://localhost:56735/master/companies ／ 実測: http://localhost:56735/master/companies ✓"
+    }, {
+      "ts" : "17:49:09.345",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. 画面タイトル「会社マスタ管理画面」が表示される — 期待: 会社マスタ管理画面 ／ 実測: 会社マスタ管理画面 ✓"
+    }, {
+      "ts" : "17:49:09.355",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 共通ヘッダーの「ユーザマスタ」をクリックする（押下前・操作対象）"
+    }, {
+      "ts" : "17:49:09.485",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:49:09.485",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:09.486",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:09.486",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:09.486",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:09.486",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:09.486",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:09.486",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:09.487",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:09.487",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:09.487",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:49:09.487",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:09.494",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/master/users"
+    }, {
+      "ts" : "17:49:10.036",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 共通ヘッダーの「ユーザマスタ」をクリックする（押下後）"
+    }, {
+      "ts" : "17:49:10.142",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】3. /master/users へ遷移する — 期待: http://localhost:56735/master/users ／ 実測: http://localhost:56735/master/users ✓"
+    }, {
+      "ts" : "17:49:10.246",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】3. 画面タイトル「ユーザマスタ管理画面」が表示される — 期待: ユーザマスタ管理画面 ／ 実測: ユーザマスタ管理画面 ✓"
+    }, {
+      "ts" : "17:49:10.256",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 共通ヘッダーの「部署マスタ」をクリックする（押下前・操作対象）"
+    }, {
+      "ts" : "17:49:10.401",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:49:10.401",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:10.402",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:10.402",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:10.402",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:10.402",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:10.402",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:10.402",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0002(String)"
+    }, {
+      "ts" : "17:49:10.403",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:10.403",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:10.403",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 3(Integer)"
+    }, {
+      "ts" : "17:49:10.403",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:10.409",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/master/departments"
+    }, {
+      "ts" : "17:49:10.940",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 共通ヘッダーの「部署マスタ」をクリックする（押下後）"
+    }, {
+      "ts" : "17:49:11.039",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】4. /master/departments へ遷移する — 期待: http://localhost:56735/master/departments ／ 実測: http://localhost:56735/master/departments ✓"
+    }, {
+      "ts" : "17:49:11.126",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】4. 画面タイトル「部署マスタ管理画面」が表示される — 期待: 部署マスタ管理画面 ／ 実測: 部署マスタ管理画面 ✓"
+    }, {
+      "ts" : "17:49:11.218",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】いずれもエラー画面には遷移しない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "3-1",
+    "name" : "ユーザマスタの部署IDが部署マスタに登録されていない場合、エラー画面に【サーバー内部エラー】が表示される",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.3-1_01.jpg",
+      "url" : "/",
+      "ts" : "17:49:12.843"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0009 を入力する",
+      "frame" : "No.3-1_02.jpg",
+      "url" : "/",
+      "ts" : "17:49:13.470",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. パスワードに該当ユーザのパスワードを入力する",
+      "frame" : "No.3-1_03.jpg",
+      "url" : "/",
+      "ts" : "17:49:14.064",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.3-1_04.jpg",
+      "url" : "/",
+      "ts" : "17:49:14.148",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下後）",
+      "frame" : "No.3-1_05.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:14.827"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラータイトル「An Error Occurred」が表示される",
+      "expected" : "An Error Occurred",
+      "actual" : "An Error Occurred",
+      "status" : "pass",
+      "frame" : "No.3-1_06.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:14.913",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 390.34375,
+        "w" : 400.0,
+        "h" : 24.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "エラー内容「エラーが発生しました。」が表示される",
+      "expected" : "エラーが発生しました。",
+      "actual" : "エラーが発生しました。",
+      "status" : "pass",
+      "frame" : "No.3-1_07.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:14.992",
+      "highlight" : [ {
+        "x" : 440.0,
+        "y" : 428.34375,
+        "w" : 400.0,
+        "h" : 23.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "共通ヘッダーは表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.3-1_08.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:15.065",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 400.0,
+        "y" : 313.84375,
+        "w" : 480.0,
+        "h" : 232.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "案件情報一覧画面の識別要素（画面タイトル「案件情報一覧画面」）が表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.3-1_09.jpg",
+      "url" : "/projects",
+      "ts" : "17:49:15.136",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 400.0,
+        "y" : 313.84375,
+        "w" : 480.0,
+        "h" : 232.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "17:49:12.123",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/"
+    }, {
+      "ts" : "17:49:12.843",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "17:49:13.426",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0009 を入力する"
+    }, {
+      "ts" : "17:49:14.026",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワードに該当ユーザのパスワードを入力する"
+    }, {
+      "ts" : "17:49:14.113",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "17:49:14.235",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:14.236",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0009(String)"
+    }, {
+      "ts" : "17:49:14.236",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:14.294",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "17:49:14.294",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:14.294",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 4"
+    }, {
+      "ts" : "17:49:14.294",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "17:49:14.295",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:14.295",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "17:49:14.295",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "17:49:14.295",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "17:49:14.296",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "17:49:14.296",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:14.296",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0009(String)"
+    }, {
+      "ts" : "17:49:14.296",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:14.296",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "17:49:14.296",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0009(String)"
+    }, {
+      "ts" : "17:49:14.297",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "17:49:14.297",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "17:49:14.297",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 999(Integer)"
+    }, {
+      "ts" : "17:49:14.297",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "17:49:14.300",
+      "src" : "app",
+      "level" : "ERROR",
+      "logger" : "[/].[dispatcherServlet]",
+      "message" : "Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: java.lang.IllegalStateException: department master not found for the logged-in user] with root cause"
+    }, {
+      "ts" : "17:49:14.307",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:56735/projects"
+    }, {
+      "ts" : "17:49:14.308",
+      "src" : "browser",
+      "level" : "error",
+      "logger" : "",
+      "message" : "Failed to load resource: the server responded with a status of 500 ()"
+    }, {
+      "ts" : "17:49:14.827",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "17:49:14.960",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラータイトル「An Error Occurred」が表示される — 期待: An Error Occurred ／ 実測: An Error Occurred ✓"
+    }, {
+      "ts" : "17:49:15.040",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】エラー内容「エラーが発生しました。」が表示される — 期待: エラーが発生しました。 ／ 実測: エラーが発生しました。 ✓"
+    }, {
+      "ts" : "17:49:15.110",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーは表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "17:49:15.178",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】案件情報一覧画面の識別要素（画面タイトル「案件情報一覧画面」）が表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  } ]
+}

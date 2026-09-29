@@ -1,0 +1,5 @@
+﻿編集属性,ユーザID,ユーザ名,メールアドレス,部署ID,ロール,パスワード
+0,SM0002,管理 花子,sm0002@example.com,3,9,
+2,SM0001,営業 太郎（更新）,sm0001@example.com,1,0,
+3,SM0003,開発 次郎,sm0003@example.com,2,0,
+1,SM0010,新規 一郎,sm0010@example.com,1,0,Passw0rd!
