@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system_server.ai_demo.database.mapper.ProjectsMapper">
+
+    <sql id="allColumns">
+        management_code, title, status, client_name, commercial_flow, summary, process,
+        start_date, end_date, skill, headcount, remaining_count, bp_recruitment,
+        bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note,
+        created_by, created_department, created_at, updated_by, updated_department, updated_at
+    </sql>
+
+    <select id="search"
+            resultType="com.system_server.ai_demo.database.entity.ProjectsEntity">
+        SELECT <include refid="allColumns"/>
+        FROM projects
+        <where>
+            <!-- キーワード: 選択された対象列のいずれかに部分一致（対象列間は OR）。列はホワイトリスト。 -->
+            <trim prefix="(" suffix=")" prefixOverrides="OR ">
+                <if test="keyword != null and keyword != ''">
+                    <if test="keywordTargets != null and keywordTargets.contains('title')">
+                        OR title LIKE '%' || #{keyword} || '%'
+                    </if>
+                    <if test="keywordTargets != null and keywordTargets.contains('skill')">
+                        OR skill LIKE '%' || #{keyword} || '%'
+                    </if>
+                    <if test="keywordTargets != null and keywordTargets.contains('commercialFlow')">
+                        OR commercial_flow LIKE '%' || #{keyword} || '%'
+                    </if>
+                    <if test="keywordTargets != null and keywordTargets.contains('workLocation')">
+                        OR work_location LIKE '%' || #{keyword} || '%'
+                    </if>
+                    <if test="keywordTargets != null and keywordTargets.contains('summary')">
+                        OR summary LIKE '%' || #{keyword} || '%'
+                    </if>
+                    <if test="keywordTargets != null and keywordTargets.contains('note')">
+                        OR note LIKE '%' || #{keyword} || '%'
+                    </if>
+                </if>
+            </trim>
+            <if test="statuses != null and !statuses.isEmpty()">
+                AND status IN
+                <foreach item="status" collection="statuses" open="(" separator="," close=")">
+                    #{status}
+                </foreach>
+            </if>
+            <if test="startDateFrom != null">AND start_date &gt;= #{startDateFrom}</if>
+            <if test="startDateTo != null">AND start_date &lt;= #{startDateTo}</if>
+            <if test="endDateFrom != null">AND end_date &gt;= #{endDateFrom}</if>
+            <if test="endDateTo != null">AND end_date &lt;= #{endDateTo}</if>
+            <if test="registeredDateFrom != null">AND created_at::date &gt;= #{registeredDateFrom}</if>
+            <if test="registeredDateTo != null">AND created_at::date &lt;= #{registeredDateTo}</if>
+            <if test="registrant != null and registrant != ''">
+                AND created_by LIKE '%' || #{registrant} || '%'
+            </if>
+            <if test="registrantDepartment != null and registrantDepartment != ''">
+                AND created_department LIKE '%' || #{registrantDepartment} || '%'
+            </if>
+            <if test="client != null and client != ''">
+                AND client_name LIKE '%' || #{client} || '%'
+            </if>
+            <if test="bpOnly">AND bp_recruitment = #{bpRequiredCode}</if>
+        </where>
+        ORDER BY management_code DESC
+    </select>
+
+    <select id="findByManagementCode"
+            resultType="com.system_server.ai_demo.database.entity.ProjectsEntity">
+        SELECT <include refid="allColumns"/>
+        FROM projects
+        WHERE management_code = #{managementCode}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="managementCode"
+            keyColumn="management_code">
+        INSERT INTO projects (title, status, client_name, commercial_flow, summary, process,
+            start_date, end_date, skill, headcount, remaining_count, bp_recruitment,
+            bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note,
+            created_by, created_department, created_at, updated_by, updated_department, updated_at)
+        VALUES (#{title}, #{status}, #{clientName}, #{commercialFlow}, #{summary}, #{process},
+            #{startDate}, #{endDate}, #{skill}, #{headcount}, #{remainingCount}, #{bpRecruitment},
+            #{bpRecruitmentDetail}, #{workLocation}, #{estimatedUnitPrice}, #{contractType},
+            #{note}, #{createdBy}, #{createdDepartment}, #{createdAt}, #{updatedBy},
+            #{updatedDepartment}, #{updatedAt})
+    </insert>
+
+    <update id="update">
+        UPDATE projects
+        SET title = #{project.title},
+            status = #{project.status},
+            client_name = #{project.clientName},
+            commercial_flow = #{project.commercialFlow},
+            summary = #{project.summary},
+            process = #{project.process},
+            start_date = #{project.startDate},
+            end_date = #{project.endDate},
+            skill = #{project.skill},
+            headcount = #{project.headcount},
+            remaining_count = #{project.remainingCount},
+            bp_recruitment = #{project.bpRecruitment},
+            bp_recruitment_detail = #{project.bpRecruitmentDetail},
+            work_location = #{project.workLocation},
+            estimated_unit_price = #{project.estimatedUnitPrice},
+            contract_type = #{project.contractType},
+            note = #{project.note},
+            updated_by = #{project.updatedBy},
+            updated_department = #{project.updatedDepartment},
+            updated_at = #{project.updatedAt}
+        WHERE management_code = #{project.managementCode}
+          AND updated_at = #{loadedUpdatedAt}
+    </update>
+</mapper>

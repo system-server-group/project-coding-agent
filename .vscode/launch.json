@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-AiDemoApplication<ai-demo-ai-project-integrations>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.system_server.ai_demo.AiDemoApplication",
+      "projectName": "ai-demo-ai-project-integrations",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-AiDemoApplication<ai-project-integrations>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.system_server.ai_demo.AiDemoApplication",
+      "projectName": "ai-project-integrations",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

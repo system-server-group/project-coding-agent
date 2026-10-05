@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ユーザマスタ管理画面</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="mockup.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<header class="app-header">
+  <div style="display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:8px;">
+    <a class="app-title" href="list.html">営業情報管理システム</a>
+  </div>
+  <div style="flex:1 1 auto;"></div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:6px;padding-top:4px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#444;">
+      <span class="user-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="currentColor"/></svg></span>
+      <span style="font-weight:600;color:#222;">三郎太郎</span><span style="color:#666;">／SSV3部</span>
+    </div>
+    <nav style="display:flex;align-items:flex-end;">
+      <div class="nav-group"><div class="nav-group-label">案件情報</div><div class="nav-group-btns">
+        <a class="nav-btn" href="list.html">一覧・検索</a>
+        <a class="nav-btn" href="register.html">新規登録</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">マスタ管理</div><div class="nav-group-btns">
+        <a class="nav-btn" href="master-company.html">会社マスタ</a>
+        <a class="nav-btn active" href="master-user.html">ユーザマスタ</a>
+        <a class="nav-btn" href="master-dept.html">部署マスタ</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">その他</div><div class="nav-group-btns">
+        <a class="nav-btn" href="login.html">ログアウト</a>
+      </div></div>
+    </nav>
+  </div>
+</header>
+  <div class="app-content">
+    <div class="screen-title">ユーザマスタ管理画面</div>
+    <div style="padding:16px 28px 20px;">
+      
+      <div class="table-toolbar end">
+        <button class="btn btn-soft btn-sm">⬆&nbsp;CSVアップロード</button>
+        <button class="btn btn-primary btn-sm">⬇&nbsp;CSVダウンロード</button>
+      </div>
+      <div class="pager"><span style="justify-self:start;">取得データ件数: 40件</span><div class="pager-nums"><button class="pg-btn" disabled>«</button><button class="pg-btn" disabled>‹</button><button class="pg-btn active">1</button><button class="pg-btn">2</button><button class="pg-btn" >›</button><button class="pg-btn" >»</button></div><div class="pager-ctl"><label><span>表示件数</span><select><option >10件</option><option >20件</option><option selected>30件</option><option >全て</option></select></label><label><span>表示ページ</span><select style="min-width:60px;"><option selected>1 / 2</option><option >2 / 2</option></select></label></div></div>
+      <div class="mk-tablewrap no-pin"><table class="mk-table no-pin" style="width:100%;"><thead><tr><th style="width:20.0000%;">ユーザID<span class="mk-sort">▲</span></th><th style="width:20.0000%;">ユーザ名</th><th style="width:20.0000%;">メールアドレス</th><th style="width:20.0000%;">部署ID</th><th style="width:20.0000%;">ロール</th></tr></thead><tbody><tr><td style="width:20.0000%;">SM0231</td><td style="width:20.0000%;">三郎太郎</td><td style="width:20.0000%;">taro.saburo@system-server.com</td><td style="width:20.0000%;">4</td><td style="width:20.0000%;"><span class="role-badge role-admin">9: システム管理者</span></td></tr><tr><td style="width:20.0000%;">SM0245</td><td style="width:20.0000%;">営業太郎</td><td style="width:20.0000%;">taro.eigyo@system-server.com</td><td style="width:20.0000%;">1</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0246</td><td style="width:20.0000%;">営業次郎</td><td style="width:20.0000%;">jiro.eigyo@system-server.com</td><td style="width:20.0000%;">1</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0312</td><td style="width:20.0000%;">山田花子</td><td style="width:20.0000%;">hanako.yamada@system-server.com</td><td style="width:20.0000%;">5</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0398</td><td style="width:20.0000%;">佐藤健</td><td style="width:20.0000%;">ken.sato@system-server.com</td><td style="width:20.0000%;">6</td><td style="width:20.0000%;"><span class="role-badge role-admin">9: システム管理者</span></td></tr><tr><td style="width:20.0000%;">SM0410</td><td style="width:20.0000%;">高橋美咲</td><td style="width:20.0000%;">misaki.takahashi@system-server.com</td><td style="width:20.0000%;">4</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0502</td><td style="width:20.0000%;">中村大輔</td><td style="width:20.0000%;">daisuke.nakamura@system-server.com</td><td style="width:20.0000%;">5</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0588</td><td style="width:20.0000%;">小林直樹</td><td style="width:20.0000%;">naoki.kobayashi@system-server.com</td><td style="width:20.0000%;">1</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0612</td><td style="width:20.0000%;">吉田玲奈</td><td style="width:20.0000%;">rena.yoshida@system-server.com</td><td style="width:20.0000%;">6</td><td style="width:20.0000%;"><span class="role-badge role-admin">9: システム管理者</span></td></tr><tr><td style="width:20.0000%;">SM0704</td><td style="width:20.0000%;">伊藤隼人</td><td style="width:20.0000%;">hayato.ito@system-server.com</td><td style="width:20.0000%;">4</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0810</td><td style="width:20.0000%;">加藤沙織</td><td style="width:20.0000%;">saori.kato@system-server.com</td><td style="width:20.0000%;">5</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM0915</td><td style="width:20.0000%;">森田浩二</td><td style="width:20.0000%;">koji.morita@system-server.com</td><td style="width:20.0000%;">1</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1023</td><td style="width:20.0000%;">渡辺美穂</td><td style="width:20.0000%;">miho.watanabe@system-server.com</td><td style="width:20.0000%;">2</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1078</td><td style="width:20.0000%;">田中翔太</td><td style="width:20.0000%;">shota.tanaka@system-server.com</td><td style="width:20.0000%;">7</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1124</td><td style="width:20.0000%;">斎藤由美</td><td style="width:20.0000%;">yumi.saito@system-server.com</td><td style="width:20.0000%;">8</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1190</td><td style="width:20.0000%;">松本大樹</td><td style="width:20.0000%;">daiki.matsumoto@system-server.com</td><td style="width:20.0000%;">13</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1245</td><td style="width:20.0000%;">井上彩香</td><td style="width:20.0000%;">ayaka.inoue@system-server.com</td><td style="width:20.0000%;">9</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1302</td><td style="width:20.0000%;">木村拓也</td><td style="width:20.0000%;">takuya.kimura@system-server.com</td><td style="width:20.0000%;">10</td><td style="width:20.0000%;"><span class="role-badge role-admin">9: システム管理者</span></td></tr><tr><td style="width:20.0000%;">SM1356</td><td style="width:20.0000%;">林真央</td><td style="width:20.0000%;">mao.hayashi@system-server.com</td><td style="width:20.0000%;">11</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1410</td><td style="width:20.0000%;">清水健太</td><td style="width:20.0000%;">kenta.shimizu@system-server.com</td><td style="width:20.0000%;">15</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1488</td><td style="width:20.0000%;">山口愛</td><td style="width:20.0000%;">ai.yamaguchi@system-server.com</td><td style="width:20.0000%;">16</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1521</td><td style="width:20.0000%;">阿部諒</td><td style="width:20.0000%;">ryo.abe@system-server.com</td><td style="width:20.0000%;">17</td><td style="width:20.0000%;"><span class="role-badge role-admin">9: システム管理者</span></td></tr><tr><td style="width:20.0000%;">SM1599</td><td style="width:20.0000%;">森裕子</td><td style="width:20.0000%;">yuko.mori@system-server.com</td><td style="width:20.0000%;">12</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1634</td><td style="width:20.0000%;">池田翔</td><td style="width:20.0000%;">sho.ikeda@system-server.com</td><td style="width:20.0000%;">18</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1702</td><td style="width:20.0000%;">橋本さくら</td><td style="width:20.0000%;">sakura.hashimoto@system-server.com</td><td style="width:20.0000%;">19</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1755</td><td style="width:20.0000%;">山下智也</td><td style="width:20.0000%;">tomoya.yamashita@system-server.com</td><td style="width:20.0000%;">20</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1810</td><td style="width:20.0000%;">石井麻衣</td><td style="width:20.0000%;">mai.ishii@system-server.com</td><td style="width:20.0000%;">21</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1888</td><td style="width:20.0000%;">中島亮介</td><td style="width:20.0000%;">ryosuke.nakajima@system-server.com</td><td style="width:20.0000%;">5</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1921</td><td style="width:20.0000%;">前田千夏</td><td style="width:20.0000%;">chinatsu.maeda@system-server.com</td><td style="width:20.0000%;">6</td><td style="width:20.0000%;"><span class="role-badge role-user">0: 一般ユーザ</span></td></tr><tr><td style="width:20.0000%;">SM1990</td><td style="width:20.0000%;">藤田健一</td><td style="width:20.0000%;">kenichi.fujita@system-server.com</td><td style="width:20.0000%;">22</td><td style="width:20.0000%;"><span class="role-badge role-admin">9: システム管理者</span></td></tr></tbody></table></div>
+      <div class="pager"><span style="justify-self:start;">取得データ件数: 40件</span><div class="pager-nums"><button class="pg-btn" disabled>«</button><button class="pg-btn" disabled>‹</button><button class="pg-btn active">1</button><button class="pg-btn">2</button><button class="pg-btn" >›</button><button class="pg-btn" >»</button></div><div class="pager-ctl"><label><span>表示件数</span><select><option >10件</option><option >20件</option><option selected>30件</option><option >全て</option></select></label><label><span>表示ページ</span><select style="min-width:60px;"><option selected>1 / 2</option><option >2 / 2</option></select></label></div></div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;"><div class="info-card"><span class="icon">i</span><div style="flex:1;min-width:0;"><div class="title">CSVアップロードの編集属性列について</div><p class="body">編集属性は0~3で設定します。各設定値は以下の通りとなります。
+0: 何もしない
+1: ユーザの追加
+2: ユーザの更新
+3: ユーザの削除
+またユーザの追加時、パスワードは必須項目になります。</p></div></div><div class="info-card"><span class="icon">i</span><div style="flex:1;min-width:0;"><div class="title">CSVファイルのロール列について</div><p class="body">ロールは0または9で設定します。各設定値は以下の通りになります。
+0: 一般ユーザ
+9: システム管理者</p></div></div></div>
+    </div>
+  </div>
+</div>
+<script src="mockup.js"></script>
+</body>
+</html>
