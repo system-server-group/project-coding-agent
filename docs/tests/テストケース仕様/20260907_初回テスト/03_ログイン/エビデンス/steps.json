@@ -1,0 +1,4384 @@
+{
+  "version" : 1,
+  "feature" : "03_ログイン",
+  "target" : "20260907_初回テスト",
+  "cases" : [ {
+    "no" : "4-10",
+    "name" : "【クライアント検証】入力値チェック違反後に再度ログインを実施すると、既存のエラーメッセージが削除されてから再チェックされる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-10_01.jpg",
+      "url" : "/",
+      "ts" : "14:08:33.844"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "1. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-10_02.jpg",
+      "url" : "/",
+      "ts" : "14:08:33.960",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 533.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "1. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下後）",
+      "frame" : "No.4-10_03.jpg",
+      "url" : "/",
+      "ts" : "14:08:34.555"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "2. ユーザID欄の直下に「ユーザIDを入力してください。」が表示される",
+      "expected" : "ユーザIDを入力してください。",
+      "actual" : "ユーザIDを入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-10_04.jpg",
+      "url" : "/",
+      "ts" : "14:08:34.634",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 409.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "2. パスワード欄の直下に「パスワードを入力してください。」が表示される",
+      "expected" : "パスワードを入力してください。",
+      "actual" : "パスワードを入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-10_05.jpg",
+      "url" : "/",
+      "ts" : "14:08:34.720",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 509.390625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "op",
+      "desc" : "3. ユーザID に SM0001 を入力する",
+      "frame" : "No.4-10_06.jpg",
+      "url" : "/",
+      "ts" : "14:08:35.315",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 372.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "ユーザID欄の直下にエラーメッセージが表示されている",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-10_07.jpg",
+      "url" : "/",
+      "ts" : "14:08:35.382",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 410.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "op",
+      "desc" : "3. パスワードは空のまま「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-10_08.jpg",
+      "url" : "/",
+      "ts" : "14:08:35.465",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 555.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "op",
+      "desc" : "3. パスワードは空のまま「ログイン」を押下する（押下後）",
+      "frame" : "No.4-10_09.jpg",
+      "url" : "/",
+      "ts" : "14:08:36.101",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 499.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "verify",
+      "verify" : "cleared",
+      "desc" : "ユーザID欄の直下のエラーメッセージが消える",
+      "expected" : "消去（0件）",
+      "actual" : "消去（0件）",
+      "status" : "pass",
+      "frame" : "No.4-10_10.jpg",
+      "url" : "/",
+      "ts" : "14:08:36.168",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 410.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "消去（0件）を確認（元の表示位置）"
+      } ]
+    }, {
+      "seq" : 11,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "パスワード欄の直下の「パスワードを入力してください。」だけが表示される",
+      "expected" : "パスワードを入力してください。",
+      "actual" : "パスワードを入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-10_11.jpg",
+      "url" : "/",
+      "ts" : "14:08:36.273",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 499.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:08:33.067",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:08:33.844",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:08:33.906",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:34.555",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:08:34.688",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. ユーザID欄の直下に「ユーザIDを入力してください。」が表示される — 期待: ユーザIDを入力してください。 ／ 実測: ユーザIDを入力してください。 ✓"
+    }, {
+      "ts" : "14:08:34.771",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. パスワード欄の直下に「パスワードを入力してください。」が表示される — 期待: パスワードを入力してください。 ／ 実測: パスワードを入力してください。 ✓"
+    }, {
+      "ts" : "14:08:35.286",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. ユーザID に SM0001 を入力する"
+    }, {
+      "ts" : "14:08:35.420",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下にエラーメッセージが表示されている — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:08:35.438",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. パスワードは空のまま「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:36.052",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. パスワードは空のまま「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:08:36.225",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下のエラーメッセージが消える — 期待: 消去（0件） ／ 実測: 消去（0件） ✓"
+    }, {
+      "ts" : "14:08:36.323",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下の「パスワードを入力してください。」だけが表示される — 期待: パスワードを入力してください。 ／ 実測: パスワードを入力してください。 ✓"
+    } ]
+  }, {
+    "no" : "1-1",
+    "name" : "ログイン画面の初期表示（画面項目・プレースホルダー・マスク表示・失敗メッセージの非表示）",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.1-1_01.jpg",
+      "url" : "/",
+      "ts" : "14:08:37.620"
+    }, {
+      "seq" : 2,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "ログイン画面が単独の画面として表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-1_02.jpg",
+      "url" : "/",
+      "ts" : "14:08:37.712",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 252.59375,
+        "w" : 440.0,
+        "h" : 354.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "システムタイトルに「営業情報管理システム」が表示される",
+      "expected" : "営業情報管理システム",
+      "actual" : "営業情報管理システム",
+      "status" : "pass",
+      "frame" : "No.1-1_03.jpg",
+      "url" : "/",
+      "ts" : "14:08:37.783",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 292.59375,
+        "w" : 352.0,
+        "h" : 28.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ユーザID欄のラベル「ユーザID」が表示される",
+      "expected" : "ユーザID",
+      "actual" : "ユーザID",
+      "status" : "pass",
+      "frame" : "No.1-1_04.jpg",
+      "url" : "/",
+      "ts" : "14:08:37.845",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 368.390625,
+        "w" : 352.0,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "ユーザID欄にプレースホルダー「SM0000」が表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-1_05.jpg",
+      "url" : "/",
+      "ts" : "14:08:37.915",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 392.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "パスワード欄のラベル「パスワード」が表示される",
+      "expected" : "パスワード",
+      "actual" : "パスワード",
+      "status" : "pass",
+      "frame" : "No.1-1_06.jpg",
+      "url" : "/",
+      "ts" : "14:08:37.983",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 446.890625,
+        "w" : 352.0,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "パスワード表示トグルが表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-1_07.jpg",
+      "url" : "/",
+      "ts" : "14:08:38.085",
+      "highlight" : [ {
+        "x" : 771.0,
+        "y" : 471.390625,
+        "w" : 45.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ログインボタン「ログイン」が表示される",
+      "expected" : "ログイン",
+      "actual" : "ログイン",
+      "status" : "pass",
+      "frame" : "No.1-1_08.jpg",
+      "url" : "/",
+      "ts" : "14:08:38.166",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 533.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン失敗メッセージ「ユーザIDかパスワードが間違っています。」は表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-1_09.jpg",
+      "url" : "/",
+      "ts" : "14:08:38.228",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 252.59375,
+        "w" : 440.0,
+        "h" : 354.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ユーザID欄・パスワード欄の直下に入力値チェックのエラーメッセージは表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-1_10.jpg",
+      "url" : "/",
+      "ts" : "14:08:38.305",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 252.59375,
+        "w" : 440.0,
+        "h" : 354.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 11,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "共通ヘッダー（ナビゲーション・ユーザ名／部署名・ログアウト）は表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.1-1_11.jpg",
+      "url" : "/",
+      "ts" : "14:08:38.385",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 252.59375,
+        "w" : 440.0,
+        "h" : 354.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:08:36.843",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:08:37.620",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:08:37.754",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン画面が単独の画面として表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:08:37.819",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】システムタイトルに「営業情報管理システム」が表示される — 期待: 営業情報管理システム ／ 実測: 営業情報管理システム ✓"
+    }, {
+      "ts" : "14:08:37.886",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄のラベル「ユーザID」が表示される — 期待: ユーザID ／ 実測: ユーザID ✓"
+    }, {
+      "ts" : "14:08:37.954",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄にプレースホルダー「SM0000」が表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:08:38.045",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄のラベル「パスワード」が表示される — 期待: パスワード ／ 実測: パスワード ✓"
+    }, {
+      "ts" : "14:08:38.136",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード表示トグルが表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:08:38.204",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログインボタン「ログイン」が表示される — 期待: ログイン ／ 実測: ログイン ✓"
+    }, {
+      "ts" : "14:08:38.274",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージ「ユーザIDかパスワードが間違っています。」は表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:08:38.360",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄・パスワード欄の直下に入力値チェックのエラーメッセージは表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:08:38.438",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダー（ナビゲーション・ユーザ名／部署名・ログアウト）は表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "1-2",
+    "name" : "ログイン画面の表示時に、保存されていた案件情報一覧の検索条件が初期化される",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. /projects を開く",
+      "frame" : "No.1-2_01.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:41.892"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "1. 「案件検索」アコーディオンを開く",
+      "frame" : "No.1-2_02.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:42.552",
+      "highlight" : [ {
+        "x" : 29.0,
+        "y" : 278.5,
+        "w" : 1222.0,
+        "h" : 295.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. 「検索キーワード」に「保存確認」を入力する",
+      "frame" : "No.1-2_03.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:43.209",
+      "highlight" : [ {
+        "x" : 159.0,
+        "y" : 286.5,
+        "w" : 220.0,
+        "h" : 31.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "2. ステータスの「クローズ」にチェックを入れる",
+      "frame" : "No.1-2_04.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:43.856",
+      "highlight" : [ {
+        "x" : 328.171875,
+        "y" : 395.0,
+        "w" : 14.0,
+        "h" : 14.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "value",
+      "desc" : "2. 「検索キーワード」に「保存確認」が入力された状態になる",
+      "expected" : "保存確認",
+      "actual" : "保存確認",
+      "status" : "pass",
+      "frame" : "No.1-2_05.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:43.953",
+      "highlight" : [ {
+        "x" : 159.0,
+        "y" : 286.5,
+        "w" : 220.0,
+        "h" : 31.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "checked",
+      "desc" : "2. ステータスの「クローズ」にチェックが付いた状態になる",
+      "expected" : "チェックON",
+      "actual" : "チェックON",
+      "status" : "pass",
+      "frame" : "No.1-2_06.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:44.049",
+      "highlight" : [ {
+        "x" : 328.171875,
+        "y" : 395.0,
+        "w" : 14.0,
+        "h" : 14.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "op",
+      "desc" : "2. 「検索」を押下する（この検索条件が保存される）（押下前・操作対象）",
+      "frame" : "No.1-2_07.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:44.159",
+      "highlight" : [ {
+        "x" : 51.0,
+        "y" : 496.5,
+        "w" : 1178.0,
+        "h" : 31.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "op",
+      "desc" : "2. 「検索」を押下する（この検索条件が保存される）（押下後）",
+      "frame" : "No.1-2_08.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:44.760"
+    }, {
+      "seq" : 9,
+      "kind" : "op",
+      "desc" : "3. 共通ヘッダーの「ログアウト」を押下する（押下前・操作対象）",
+      "frame" : "No.1-2_09.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:44.861",
+      "highlight" : [ {
+        "x" : 1150.0,
+        "y" : 139.0,
+        "w" : 98.0,
+        "h" : 37.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "op",
+      "desc" : "3. 共通ヘッダーの「ログアウト」を押下する（押下後）",
+      "frame" : "No.1-2_10.jpg",
+      "url" : "/",
+      "ts" : "14:08:45.461"
+    }, {
+      "seq" : 11,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "3. ログイン画面が表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.1-2_11.jpg",
+      "url" : "/",
+      "ts" : "14:08:45.540",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 252.59375,
+        "w" : 440.0,
+        "h" : 354.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 12,
+      "kind" : "op",
+      "desc" : "4. ユーザID に SM0001 を入力する",
+      "frame" : "No.1-2_12.jpg",
+      "url" : "/",
+      "ts" : "14:08:46.139",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 13,
+      "kind" : "op",
+      "desc" : "4. パスワードを入力する",
+      "frame" : "No.1-2_13.jpg",
+      "url" : "/",
+      "ts" : "14:08:46.742",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 14,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.1-2_14.jpg",
+      "url" : "/",
+      "ts" : "14:08:46.817",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 15,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下後）",
+      "frame" : "No.1-2_15.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:47.506"
+    }, {
+      "seq" : 16,
+      "kind" : "op",
+      "desc" : "5. 「案件検索」アコーディオンを開く",
+      "frame" : "No.1-2_16.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:48.177",
+      "highlight" : [ {
+        "x" : 29.0,
+        "y" : 278.5,
+        "w" : 1222.0,
+        "h" : 295.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 17,
+      "kind" : "verify",
+      "verify" : "value",
+      "desc" : "「検索キーワード」は空欄である",
+      "expected" : "",
+      "actual" : "",
+      "status" : "pass",
+      "frame" : "No.1-2_17.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:48.266",
+      "highlight" : [ {
+        "x" : 159.0,
+        "y" : 284.5,
+        "w" : 220.0,
+        "h" : 31.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 18,
+      "kind" : "verify",
+      "verify" : "checked",
+      "desc" : "ステータス「オープン」はチェックありである",
+      "expected" : "チェックON",
+      "actual" : "チェックON",
+      "status" : "pass",
+      "frame" : "No.1-2_18.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:48.350",
+      "highlight" : [ {
+        "x" : 159.0,
+        "y" : 393.0,
+        "w" : 14.0,
+        "h" : 14.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 19,
+      "kind" : "verify",
+      "verify" : "checked",
+      "desc" : "ステータス「交渉中」はチェックありである",
+      "expected" : "チェックON",
+      "actual" : "チェックON",
+      "status" : "pass",
+      "frame" : "No.1-2_19.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:48.451",
+      "highlight" : [ {
+        "x" : 250.171875,
+        "y" : 393.0,
+        "w" : 14.0,
+        "h" : 14.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 20,
+      "kind" : "verify",
+      "verify" : "checked",
+      "desc" : "ステータス「クローズ」はチェックなしである",
+      "expected" : "チェックOFF",
+      "actual" : "チェックOFF",
+      "status" : "pass",
+      "frame" : "No.1-2_20.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:48.546",
+      "highlight" : [ {
+        "x" : 328.171875,
+        "y" : 393.0,
+        "w" : 14.0,
+        "h" : 14.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:08:38.808",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:08:40.665",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:40.665",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:40.665",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:40.716",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:08:40.716",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:40.717",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:40.717",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:08:40.717",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:40.718",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:40.718",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:08:40.718",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:40.718",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:08:40.718",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:40.718",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:40.719",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:40.719",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:40.719",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:40.719",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:40.719",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:08:40.719",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:08:40.720",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:40.726",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/projects"
+    }, {
+      "ts" : "14:08:40.857",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:08:40.857",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:08:40.859",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:08:41.276",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:08:41.276",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:41.277",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:41.277",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:08:41.277",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:41.277",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:41.277",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:08:41.277",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:41.278",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:08:41.279",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:41.279",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:41.279",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:41.279",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:41.279",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:41.280",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:41.281",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:08:41.281",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:08:41.282",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:41.288",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/projects"
+    }, {
+      "ts" : "14:08:41.369",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:08:41.369",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:08:41.370",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:08:41.892",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. /projects を開く"
+    }, {
+      "ts" : "14:08:42.497",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. 「案件検索」アコーディオンを開く"
+    }, {
+      "ts" : "14:08:43.144",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「検索キーワード」に「保存確認」を入力する"
+    }, {
+      "ts" : "14:08:43.821",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ステータスの「クローズ」にチェックを入れる"
+    }, {
+      "ts" : "14:08:44.010",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. 「検索キーワード」に「保存確認」が入力された状態になる — 期待: 保存確認 ／ 実測: 保存確認 ✓"
+    }, {
+      "ts" : "14:08:44.108",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. ステータスの「クローズ」にチェックが付いた状態になる — 期待: チェックON ／ 実測: チェックON ✓"
+    }, {
+      "ts" : "14:08:44.117",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「検索」を押下する（この検索条件が保存される）（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:44.250",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE ( title LIKE '%' || ? || '%' ) AND status IN ( ? , ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:08:44.250",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: 保存確認(String), OPEN(String), NEGOTIATING(String), CLOSED(String)"
+    }, {
+      "ts" : "14:08:44.251",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:08:44.760",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. 「検索」を押下する（この検索条件が保存される）（押下後）"
+    }, {
+      "ts" : "14:08:44.818",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 共通ヘッダーの「ログアウト」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:44.953",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:08:45.461",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 共通ヘッダーの「ログアウト」を押下する（押下後）"
+    }, {
+      "ts" : "14:08:45.586",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】3. ログイン画面が表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:08:46.103",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. ユーザID に SM0001 を入力する"
+    }, {
+      "ts" : "14:08:46.715",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. パスワードを入力する"
+    }, {
+      "ts" : "14:08:46.787",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:46.913",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:46.913",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:46.913",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:46.966",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:08:46.966",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:46.967",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:46.967",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:08:46.967",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:46.968",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:46.968",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:08:46.968",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:46.968",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:08:46.968",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:46.968",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:46.969",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:46.969",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:46.969",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:46.969",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:46.969",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:08:46.969",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:08:46.969",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:46.976",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/projects"
+    }, {
+      "ts" : "14:08:47.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:08:47.052",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:08:47.053",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:08:47.506",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:08:48.129",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】5. 「案件検索」アコーディオンを開く"
+    }, {
+      "ts" : "14:08:48.309",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】「検索キーワード」は空欄である — 期待:  ／ 実測:  ✓"
+    }, {
+      "ts" : "14:08:48.408",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ステータス「オープン」はチェックありである — 期待: チェックON ／ 実測: チェックON ✓"
+    }, {
+      "ts" : "14:08:48.508",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ステータス「交渉中」はチェックありである — 期待: チェックON ／ 実測: チェックON ✓"
+    }, {
+      "ts" : "14:08:48.598",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ステータス「クローズ」はチェックなしである — 期待: チェックOFF ／ 実測: チェックOFF ✓"
+    } ]
+  }, {
+    "no" : "2-1",
+    "name" : "パスワード表示トグルでパスワードの表示・非表示が切り替わる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.2-1_01.jpg",
+      "url" : "/",
+      "ts" : "14:08:50.686"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "1. パスワード欄に「Passw0rd!」を入力する（初期状態は伏せ字表示）",
+      "frame" : "No.2-1_02.jpg",
+      "url" : "/",
+      "ts" : "14:08:51.299",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "machine",
+      "verify" : "machine",
+      "desc" : "手順1でパスワード欄の type 属性が password である",
+      "expected" : "password",
+      "actual" : "password",
+      "status" : "pass",
+      "ts" : "14:08:51.341"
+    }, {
+      "seq" : 4,
+      "kind" : "machine",
+      "verify" : "machine",
+      "desc" : "手順1でパスワード表示トグルの aria-label が「パスワードを表示」である",
+      "expected" : "パスワードを表示",
+      "actual" : "パスワードを表示",
+      "status" : "pass",
+      "ts" : "14:08:51.348"
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "2. パスワード表示トグルを押下する（押下前・操作対象）",
+      "frame" : "No.2-1_05.jpg",
+      "url" : "/",
+      "ts" : "14:08:51.398",
+      "highlight" : [ {
+        "x" : 771.0,
+        "y" : 472.390625,
+        "w" : 45.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "op",
+      "desc" : "2. パスワード表示トグルを押下する（押下後）",
+      "frame" : "No.2-1_06.jpg",
+      "url" : "/",
+      "ts" : "14:08:52.020",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "value",
+      "desc" : "2. パスワード欄の入力値が「Passw0rd!」である",
+      "expected" : "Passw0rd!",
+      "actual" : "Passw0rd!",
+      "status" : "pass",
+      "frame" : "No.2-1_07.jpg",
+      "url" : "/",
+      "ts" : "14:08:52.101",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "machine",
+      "verify" : "machine",
+      "desc" : "手順2でパスワード欄の type 属性が text である",
+      "expected" : "text",
+      "actual" : "text",
+      "status" : "pass",
+      "ts" : "14:08:52.165"
+    }, {
+      "seq" : 9,
+      "kind" : "machine",
+      "verify" : "machine",
+      "desc" : "手順2でパスワード表示トグルの aria-label が「パスワードを非表示」である",
+      "expected" : "パスワードを非表示",
+      "actual" : "パスワードを非表示",
+      "status" : "pass",
+      "ts" : "14:08:52.168"
+    }, {
+      "seq" : 10,
+      "kind" : "op",
+      "desc" : "3. もう一度パスワード表示トグルを押下する（押下前・操作対象）",
+      "frame" : "No.2-1_10.jpg",
+      "url" : "/",
+      "ts" : "14:08:52.214",
+      "highlight" : [ {
+        "x" : 771.0,
+        "y" : 472.390625,
+        "w" : 45.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 11,
+      "kind" : "op",
+      "desc" : "3. もう一度パスワード表示トグルを押下する（押下後）",
+      "frame" : "No.2-1_11.jpg",
+      "url" : "/",
+      "ts" : "14:08:52.846",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 12,
+      "kind" : "machine",
+      "verify" : "machine",
+      "desc" : "手順3でパスワード欄の type 属性が password である",
+      "expected" : "password",
+      "actual" : "password",
+      "status" : "pass",
+      "ts" : "14:08:52.886"
+    }, {
+      "seq" : 13,
+      "kind" : "machine",
+      "verify" : "machine",
+      "desc" : "手順3でパスワード表示トグルの aria-label が「パスワードを表示」である",
+      "expected" : "パスワードを表示",
+      "actual" : "パスワードを表示",
+      "status" : "pass",
+      "ts" : "14:08:52.888"
+    } ],
+    "logs" : [ {
+      "ts" : "14:08:49.909",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:08:50.686",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:08:51.263",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. パスワード欄に「Passw0rd!」を入力する（初期状態は伏せ字表示）"
+    }, {
+      "ts" : "14:08:51.341",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】手順1でパスワード欄の type 属性が password である — 期待: password ／ 実測: password ✓"
+    }, {
+      "ts" : "14:08:51.348",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】手順1でパスワード表示トグルの aria-label が「パスワードを表示」である — 期待: パスワードを表示 ／ 実測: パスワードを表示 ✓"
+    }, {
+      "ts" : "14:08:51.359",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワード表示トグルを押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:51.984",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワード表示トグルを押下する（押下後）"
+    }, {
+      "ts" : "14:08:52.161",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】2. パスワード欄の入力値が「Passw0rd!」である — 期待: Passw0rd! ／ 実測: Passw0rd! ✓"
+    }, {
+      "ts" : "14:08:52.165",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】手順2でパスワード欄の type 属性が text である — 期待: text ／ 実測: text ✓"
+    }, {
+      "ts" : "14:08:52.168",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】手順2でパスワード表示トグルの aria-label が「パスワードを非表示」である — 期待: パスワードを非表示 ／ 実測: パスワードを非表示 ✓"
+    }, {
+      "ts" : "14:08:52.174",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. もう一度パスワード表示トグルを押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:52.819",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. もう一度パスワード表示トグルを押下する（押下後）"
+    }, {
+      "ts" : "14:08:52.886",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】手順3でパスワード欄の type 属性が password である — 期待: password ／ 実測: password ✓"
+    }, {
+      "ts" : "14:08:52.888",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】手順3でパスワード表示トグルの aria-label が「パスワードを表示」である — 期待: パスワードを表示 ／ 実測: パスワードを表示 ✓"
+    } ]
+  }, {
+    "no" : "3-1",
+    "name" : "正しいユーザID・パスワードでユーザ認証が成功し、案件情報一覧画面へ遷移する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.3-1_01.jpg",
+      "url" : "/",
+      "ts" : "14:08:54.148"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0001 を入力する",
+      "frame" : "No.3-1_02.jpg",
+      "url" : "/",
+      "ts" : "14:08:54.754",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. パスワードに SM0001 の正しいパスワードを入力する",
+      "frame" : "No.3-1_03.jpg",
+      "url" : "/",
+      "ts" : "14:08:55.354",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.3-1_04.jpg",
+      "url" : "/",
+      "ts" : "14:08:55.422",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下後）",
+      "frame" : "No.3-1_05.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:56.119"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "url",
+      "desc" : "/projects（案件情報一覧画面）へ遷移する",
+      "expected" : "http://localhost:53503/projects",
+      "actual" : "http://localhost:53503/projects",
+      "status" : "pass",
+      "frame" : "No.3-1_06.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:56.176"
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "画面タイトル「案件情報一覧画面」が表示される",
+      "expected" : "案件情報一覧画面",
+      "actual" : "案件情報一覧画面",
+      "status" : "pass",
+      "frame" : "No.3-1_07.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:56.268",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "共通ヘッダーにユーザ名「営業 太郎」が表示される",
+      "expected" : "営業 太郎",
+      "actual" : "営業 太郎",
+      "status" : "pass",
+      "frame" : "No.3-1_08.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:56.370",
+      "highlight" : [ {
+        "x" : 1141.046875,
+        "y" : 92.25,
+        "w" : 54.953125,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "containsText",
+      "desc" : "共通ヘッダーに部署名「営業部」が表示される",
+      "expected" : "「営業部」を含む",
+      "actual" : "「営業部」を含む",
+      "status" : "pass",
+      "frame" : "No.3-1_09.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:56.461",
+      "highlight" : [ {
+        "x" : 1204.0,
+        "y" : 92.25,
+        "w" : 52.0,
+        "h" : 19.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "入力値チェックのエラーメッセージ・ログイン失敗メッセージは表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.3-1_10.jpg",
+      "url" : "/projects",
+      "ts" : "14:08:56.540",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 0.0,
+        "y" : 175.0,
+        "w" : 1280.0,
+        "h" : 47.0,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:08:53.381",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:08:54.148",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:08:54.719",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0001 を入力する"
+    }, {
+      "ts" : "14:08:55.325",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワードに SM0001 の正しいパスワードを入力する"
+    }, {
+      "ts" : "14:08:55.390",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:55.515",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:55.515",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:55.516",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:55.570",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users ORDER BY user_id ASC"
+    }, {
+      "ts" : "14:08:55.570",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:55.570",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:55.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments ORDER BY department_id ASC"
+    }, {
+      "ts" : "14:08:55.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:55.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findAll",
+      "message" : "<==      Total: 3"
+    }, {
+      "ts" : "14:08:55.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==>  Preparing: SELECT company_id, company_name FROM companies ORDER BY company_id ASC"
+    }, {
+      "ts" : "14:08:55.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "==> Parameters: "
+    }, {
+      "ts" : "14:08:55.571",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "CompaniesMapper.findAll",
+      "message" : "<==      Total: 12"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==>  Preparing: SELECT department_id, department_name FROM departments WHERE department_id = ?"
+    }, {
+      "ts" : "14:08:55.572",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "==> Parameters: 1(Integer)"
+    }, {
+      "ts" : "14:08:55.573",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "DepartmentsMapper.findByDepartmentId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:08:55.579",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/projects"
+    }, {
+      "ts" : "14:08:55.715",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==>  Preparing: SELECT management_code, title, status, client_name, commercial_flow, summary, process, start_date, end_date, skill, headcount, remaining_count, bp_recruitment, bp_recruitment_detail, work_location, estimated_unit_price, contract_type, note, created_by, created_department, created_at, updated_by, updated_department, updated_at FROM projects WHERE status IN ( ? , ? ) ORDER BY management_code DESC"
+    }, {
+      "ts" : "14:08:55.715",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "==> Parameters: OPEN(String), NEGOTIATING(String)"
+    }, {
+      "ts" : "14:08:55.717",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "ProjectsMapper.search",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:08:56.119",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:08:56.219",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】/projects（案件情報一覧画面）へ遷移する — 期待: http://localhost:53503/projects ／ 実測: http://localhost:53503/projects ✓"
+    }, {
+      "ts" : "14:08:56.331",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面タイトル「案件情報一覧画面」が表示される — 期待: 案件情報一覧画面 ／ 実測: 案件情報一覧画面 ✓"
+    }, {
+      "ts" : "14:08:56.423",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーにユーザ名「営業 太郎」が表示される — 期待: 営業 太郎 ／ 実測: 営業 太郎 ✓"
+    }, {
+      "ts" : "14:08:56.507",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーに部署名「営業部」が表示される — 期待: 「営業部」を含む ／ 実測: 「営業部」を含む ✓"
+    }, {
+      "ts" : "14:08:56.599",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】入力値チェックのエラーメッセージ・ログイン失敗メッセージは表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "3-2",
+    "name" : "存在しないユーザIDではユーザ認証に失敗し、ログイン失敗メッセージが表示される",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.3-2_01.jpg",
+      "url" : "/",
+      "ts" : "14:08:57.878"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM9999 を入力する",
+      "frame" : "No.3-2_02.jpg",
+      "url" : "/",
+      "ts" : "14:08:58.489",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. パスワードに「Passw0rd!」を入力する",
+      "frame" : "No.3-2_03.jpg",
+      "url" : "/",
+      "ts" : "14:08:59.096",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.3-2_04.jpg",
+      "url" : "/",
+      "ts" : "14:08:59.180",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下後）",
+      "frame" : "No.3-2_05.jpg",
+      "url" : "/?error",
+      "ts" : "14:08:59.844"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "案件情報一覧画面へは遷移せず、ログイン画面が再表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.3-2_06.jpg",
+      "url" : "/?error",
+      "ts" : "14:08:59.950",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ログイン失敗メッセージ「ユーザIDかパスワードが間違っています。」が表示される",
+      "expected" : "ユーザIDかパスワードが間違っています。",
+      "actual" : "ユーザIDかパスワードが間違っています。",
+      "status" : "pass",
+      "frame" : "No.3-2_07.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:00.025",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 338.640625,
+        "w" : 352.0,
+        "h" : 37.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ユーザID欄・パスワード欄の直下に入力値チェックのエラーメッセージは表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.3-2_08.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:00.095",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "共通ヘッダーは表示されない（ログインしていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.3-2_09.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:00.159",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:08:57.091",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:08:57.878",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:08:58.453",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM9999 を入力する"
+    }, {
+      "ts" : "14:08:59.062",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワードに「Passw0rd!」を入力する"
+    }, {
+      "ts" : "14:08:59.144",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:08:59.265",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:08:59.265",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM9999(String)"
+    }, {
+      "ts" : "14:08:59.265",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:08:59.330",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/?error"
+    }, {
+      "ts" : "14:08:59.844",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:08:59.987",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】案件情報一覧画面へは遷移せず、ログイン画面が再表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:00.072",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージ「ユーザIDかパスワードが間違っています。」が表示される — 期待: ユーザIDかパスワードが間違っています。 ／ 実測: ユーザIDかパスワードが間違っています。 ✓"
+    }, {
+      "ts" : "14:09:00.137",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄・パスワード欄の直下に入力値チェックのエラーメッセージは表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:09:00.205",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーは表示されない（ログインしていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "3-3",
+    "name" : "実在するユーザIDでパスワードが異なる場合はユーザ認証に失敗する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.3-3_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:01.389"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0001 を入力する",
+      "frame" : "No.3-3_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:02.001",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. パスワードに誤った値「WrongPass1」を入力する",
+      "frame" : "No.3-3_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:02.580",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.3-3_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:02.666",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下後）",
+      "frame" : "No.3-3_05.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:03.337"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "案件情報一覧画面へは遷移せず、ログイン画面が再表示される",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.3-3_06.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:03.420",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ログイン失敗メッセージ「ユーザIDかパスワードが間違っています。」が表示される（ユーザIDの存在有無を区別しない同一のメッセージ）",
+      "expected" : "ユーザIDかパスワードが間違っています。",
+      "actual" : "ユーザIDかパスワードが間違っています。",
+      "status" : "pass",
+      "frame" : "No.3-3_07.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:03.496",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 338.640625,
+        "w" : 352.0,
+        "h" : 37.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ユーザID欄・パスワード欄の直下に入力値チェックのエラーメッセージは表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.3-3_08.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:03.559",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "共通ヘッダーは表示されない（ログインしていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.3-3_09.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:03.627",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:00.605",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:01.389",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:01.969",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0001 を入力する"
+    }, {
+      "ts" : "14:09:02.552",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワードに誤った値「WrongPass1」を入力する"
+    }, {
+      "ts" : "14:09:02.635",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:02.762",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:09:02.762",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:09:02.762",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:09:02.821",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/?error"
+    }, {
+      "ts" : "14:09:03.337",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:03.468",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】案件情報一覧画面へは遷移せず、ログイン画面が再表示される — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:03.537",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージ「ユーザIDかパスワードが間違っています。」が表示される（ユーザIDの存在有無を区別しない同一のメッセージ） — 期待: ユーザIDかパスワードが間違っています。 ／ 実測: ユーザIDかパスワードが間違っています。 ✓"
+    }, {
+      "ts" : "14:09:03.605",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄・パスワード欄の直下に入力値チェックのエラーメッセージは表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:09:03.675",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】共通ヘッダーは表示されない（ログインしていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-1",
+    "name" : "【クライアント検証】ユーザIDが未入力の場合、ログインを実施せずエラーメッセージを表示する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-1_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:04.856"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. パスワードに「Passw0rd!」を入力する（ユーザID は空のまま）",
+      "frame" : "No.4-1_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:05.462",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-1_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:05.535",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-1_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:06.140"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "画面遷移せずログイン画面のままである",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-1_05.jpg",
+      "url" : "/",
+      "ts" : "14:09:06.210",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ユーザID欄の直下に「ユーザIDを入力してください。」が表示される",
+      "expected" : "ユーザIDを入力してください。",
+      "actual" : "ユーザIDを入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-1_06.jpg",
+      "url" : "/",
+      "ts" : "14:09:06.281",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 421.390625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "パスワード欄の直下にはエラーメッセージが表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-1_07.jpg",
+      "url" : "/",
+      "ts" : "14:09:06.343",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-1_08.jpg",
+      "url" : "/",
+      "ts" : "14:09:06.409",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:04.081",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:04.856",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:05.429",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. パスワードに「Passw0rd!」を入力する（ユーザID は空のまま）"
+    }, {
+      "ts" : "14:09:05.505",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:06.140",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:06.252",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:06.319",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下に「ユーザIDを入力してください。」が表示される — 期待: ユーザIDを入力してください。 ／ 実測: ユーザIDを入力してください。 ✓"
+    }, {
+      "ts" : "14:09:06.387",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下にはエラーメッセージが表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:09:06.454",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-2",
+    "name" : "【クライアント検証】パスワードが未入力の場合、ログインを実施せずエラーメッセージを表示する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-2_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:07.562"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0001 を入力する（パスワードは空のまま）",
+      "frame" : "No.4-2_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:08.167",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-2_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:08.261",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "3. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-2_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:08.864"
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "画面遷移せずログイン画面のままである",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-2_05.jpg",
+      "url" : "/",
+      "ts" : "14:09:08.927",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "パスワード欄の直下に「パスワードを入力してください。」が表示される",
+      "expected" : "パスワードを入力してください。",
+      "actual" : "パスワードを入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-2_06.jpg",
+      "url" : "/",
+      "ts" : "14:09:08.996",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 499.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ユーザID欄の直下にはエラーメッセージが表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-2_07.jpg",
+      "url" : "/",
+      "ts" : "14:09:09.058",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-2_08.jpg",
+      "url" : "/",
+      "ts" : "14:09:09.139",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:06.784",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:07.562",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:08.131",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0001 を入力する（パスワードは空のまま）"
+    }, {
+      "ts" : "14:09:08.222",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:08.864",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:08.967",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:09.036",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下に「パスワードを入力してください。」が表示される — 期待: パスワードを入力してください。 ／ 実測: パスワードを入力してください。 ✓"
+    }, {
+      "ts" : "14:09:09.116",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下にはエラーメッセージが表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:09:09.188",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-3",
+    "name" : "【クライアント検証】ユーザID・パスワードが同時に未入力の場合、両方の項目にエラーメッセージを表示する",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-3_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:10.333"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-3_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:10.433",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 533.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "2. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下後）",
+      "frame" : "No.4-3_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:11.052"
+    }, {
+      "seq" : 4,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "画面遷移せずログイン画面のままである",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-3_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:11.164",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 231.59375,
+        "w" : 440.0,
+        "h" : 396.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ユーザID欄の直下に「ユーザIDを入力してください。」が表示される",
+      "expected" : "ユーザIDを入力してください。",
+      "actual" : "ユーザIDを入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-3_05.jpg",
+      "url" : "/",
+      "ts" : "14:09:11.251",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 409.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "パスワード欄の直下に「パスワードを入力してください。」が同時に表示される",
+      "expected" : "パスワードを入力してください。",
+      "actual" : "パスワードを入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-3_06.jpg",
+      "url" : "/",
+      "ts" : "14:09:11.353",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 509.390625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:09.554",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:10.333",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:10.401",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:11.052",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID・パスワードをいずれも空のまま「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:11.211",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:11.315",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下に「ユーザIDを入力してください。」が表示される — 期待: ユーザIDを入力してください。 ／ 実測: ユーザIDを入力してください。 ✓"
+    }, {
+      "ts" : "14:09:11.403",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下に「パスワードを入力してください。」が同時に表示される — 期待: パスワードを入力してください。 ／ 実測: パスワードを入力してください。 ✓"
+    } ]
+  }, {
+    "no" : "4-4",
+    "name" : "【クライアント検証】【境界値】ユーザID 60文字は最大文字数エラーにならない",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-4_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:12.640"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に半角英字60文字（a を60回）を入力する",
+      "frame" : "No.4-4_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:13.272",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "3. パスワードに「Passw0rd!」を入力する",
+      "frame" : "No.4-4_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:13.869",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-4_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:13.945",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-4_05.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:14.605"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "入力値チェックを通過してログイン処理が実施され、該当するユーザが存在しないためログイン失敗メッセージが表示される",
+      "expected" : "ユーザIDかパスワードが間違っています。",
+      "actual" : "ユーザIDかパスワードが間違っています。",
+      "status" : "pass",
+      "frame" : "No.4-4_06.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:14.698",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 338.640625,
+        "w" : 352.0,
+        "h" : 37.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ユーザID欄の直下に「60文字以内で入力してください。」は表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-4_07.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:14.777",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:11.869",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:12.640",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:13.237",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に半角英字60文字（a を60回）を入力する"
+    }, {
+      "ts" : "14:09:13.840",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. パスワードに「Passw0rd!」を入力する"
+    }, {
+      "ts" : "14:09:13.911",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:14.029",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:09:14.029",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa(String)"
+    }, {
+      "ts" : "14:09:14.029",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 0"
+    }, {
+      "ts" : "14:09:14.083",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/?error"
+    }, {
+      "ts" : "14:09:14.605",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:14.752",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】入力値チェックを通過してログイン処理が実施され、該当するユーザが存在しないためログイン失敗メッセージが表示される — 期待: ユーザIDかパスワードが間違っています。 ／ 実測: ユーザIDかパスワードが間違っています。 ✓"
+    }, {
+      "ts" : "14:09:14.820",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下に「60文字以内で入力してください。」は表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-5",
+    "name" : "【クライアント検証】【境界値】ユーザID 61文字は最大文字数エラーになる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-5_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:15.978"
+    }, {
+      "seq" : 2,
+      "kind" : "machine",
+      "verify" : "bypass",
+      "desc" : "2. ユーザID入力欄の maxlength 属性を解除する（除去前の maxlength=60）",
+      "expected" : "属性なし",
+      "actual" : "属性なし",
+      "status" : "pass",
+      "ts" : "14:09:16.101"
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "3. ユーザID に半角英字61文字（a を61回）を入力する",
+      "frame" : "No.4-5_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:16.678",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "4. パスワードに「Passw0rd!」を入力する",
+      "frame" : "No.4-5_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:17.265",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "5. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-5_05.jpg",
+      "url" : "/",
+      "ts" : "14:09:17.339",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "op",
+      "desc" : "5. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-5_06.jpg",
+      "url" : "/",
+      "ts" : "14:09:17.934"
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "画面遷移せずログイン画面のままである",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-5_07.jpg",
+      "url" : "/",
+      "ts" : "14:09:18.019",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ユーザID欄の直下に表示されるのは「60文字以内で入力してください。」のみである（「使用不可能な文字が含まれています。」は表示されない）",
+      "expected" : "60文字以内で入力してください。",
+      "actual" : "60文字以内で入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-5_08.jpg",
+      "url" : "/",
+      "ts" : "14:09:18.114",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 421.390625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-5_09.jpg",
+      "url" : "/",
+      "ts" : "14:09:18.214",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:15.186",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:15.978",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:16.101",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】2. ユーザID入力欄の maxlength 属性を解除する（除去前の maxlength=60） — 期待: 属性なし ／ 実測: 属性なし ✓"
+    }, {
+      "ts" : "14:09:16.629",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. ユーザID に半角英字61文字（a を61回）を入力する"
+    }, {
+      "ts" : "14:09:17.237",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. パスワードに「Passw0rd!」を入力する"
+    }, {
+      "ts" : "14:09:17.306",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】5. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:17.934",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】5. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:18.075",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:18.168",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下に表示されるのは「60文字以内で入力してください。」のみである（「使用不可能な文字が含まれています。」は表示されない） — 期待: 60文字以内で入力してください。 ／ 実測: 60文字以内で入力してください。 ✓"
+    }, {
+      "ts" : "14:09:18.260",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-6",
+    "name" : "【クライアント検証】ユーザIDに半角英数字以外を含む場合、使用文字エラーになる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-6_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:19.513"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に「sm-0001」（半角ハイフンを含む）を入力する",
+      "frame" : "No.4-6_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:20.137",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "3. パスワードに「Passw0rd!」を入力する",
+      "frame" : "No.4-6_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:20.733",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-6_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:20.822",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-6_05.jpg",
+      "url" : "/",
+      "ts" : "14:09:21.401"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "画面遷移せずログイン画面のままである",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-6_06.jpg",
+      "url" : "/",
+      "ts" : "14:09:21.477",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "ユーザID欄の直下に「使用不可能な文字が含まれています。」が表示される",
+      "expected" : "使用不可能な文字が含まれています。",
+      "actual" : "使用不可能な文字が含まれています。",
+      "status" : "pass",
+      "frame" : "No.4-6_07.jpg",
+      "url" : "/",
+      "ts" : "14:09:21.547",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 421.390625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "パスワード欄の直下にはエラーメッセージが表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-6_08.jpg",
+      "url" : "/",
+      "ts" : "14:09:21.628",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-6_09.jpg",
+      "url" : "/",
+      "ts" : "14:09:21.726",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:18.722",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:19.513",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:20.099",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に「sm-0001」（半角ハイフンを含む）を入力する"
+    }, {
+      "ts" : "14:09:20.702",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. パスワードに「Passw0rd!」を入力する"
+    }, {
+      "ts" : "14:09:20.788",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:21.401",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:21.518",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:21.590",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下に「使用不可能な文字が含まれています。」が表示される — 期待: 使用不可能な文字が含まれています。 ／ 実測: 使用不可能な文字が含まれています。 ✓"
+    }, {
+      "ts" : "14:09:21.683",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下にはエラーメッセージが表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:09:21.784",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-7",
+    "name" : "【クライアント検証】【境界値】パスワード 60文字は最大文字数エラーにならない",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-7_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:23.131"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0001 を入力する",
+      "frame" : "No.4-7_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:23.739",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "3. パスワードに半角英数字60文字（a を59回＋1）を入力する",
+      "frame" : "No.4-7_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:24.328",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-7_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:24.400",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-7_05.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:25.065"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "入力値チェックを通過してログイン処理が実施され、パスワードが一致しないためログイン失敗メッセージが表示される",
+      "expected" : "ユーザIDかパスワードが間違っています。",
+      "actual" : "ユーザIDかパスワードが間違っています。",
+      "status" : "pass",
+      "frame" : "No.4-7_06.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:25.145",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 338.640625,
+        "w" : 352.0,
+        "h" : 37.5,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "パスワード欄の直下に「60文字以内で入力してください。」は表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-7_07.jpg",
+      "url" : "/?error",
+      "ts" : "14:09:25.230",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 222.84375,
+        "w" : 440.0,
+        "h" : 414.296875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:22.355",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:23.131",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:23.703",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0001 を入力する"
+    }, {
+      "ts" : "14:09:24.300",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. パスワードに半角英数字60文字（a を59回＋1）を入力する"
+    }, {
+      "ts" : "14:09:24.371",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:24.496",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==>  Preparing: SELECT user_id, user_name, email, department_id, role, password FROM users WHERE user_id = ?"
+    }, {
+      "ts" : "14:09:24.496",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "==> Parameters: SM0001(String)"
+    }, {
+      "ts" : "14:09:24.496",
+      "src" : "app",
+      "level" : "DEBUG",
+      "logger" : "UsersMapper.findByUserId",
+      "message" : "<==      Total: 1"
+    }, {
+      "ts" : "14:09:24.552",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/?error"
+    }, {
+      "ts" : "14:09:25.065",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:25.191",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】入力値チェックを通過してログイン処理が実施され、パスワードが一致しないためログイン失敗メッセージが表示される — 期待: ユーザIDかパスワードが間違っています。 ／ 実測: ユーザIDかパスワードが間違っています。 ✓"
+    }, {
+      "ts" : "14:09:25.277",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下に「60文字以内で入力してください。」は表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-8",
+    "name" : "【クライアント検証】【境界値】パスワード 61文字は最大文字数エラーになる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-8_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:26.457"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0001 を入力する",
+      "frame" : "No.4-8_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:27.067",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "machine",
+      "verify" : "bypass",
+      "desc" : "3. パスワード入力欄の maxlength 属性を解除する（除去前の maxlength=60）",
+      "expected" : "属性なし",
+      "actual" : "属性なし",
+      "status" : "pass",
+      "ts" : "14:09:27.141"
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "4. パスワードに半角英数字61文字（a を60回＋1）を入力する",
+      "frame" : "No.4-8_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:27.696",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "5. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-8_05.jpg",
+      "url" : "/",
+      "ts" : "14:09:27.776",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 6,
+      "kind" : "op",
+      "desc" : "5. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-8_06.jpg",
+      "url" : "/",
+      "ts" : "14:09:28.381"
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "画面遷移せずログイン画面のままである",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-8_07.jpg",
+      "url" : "/",
+      "ts" : "14:09:28.445",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "パスワード欄の直下に「60文字以内で入力してください。」が表示される",
+      "expected" : "60文字以内で入力してください。",
+      "actual" : "60文字以内で入力してください。",
+      "status" : "pass",
+      "frame" : "No.4-8_08.jpg",
+      "url" : "/",
+      "ts" : "14:09:28.512",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 499.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ユーザID欄の直下にはエラーメッセージが表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-8_09.jpg",
+      "url" : "/",
+      "ts" : "14:09:28.573",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 10,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-8_10.jpg",
+      "url" : "/",
+      "ts" : "14:09:28.641",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:25.687",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:26.457",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:27.032",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0001 を入力する"
+    }, {
+      "ts" : "14:09:27.141",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【機械検証】3. パスワード入力欄の maxlength 属性を解除する（除去前の maxlength=60） — 期待: 属性なし ／ 実測: 属性なし ✓"
+    }, {
+      "ts" : "14:09:27.667",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. パスワードに半角英数字61文字（a を60回＋1）を入力する"
+    }, {
+      "ts" : "14:09:27.742",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】5. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:28.381",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】5. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:28.483",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:28.550",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下に「60文字以内で入力してください。」が表示される — 期待: 60文字以内で入力してください。 ／ 実測: 60文字以内で入力してください。 ✓"
+    }, {
+      "ts" : "14:09:28.620",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下にはエラーメッセージが表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:09:28.686",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  }, {
+    "no" : "4-9",
+    "name" : "【クライアント検証】パスワードに半角英数字・半角記号以外を含む場合、使用文字エラーになる",
+    "steps" : [ {
+      "seq" : 1,
+      "kind" : "op",
+      "desc" : "1. / を開く",
+      "frame" : "No.4-9_01.jpg",
+      "url" : "/",
+      "ts" : "14:09:29.866"
+    }, {
+      "seq" : 2,
+      "kind" : "op",
+      "desc" : "2. ユーザID に SM0001 を入力する",
+      "frame" : "No.4-9_02.jpg",
+      "url" : "/",
+      "ts" : "14:09:30.478",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 393.890625,
+        "w" : 352.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 3,
+      "kind" : "op",
+      "desc" : "3. パスワードに「パスワード1」（全角文字を含む）を入力する",
+      "frame" : "No.4-9_03.jpg",
+      "url" : "/",
+      "ts" : "14:09:31.059",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 472.390625,
+        "w" : 308.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 4,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下前・操作対象）",
+      "frame" : "No.4-9_04.jpg",
+      "url" : "/",
+      "ts" : "14:09:31.133",
+      "highlight" : [ {
+        "x" : 559.0,
+        "y" : 534.390625,
+        "w" : 162.0,
+        "h" : 38.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#2563eb",
+        "shadow" : "rgba(37,99,235,.22)"
+      } ]
+    }, {
+      "seq" : 5,
+      "kind" : "op",
+      "desc" : "4. 「ログイン」を押下する（押下後）",
+      "frame" : "No.4-9_05.jpg",
+      "url" : "/",
+      "ts" : "14:09:31.732"
+    }, {
+      "seq" : 6,
+      "kind" : "verify",
+      "verify" : "visible",
+      "desc" : "画面遷移せずログイン画面のままである",
+      "expected" : "表示",
+      "actual" : "表示",
+      "status" : "pass",
+      "frame" : "No.4-9_06.jpg",
+      "url" : "/",
+      "ts" : "14:09:31.835",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 7,
+      "kind" : "verify",
+      "verify" : "text",
+      "desc" : "パスワード欄の直下に「使用不可能な文字が含まれています。」が表示される",
+      "expected" : "使用不可能な文字が含まれています。",
+      "actual" : "使用不可能な文字が含まれています。",
+      "status" : "pass",
+      "frame" : "No.4-9_07.jpg",
+      "url" : "/",
+      "ts" : "14:09:31.947",
+      "highlight" : [ {
+        "x" : 464.0,
+        "y" : 499.890625,
+        "w" : 352.0,
+        "h" : 21.0,
+        "badge" : 1,
+        "ghost" : false,
+        "color" : "#e11d48",
+        "shadow" : "rgba(225,29,72,.22)"
+      } ]
+    }, {
+      "seq" : 8,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ユーザID欄の直下にはエラーメッセージが表示されない",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-9_08.jpg",
+      "url" : "/",
+      "ts" : "14:09:32.033",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    }, {
+      "seq" : 9,
+      "kind" : "verify",
+      "verify" : "absent",
+      "desc" : "ログイン失敗メッセージも表示されない（ログイン処理が実施されていない）",
+      "expected" : "文脈要素が可視・対象は0件（表示なし）",
+      "actual" : "文脈要素が可視・対象は0件（表示なし）",
+      "status" : "pass",
+      "frame" : "No.4-9_09.jpg",
+      "url" : "/",
+      "ts" : "14:09:32.132",
+      "note" : "無いことの文脈を示す実在要素（アンカー）を破線枠で図示し、その文脈で対象が存在しないこと（0件）を機械検証",
+      "highlight" : [ {
+        "x" : 420.0,
+        "y" : 243.09375,
+        "w" : 440.0,
+        "h" : 375.796875,
+        "badge" : 1,
+        "ghost" : true,
+        "nobadge" : true,
+        "ghostLabel" : "この領域に対象の表示なし（0件）",
+        "labelOutside" : true
+      } ]
+    } ],
+    "logs" : [ {
+      "ts" : "14:09:29.057",
+      "src" : "harness",
+      "level" : "NAV",
+      "logger" : "",
+      "message" : "画面遷移: http://localhost:53503/"
+    }, {
+      "ts" : "14:09:29.866",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】1. / を開く"
+    }, {
+      "ts" : "14:09:30.443",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】2. ユーザID に SM0001 を入力する"
+    }, {
+      "ts" : "14:09:31.031",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】3. パスワードに「パスワード1」（全角文字を含む）を入力する"
+    }, {
+      "ts" : "14:09:31.104",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下前・操作対象）"
+    }, {
+      "ts" : "14:09:31.732",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【操作】4. 「ログイン」を押下する（押下後）"
+    }, {
+      "ts" : "14:09:31.896",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】画面遷移せずログイン画面のままである — 期待: 表示 ／ 実測: 表示 ✓"
+    }, {
+      "ts" : "14:09:32.002",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】パスワード欄の直下に「使用不可能な文字が含まれています。」が表示される — 期待: 使用不可能な文字が含まれています。 ／ 実測: 使用不可能な文字が含まれています。 ✓"
+    }, {
+      "ts" : "14:09:32.098",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ユーザID欄の直下にはエラーメッセージが表示されない — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    }, {
+      "ts" : "14:09:32.196",
+      "src" : "harness",
+      "level" : "INFO",
+      "logger" : "",
+      "message" : "【検証】ログイン失敗メッセージも表示されない（ログイン処理が実施されていない） — 期待: 文脈要素が可視・対象は0件（表示なし） ／ 実測: 文脈要素が可視・対象は0件（表示なし） ✓"
+    } ]
+  } ]
+}

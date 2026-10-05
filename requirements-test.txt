@@ -1,0 +1,6 @@
+# テスト実行に必要な Python ライブラリ（doctool 実行分に加えるもの）
+# テストは標準ライブラリ unittest で実行する（pytest は不要）:
+#   PYTHONUTF8=1 python .claude/skills/doctool/scripts/doctool/tests/test_xlsx_writer.py
+-r requirements.txt
+# openpyxl の画像オブジェクト生成（tests/test_xlsx_writer.py の Image()）に必要
+Pillow==12.3.0

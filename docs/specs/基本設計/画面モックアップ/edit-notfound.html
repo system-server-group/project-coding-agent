@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>案件情報更新画面 — ID未検出</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="mockup.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<header class="app-header">
+  <div style="display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:8px;">
+    <a class="app-title" href="list.html">営業情報管理システム</a>
+  </div>
+  <div style="flex:1 1 auto;"></div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:6px;padding-top:4px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#444;">
+      <span class="user-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="currentColor"/></svg></span>
+      <span style="font-weight:600;color:#222;">三郎太郎</span><span style="color:#666;">／SSV3部</span>
+    </div>
+    <nav style="display:flex;align-items:flex-end;">
+      <div class="nav-group"><div class="nav-group-label">案件情報</div><div class="nav-group-btns">
+        <a class="nav-btn" href="list.html">一覧・検索</a>
+        <a class="nav-btn" href="register.html">新規登録</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">マスタ管理</div><div class="nav-group-btns">
+        <a class="nav-btn" href="master-company.html">会社マスタ</a>
+        <a class="nav-btn" href="master-user.html">ユーザマスタ</a>
+        <a class="nav-btn" href="master-dept.html">部署マスタ</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">その他</div><div class="nav-group-btns">
+        <a class="nav-btn" href="login.html">ログアウト</a>
+      </div></div>
+    </nav>
+  </div>
+</header>
+  <div class="app-content">
+    <div class="screen-title">案件情報更新画面<span class="id-badge">ID:40</span></div>
+    <div style="padding:12px 24px 16px;background:#fafafa;"><div class="csv-error" role="alert" style="margin:0;max-width:950px;"><div style="display:flex;align-items:flex-start;gap:12px;"><span class="err-tri"><span class="t"></span><span class="x">!</span></span><div style="flex:1;min-width:0;"><div style="font-size:13.5px;font-weight:700;color:#a02523;margin-bottom:2px;">存在しない案件情報です</div><div style="font-size:12.5px;color:#7d3331;line-height:1.6;">IDが不正、もしくは削除された案件情報です。</div></div></div></div></div>
+    <div style="flex:1;background:#fafafa;min-height:120px;"></div>
+  </div>
+</div>
+<script src="mockup.js"></script>
+</body>
+</html>

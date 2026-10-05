@@ -1,0 +1,16 @@
+# =============================================================================
+# テスト専用プロファイル (test)
+#   テストは本プロファイルで動かす (@ActiveProfiles("test"))。
+#   - データソースは Testcontainers (@ServiceConnection) が上書きするため記載しない。
+#     dev DB (localhost:5433) には接続せず、テスト毎の使い捨てコンテナを使う。
+#   - dev 固有の構成 (FlywayDevConfig の自己修復 / DevDataInitializer のシード) は
+#     @Profile("dev") のため本プロファイルでは読み込まれず、テストデータを汚染しない。
+# =============================================================================
+spring:
+  thymeleaf:
+    cache: false
+  # JavaMailSender Bean を構成するためのダミー設定 (テストでは実際の送信は行わない)。
+  # SalesMailService が JavaMailSender を要求するため、テスト用コンテキストでも host を与える。
+  mail:
+    host: localhost
+    port: 1025
