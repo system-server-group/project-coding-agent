@@ -1,0 +1,7 @@
+# doctool（Word/Excel の読み書き）の実行に必要な Python ライブラリ
+# 確認環境: Python 3.14 / Windows
+lxml==6.1.1
+openpyxl==3.1.5
+python-docx==1.2.0
+# 補足: et_xmlfile(openpyxl の依存)・typing_extensions(python-docx の依存) は
+#       推移的依存として自動導入される。

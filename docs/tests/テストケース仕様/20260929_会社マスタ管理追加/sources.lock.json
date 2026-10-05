@@ -1,0 +1,202 @@
+{
+  "format": "doctool-sources-lock/1",
+  "unit": "20260929_会社マスタ管理追加",
+  "resolvedAt": "2026-09-29",
+  "note": "文書ロールの解決結果と内容指紋（doctool hash）。testgen-plan §1 の設計変更検出に用いる。テスト規約ロールの文書は該当なし（既定で動く）。",
+  "artifacts": {
+    "21_会社マスタ管理/21_会社マスタ管理_テスト仕様書.xlsx": {
+      "sources": [
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/コントローラー定義書/20_マスタ管理/会社マスタ管理画面_画面コントローラー定義書.docx",
+          "role": "詳細設計",
+          "sha256": "6ffc89adaade963d1f301cacee85e07a61157ff289b9527fefb701bc82dfe37c"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/サービス定義書/20_マスタ管理/会社マスタ管理サービス_サービス定義書.docx",
+          "role": "詳細設計",
+          "sha256": "17b84c55873e3c0eec708a06e98cf282058ed8362e356e31304d26fab6946106"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/画面イベント定義書/20_マスタ管理/21_会社マスタ管理画面/会社マスタ管理画面_初期表示_画面イベント定義書.docx",
+          "role": "詳細設計",
+          "sha256": "f1b1698c660eefa3752680e7afffae765414fbf3990c6e154070b78a9c4ecbe6"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/画面イベント定義書/20_マスタ管理/21_会社マスタ管理画面/会社マスタ管理画面_テーブル操作_画面イベント定義書.docx",
+          "role": "詳細設計",
+          "sha256": "993e32acfbf494acf3b43680720b78f01065112352b209d653d581ff955c813b"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/画面イベント定義書/20_マスタ管理/21_会社マスタ管理画面/会社マスタ管理画面_CSVダウンロード_画面イベント定義書.docx",
+          "role": "詳細設計",
+          "sha256": "07f29d63a686a79b852cf8b21e079aae2e810ae148b3afb0abba7cf10a7dc739"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/画面イベント定義書/20_マスタ管理/21_会社マスタ管理画面/会社マスタ管理画面_CSVアップロード（洗い替え）_画面イベント定義書.docx",
+          "role": "詳細設計",
+          "sha256": "31c47eefc13238be532599f722c7383839f79f68fb631ab822c377a727ce5733"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/コントローラー一覧表.docx",
+          "role": "詳細設計",
+          "sha256": "f9b9c5813a4550af80da9747f5dd196a83d838346207ee029aa56139f9834503"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/画面イベント一覧表.docx",
+          "role": "詳細設計",
+          "sha256": "1c05ec9ba4deff8c73e9030c0852b23e0f152bd2c91c1340ab8fe12f63f76db8"
+        },
+        {
+          "path": "docs/specs/詳細設計/イベント定義書/サービス一覧表.docx",
+          "role": "詳細設計",
+          "sha256": "e7b031598f08b83f2aa315719a8d4ca9467de4ea596585abcf3ea2994a3e37c9"
+        },
+        {
+          "path": "docs/specs/詳細設計/データアクセス定義書/DBIF一覧表.docx",
+          "role": "詳細設計",
+          "sha256": "72518d1f1c465430e3461878dde4219ca160c67fa498e706d98a422e73723b51"
+        },
+        {
+          "path": "docs/specs/詳細設計/データアクセス定義書/データベース/会社マスタレコード_DBIF定義書.docx",
+          "role": "詳細設計",
+          "sha256": "6fd4ba3b317cde7fb7097a3f25d3ea2590514156748ff32fe94daea5b7c855b7"
+        },
+        {
+          "path": "docs/specs/詳細設計/テーブル定義書/会社マスタレコード_テーブル定義書.docx",
+          "role": "詳細設計",
+          "sha256": "9bf1276f256573a55486a23556cb2239621d4072bf3ce66fa33fc6230c403484"
+        },
+        {
+          "path": "docs/specs/詳細設計/画面定義/画面テンプレート一覧.docx",
+          "role": "詳細設計",
+          "sha256": "077d36ae1b216225125d95e87a3fff00469ba023042346ff52d497b4cd0cdb4b"
+        },
+        {
+          "path": "docs/specs/詳細設計/UML/シーケンス図_会社マスタ管理.md",
+          "role": "詳細設計",
+          "sha256": "aab9dc0cfa359c59280b53ab9f7d389b3ffd38071cc525b3d8adbf89f16cdf78"
+        },
+        {
+          "path": "docs/specs/詳細設計/UML/画面遷移図.md",
+          "role": "詳細設計",
+          "sha256": "e43355039c861f10d983d2179dd29281518f3f4fbe7b9d6c2dd6beaf1d808f46"
+        },
+        {
+          "path": "docs/specs/基本設計/画面レイアウト・機能仕様書/21_会社マスタ管理/会社マスタ管理機能_機能仕様書.docx",
+          "role": "基本設計/機能仕様",
+          "sha256": "1423100d7efdf0ac1b4fb451d7da3c450ab3cd2b0624738657264f330bb2d384"
+        },
+        {
+          "path": "docs/specs/基本設計/画面レイアウト・機能仕様書/21_会社マスタ管理/会社マスタ管理画面_画面レイアウト.docx",
+          "role": "基本設計/画面レイアウト",
+          "sha256": "104fd6f0cc76c79baa94bc95dd241c66f7b434e85c65cc1a3a8e2e52db86e227"
+        },
+        {
+          "path": "docs/specs/基本設計/画面レイアウト・機能仕様書/01_共通レイアウト/共通レイアウト_画面レイアウト.docx",
+          "role": "基本設計/画面レイアウト",
+          "sha256": "b4f7fb5c21b3a4770b45fae6b9a500c41394f005ef27165088b72429865e4cbd"
+        },
+        {
+          "path": "docs/specs/基本設計/画面レイアウト・機能仕様書/02_エラー/エラー画面_画面レイアウト.docx",
+          "role": "基本設計/画面レイアウト",
+          "sha256": "bebd512164a4143b4825aab8f030a4095b61cfe91d337a2b1d4e797dc7082f28"
+        },
+        {
+          "path": "docs/specs/基本設計/画面レイアウト・機能仕様書/画面一覧_一覧・図表.docx",
+          "role": "基本設計/画面レイアウト",
+          "sha256": "ae6efd49091ff13cc3856aecaba597c8402f5b1c1fd63ecba7b1e13ca526999b"
+        },
+        {
+          "path": "docs/specs/基本設計/画面レイアウト・機能仕様書/画面遷移図_一覧・図表.md",
+          "role": "基本設計/画面レイアウト",
+          "sha256": "1867c6db2758d107e6d5ac8f70d6d4803f811a2fd5c8246bc38f5615ed6dbeaf"
+        },
+        {
+          "path": "docs/specs/基本設計/画面レイアウト・機能仕様書/CRUD図_一覧・図表.docx",
+          "role": "基本設計/画面レイアウト",
+          "sha256": "d03ec7f62a07609cde9df4ad20810e4e5d7cc545705c8d0c11eb8616c75e9495"
+        },
+        {
+          "path": "docs/specs/基本設計/エンティティ/会社マスタレコード_エンティティ定義書.docx",
+          "role": "基本設計/エンティティ定義",
+          "sha256": "8d217358369b07edd011f82b69d65598eae7536d560ae3384ef56089bca3c1ec"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/画面部品仕様_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "4adce95477268539a129a0d78994a2c8b04b0103e5c67c3685be2d75a9916154"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/画面部品凡例_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "092cd8f9205a1945b8ea359bfacd4b74e27623a9e5d2f56622b08eb4549c885e"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/画面共通仕様_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "1c1c6b02a7a17405c974a39717c0eea432655ea169fec0af2fcf0f81b04d69ee"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/CSV共通仕様_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "38d4ec87f8df4f10b98488fb155e3d730051c21d0be9982d4dfa44751332a9f8"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/入力値チェック_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "bc65beff274f88efc08f4bdfc42c94e8e5aa4ace59a420d9fb94304e959fe0a3"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/ユーザ認証認可_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "c13ba84a5f133c0f3f647159492484b013d13d73134a793b6c801752b4cc42aa"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/パーマリンク_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "affa761eaaa02dd823e4b061c22de40e2405a04e112f3744c05fc5ed3d369a08"
+        },
+        {
+          "path": "docs/specs/基本設計/システム共通仕様書/API共通仕様_システム共通仕様書.docx",
+          "role": "基本設計/システム共通仕様",
+          "sha256": "40d111f7a536a0a37ffc744c11297efbc37cb622ec92a54d6462a96c1a26bb26"
+        },
+        {
+          "path": "docs/specs/基本設計/画面モックアップ/master-company.html",
+          "role": "基本設計/画面モックアップ",
+          "sha256": "2fc5a76f2d6753180d551d23894ee63e58b151217ca95aa636dd7cff3720fc71"
+        },
+        {
+          "path": "docs/specs/基本設計/画面モックアップ/master-company-csv-format.html",
+          "role": "基本設計/画面モックアップ",
+          "sha256": "84f4d2067c66d267adcfe26268e6671d81f0ebfc4293db9530304de7120ed1fb"
+        },
+        {
+          "path": "docs/specs/基本設計/画面モックアップ/master-company-csv-validation.html",
+          "role": "基本設計/画面モックアップ",
+          "sha256": "cc198d0a7d3c51af7e798e308570986f6e78b56b1b96141e6adbd1a6cee12df2"
+        },
+        {
+          "path": "docs/tests/テストケース_書式説明/00_共通規範.md",
+          "role": "テストケース様式",
+          "sha256": "9687630e4a32dfb6ef7eccdbe65d927d2dfa5092248675188c628a2a89a63caf"
+        },
+        {
+          "path": "docs/tests/テストケース_書式説明/01_テスト仕様書.md",
+          "role": "テストケース様式",
+          "sha256": "4266756ee420323d88897cbe06cc4ff366f431c8cea196e765e789ba7aa8086d"
+        },
+        {
+          "path": "docs/tests/テストケース_書式説明/02_テスト観点カタログ.md",
+          "role": "テストケース様式",
+          "sha256": "b3f083a638441973b717d4ff92f12dad3ed5f34e1bb970d9686d35804cbf9178"
+        },
+        {
+          "path": "docs/tests/テストケース_書式凡例/雛形_テスト仕様書.xlsx",
+          "role": "テストケース様式",
+          "sha256": "90a62324b0907cfc7cbc6f2a9afbbfb8b42c1fe3a9455d3be6763cf2930e510a"
+        }
+      ]
+    }
+  }
+}

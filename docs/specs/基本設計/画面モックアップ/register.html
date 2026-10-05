@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>案件情報登録画面</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="mockup.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<header class="app-header">
+  <div style="display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:8px;">
+    <a class="app-title" href="list.html">営業情報管理システム</a>
+  </div>
+  <div style="flex:1 1 auto;"></div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:6px;padding-top:4px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#444;">
+      <span class="user-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="currentColor"/></svg></span>
+      <span style="font-weight:600;color:#222;">三郎太郎</span><span style="color:#666;">／SSV3部</span>
+    </div>
+    <nav style="display:flex;align-items:flex-end;">
+      <div class="nav-group"><div class="nav-group-label">案件情報</div><div class="nav-group-btns">
+        <a class="nav-btn" href="list.html">一覧・検索</a>
+        <a class="nav-btn active" href="register.html">新規登録</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">マスタ管理</div><div class="nav-group-btns">
+        <a class="nav-btn" href="master-company.html">会社マスタ</a>
+        <a class="nav-btn" href="master-user.html">ユーザマスタ</a>
+        <a class="nav-btn" href="master-dept.html">部署マスタ</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">その他</div><div class="nav-group-btns">
+        <a class="nav-btn" href="login.html">ログアウト</a>
+      </div></div>
+    </nav>
+  </div>
+</header>
+  <div class="app-content">
+    <div class="screen-title">案件情報登録画面</div>
+    <div style="flex:1;background:#fafafa;padding:12px 24px 16px;">
+      <div style="max-width:950px;">
+    <div style="display:flex;align-items:center;gap:18px;margin-bottom:14px;">
+    <a class="btn btn-soft btn-sm" href="list.html"><span style="font-size:14px;">←</span>&nbsp;戻る</a>
+  </div>
+    <form class="form-card" data-edit-root>
+      <div style="padding:16px 20px 18px;">
+        <div class="form-grid">
+    <div class="f-cell full"><label class="f-lab">件名<span class="req">*</span></label><div class="f-body"><input  type="text" class="fc" value="" /></div></div>
+    <div class="f-cell full"><label class="f-lab">ステータス<span class="req">*</span></label><div class="f-body"><select class="fc" style="max-width:220px;"><option value="" >（選択してください）</option><option value="オープン" selected>オープン</option><option value="交渉中" >交渉中</option><option value="クローズ" >クローズ</option></select></div></div>
+    <div class="f-cell"><label class="f-lab">取引先</label><div class="f-body"><input  type="text" class="fc" value="" /></div></div>
+    <div class="f-cell"><label class="f-lab">商流</label><div class="f-body"><input  type="text" class="fc" value="" /></div></div>
+    <div class="f-cell full"><label class="f-lab">案件概要</label><div class="f-body"><textarea  class="fc" rows="4"></textarea></div></div>
+    <div class="f-cell full"><label class="f-lab">工程</label><div class="f-body"><input  type="text" class="fc" value="" /></div></div>
+    <div class="f-cell"><label class="f-lab">開始日</label><div class="f-body"><input  type="date" class="fc" value="" /></div></div>
+    <div class="f-cell"><label class="f-lab">終了日</label><div class="f-body"><input  type="date" class="fc" value="" /></div></div>
+    <div class="f-cell full"><label class="f-lab">スキル</label><div class="f-body"><input  type="text" class="fc" value="" /></div></div>
+    <div class="f-cell"><label class="f-lab">人数</label><div class="f-body"><input  type="text" class="fc" value="" style="text-align:right;"/></div></div>
+    <div class="f-cell"><label class="f-lab">残数</label><div class="f-body"><input  type="text" class="fc" value="" style="text-align:right;"/></div></div>
+    <div class="f-cell full"><label class="f-lab">BP募集</label><div class="f-body"><div style="display:flex;flex-direction:column;gap:10px;">
+    <label class="chk"><input  type="checkbox"/><span style="font-size:13px;">BPの募集が必要です</span></label>
+    <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:13px;color:var(--accent-ink);font-weight:500;flex-shrink:0;">詳細:</span><input  type="text" class="fc" value="" /></div>
+  </div></div></div>
+    <div class="f-cell full"><label class="f-lab">作業場所</label><div class="f-body"><input  type="text" class="fc" value="" /></div></div>
+    <div class="f-cell"><label class="f-lab">見込単価</label><div class="f-body"><input  type="text" class="fc" value="" /></div></div>
+    <div class="f-cell"><label class="f-lab">契約種別</label><div class="f-body"><select class="fc"><option></option><option>準委任</option><option>請負</option><option>派遣</option><option>SES</option></select></div></div>
+    <div class="f-cell full"><label class="f-lab">備考</label><div class="f-body"><textarea  class="fc" rows="4"></textarea></div></div>
+    <div class="f-cell full"><label class="f-lab">添付</label><div class="f-body"><div class="drop-area"><div style="font-size:22px;line-height:1;color:var(--accent);margin-bottom:6px;">⤓</div><div>クリックでファイル選択 ／ ドラッグ＆ドロップ</div><div style="font-size:11px;color:#888;margin-top:4px;">添付できるファイルは1件のみ</div></div></div></div>
+    <div class="f-cell full"><label class="f-lab">メール</label><div class="f-body"><div style="display:flex;flex-direction:column;gap:10px;">
+    <label class="chk"><input type="checkbox" data-mail-check/><span style="font-size:13px;">メール送信</span></label>
+    <div data-mail-body style="display:none;"><textarea class="fc" rows="5"></textarea></div>
+  </div></div></div>
+    
+  </div>
+        <div style="display:flex;justify-content:center;gap:14px;margin-top:18px;padding-top:14px;border-top:1px solid #e2e6e8;">
+    <a class="btn btn-soft btn-sm" href="list.html"><span style="font-size:14px;">←</span>&nbsp;戻る</a>
+    <button class="btn btn-primary btn-sm" data-submit style="padding:0 44px;letter-spacing:.05em;" >登録</button>
+  </div>
+      </div>
+    </form>
+  </div>
+    </div>
+  </div>
+</div>
+<script src="mockup.js"></script>
+</body>
+</html>

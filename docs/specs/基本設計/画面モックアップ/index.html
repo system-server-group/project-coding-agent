@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>営業情報管理システム — 画面モックアップ一覧</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="mockup.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="gallery-body">
+  <div class="gallery-head">
+    <h1>営業情報管理システム — 画面モックアップ</h1>
+    <p>各画面の静的HTMLモックアップ集です。カードをクリックすると個別画面が開きます。各画面のヘッダメニューやボタンからも画面間を移動できます。<br/>※ 一覧テーブルの列はスクロールで固定列が追従しますが、並べ替え・幅変更・ソートは静的モックアップのため動作しません。</p>
+  </div>
+  <div class="gallery-wrap">
+    <div class="gallery-section"><h2>認証</h2><div class="gallery-grid"><a class="gcard" href="login.html">
+    <div class="thumb"><img class="mini" src="thumbs/login.jpg" alt="ログイン画面" loading="lazy"/></div>
+    <div class="meta"><div class="name">ログイン画面</div><div class="desc">ユーザID / パスワード認証</div><span class="tag">認証</span></div>
+  </a></div></div><div class="gallery-section"><h2>案件情報</h2><div class="gallery-grid"><a class="gcard" href="list.html">
+    <div class="thumb"><img class="mini" src="thumbs/list.jpg" alt="案件情報一覧画面" loading="lazy"/></div>
+    <div class="meta"><div class="name">案件情報一覧画面</div><div class="desc">案件検索パネル＋一覧テーブル</div><span class="tag">案件情報</span></div>
+  </a><a class="gcard" href="register.html">
+    <div class="thumb"><img class="mini" src="thumbs/register.jpg" alt="案件情報登録画面" loading="lazy"/></div>
+    <div class="meta"><div class="name">案件情報登録画面</div><div class="desc">新規案件の登録フォーム</div><span class="tag">案件情報</span></div>
+  </a><a class="gcard" href="edit.html">
+    <div class="thumb"><img class="mini" src="thumbs/edit.jpg" alt="案件情報更新画面" loading="lazy"/></div>
+    <div class="meta"><div class="name">案件情報更新画面</div><div class="desc">編集保護ON・添付・メタ情報</div><span class="tag">案件情報</span></div>
+  </a><a class="gcard" href="edit-conflict.html">
+    <div class="thumb"><img class="mini" src="thumbs/edit-conflict.jpg" alt="更新 — 排他エラー" loading="lazy"/></div>
+    <div class="meta"><div class="name">更新 — 排他エラー</div><div class="desc">他ユーザ更新による競合エラー</div><span class="tag warn">エラー</span></div>
+  </a><a class="gcard" href="edit-notfound.html">
+    <div class="thumb"><img class="mini" src="thumbs/edit-notfound.jpg" alt="更新 — ID未検出" loading="lazy"/></div>
+    <div class="meta"><div class="name">更新 — ID未検出</div><div class="desc">存在しない案件IDエラー</div><span class="tag warn">エラー</span></div>
+  </a></div></div><div class="gallery-section"><h2>マスタ管理</h2><div class="gallery-grid"><a class="gcard" href="master-company.html">
+    <div class="thumb"><img class="mini" src="thumbs/master-company.jpg" alt="会社マスタ管理画面" loading="lazy"/></div>
+    <div class="meta"><div class="name">会社マスタ管理画面</div><div class="desc">会社マスタ一覧 / CSV入出力</div><span class="tag">マスタ管理</span></div>
+  </a><a class="gcard" href="master-company-csv-format.html">
+    <div class="thumb"><img class="mini" src="thumbs/master-company-csv-format.jpg" alt="会社マスタ — CSV形式エラー" loading="lazy"/></div>
+    <div class="meta"><div class="name">会社マスタ — CSV形式エラー</div><div class="desc">アップロード失敗（容量超過）</div><span class="tag warn">エラー</span></div>
+  </a><a class="gcard" href="master-company-csv-validation.html">
+    <div class="thumb"><img class="mini" src="thumbs/master-company-csv-validation.jpg" alt="会社マスタ — CSV入力値エラー" loading="lazy"/></div>
+    <div class="meta"><div class="name">会社マスタ — CSV入力値エラー</div><div class="desc">内容バリデーションエラー</div><span class="tag warn">エラー</span></div>
+  </a><a class="gcard" href="master-user.html">
+    <div class="thumb"><img class="mini" src="thumbs/master-user.jpg" alt="ユーザマスタ管理画面" loading="lazy"/></div>
+    <div class="meta"><div class="name">ユーザマスタ管理画面</div><div class="desc">ユーザ一覧 + 補足情報カード</div><span class="tag">マスタ管理</span></div>
+  </a><a class="gcard" href="master-dept.html">
+    <div class="thumb"><img class="mini" src="thumbs/master-dept.jpg" alt="部署マスタ管理画面" loading="lazy"/></div>
+    <div class="meta"><div class="name">部署マスタ管理画面</div><div class="desc">部署一覧 + 補足情報カード</div><span class="tag">マスタ管理</span></div>
+  </a></div></div><div class="gallery-section"><h2>共通（エラー画面）</h2><div class="gallery-grid"><a class="gcard" href="error-404.html">
+    <div class="thumb"><img class="mini" src="thumbs/error-404.jpg" alt="404 Not Found" loading="lazy"/></div>
+    <div class="meta"><div class="name">404 Not Found</div><div class="desc">ページが見つかりませんでした</div><span class="tag warn">エラー</span></div>
+  </a><a class="gcard" href="error-403.html">
+    <div class="thumb"><img class="mini" src="thumbs/error-403.jpg" alt="403 Forbidden" loading="lazy"/></div>
+    <div class="meta"><div class="name">403 Forbidden</div><div class="desc">ページにアクセスできません</div><span class="tag warn">エラー</span></div>
+  </a><a class="gcard" href="error-other.html">
+    <div class="thumb"><img class="mini" src="thumbs/error-other.jpg" alt="An error occured" loading="lazy"/></div>
+    <div class="meta"><div class="name">その他エラー</div><div class="desc">エラーが発生しました</div><span class="tag warn">エラー</span></div>
+  </a></div></div>
+  </div>
+</div>
+</body>
+</html>

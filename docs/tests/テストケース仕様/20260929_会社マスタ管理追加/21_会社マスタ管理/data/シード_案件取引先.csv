@@ -1,0 +1,2 @@
+﻿management_code,title,status,client_name,commercial_flow,summary,process,start_date,end_date,skill,headcount,remaining_count,bp_recruitment,bp_recruitment_detail,work_location,estimated_unit_price,contract_type,note,created_by,created_department,created_at,updated_by,updated_department,updated_at
+1,会社マスタ参照確認案件,OPEN,ワタナベ商事,,,,,,,,,,,,,,,管理者太郎,営業部,2026-09-01T09:00:00+09:00,管理者太郎,営業部,2026-09-01T09:00:00+09:00

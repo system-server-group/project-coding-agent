@@ -1,0 +1,4 @@
+﻿file_name,file_size,header_line,row_prefix,fill_char,row_suffix,generation_rule
+会社マスタ_5MBちょうど.csv,5242880,"会社ID,会社名","1,",a,,UTF-8 BOM＋ヘッダー行＋CR+LF＋データ行（前置文字列＋fill_char の繰り返し＋後置文字列）＋CR+LF。総バイト数が file_size ちょうどになるよう fill_char の個数を調整する
+会社マスタ_5MB超過.csv,5242881,"会社ID,会社名","1,",a,,同上
+会社マスタ_5MB超過_ヘッダー列順逆.csv,5242881,"会社名,会社ID","1,",a,,同上（ヘッダー行の列順が逆）

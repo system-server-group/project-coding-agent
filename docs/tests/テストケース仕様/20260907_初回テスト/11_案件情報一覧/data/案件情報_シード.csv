@@ -1,0 +1,7 @@
+management_code,title,status,client_name,commercial_flow,summary,process,start_date,end_date,skill,headcount,remaining_count,bp_recruitment,bp_recruitment_detail,work_location,estimated_unit_price,contract_type,note,created_by,created_department,created_at,updated_by,updated_department,updated_at
+1,Java開発案件,OPEN,株式会社アルファ,一次請け,"基幹システムの改修。
+二次開発フェーズ。",詳細設計,2026-09-01,2026-12-31,Java Spring,3,2,REQUIRED,即戦力歓迎,東京都港区,600000,CONTRACT,長期案件,営業 太郎,営業部,2026-08-01 10:00:00,営業 太郎,営業部,2026-08-01 10:00:00
+2,Python分析案件,NEGOTIATING,株式会社ブラボー,二次請け,,基本設計,2026-10-01,2027-03-31,Python,2,1,NOT_REQUIRED,,大阪府大阪市,550000,QUASI_MANDATE,,開発 次郎,開発部,2026-08-05 09:30:00,開発 次郎,開発部,2026-08-05 09:30:00
+3,クローズ済み案件,CLOSED,,,,,,,,,,NOT_REQUIRED,,,,,,管理 花子,管理部,2026-07-01 08:00:00,管理 花子,管理部,2026-07-01 08:00:00
+4,区切り文字の案件,OPEN,株式会社チャーリー,一次請け,要件定義から参画。,要件定義,2026-11-01,2027-01-31,SQL,1,1,NOT_REQUIRED,,東京都新宿区,500000,DISPATCH,"区切り,と""引用符""の確認",営業 太郎,営業部,2026-08-10 11:00:00,営業 太郎,営業部,2026-08-10 11:00:00
+5,BP募集の案件,OPEN,株式会社デルタ,三次請け,増員募集。,製造,2026-09-15,2027-02-28,JavaScript,5,3,REQUIRED,未経験可,福岡県福岡市,450000,CONTRACT,備考テスト,開発 次郎,開発部,2026-08-15 14:00:00,開発 次郎,開発部,2026-08-15 14:00:00

@@ -1,0 +1,3 @@
+﻿user_id,user_name,email,department_id,role,password
+admin01,管理者太郎,admin01@example.com,1,9,$2a$10$v9oVNgj.4h24j9Sk54zRUecrvZknEh32RHhpbqidYgZ68nI99wOD6
+user01,一般花子,user01@example.com,2,0,$2a$10$v9oVNgj.4h24j9Sk54zRUecrvZknEh32RHhpbqidYgZ68nI99wOD6

@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=https://www.schemastore.org/any.json
+server:
+  servlet:
+    session:
+      # ログイン維持: 最後のアクセスから 30 分でセッションを失効させる
+      # (ユーザ認証認可 システム共通仕様書「ログインの維持と失効」)。
+      timeout: 30m
+spring:
+  application:
+    name: sims
+  jackson:
+    # 日時(OffsetDateTime 等)は Asia/Tokyo へ変換して出力する(システム前提=JST)。
+    # timestamptz は JDBC で UTC の OffsetDateTime として読み出されるため、
+    # 既定(UTC)のままシリアライズすると画面に UTC 時刻が表示される。これを JST に揃える。
+    time-zone: Asia/Tokyo
+  profiles:
+    active: dev
+  datasource:
+    hikari:
+      # システム標準タイムゾーン (アーキテクチャ設計書「システム前提」= Asia/Tokyo)。
+      # 日付のみの比較 (登録日検索等) の切り捨て基準を DB セッションに固定する。
+      connection-init-sql: SET TIME ZONE 'Asia/Tokyo'
+  session:
+    jdbc:
+      initialize-schema: always
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 25MB
+      file-size-threshold: 0
+    encoding:
+      charset: UTF-8
+      force: true
+  thymeleaf:
+    check-template-location: true
+    mode: HTML
+    encoding: UTF-8
+  mail:
+    default-encoding: UTF-8
+
+# MyBatis 設定 (プロジェクト全体で共通)
+#   - /database/mapper/ 配下: テーブル別 Mapper XML (配置はディレクトリ構造.docx 参照)
+#   - /apps/**/mapper/ 配下: 機能 (feature) 固有の動的 SQL などを記述する手書き Mapper XML
+mybatis:
+  # OffsetDateTime(timestamptz) は pgjdbc が UTC オフセットで返すため、読み出し時に
+  # システム標準タイムゾーン(Asia/Tokyo)のオフセットへ付け替える TypeHandler を全体既定として登録する。
+  type-handlers-package: com.system_server.ai_demo.database.typehandler
+  mapper-locations:
+    - classpath:com/system_server/ai_demo/database/mapper/*.xml
+    - classpath:com/system_server/ai_demo/apps/**/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    jdbc-type-for-null: NULL
+
+logging:
+  level:
+    "[com.system_server.ai_demo]": INFO
+
+# アプリ固有プロパティ
+ai-demo:
+  mail:
+    # 営業メールに埋め込むベース URL (末尾スラッシュなし)。各プロファイルで上書き。
+    base-url: http://localhost:8080
