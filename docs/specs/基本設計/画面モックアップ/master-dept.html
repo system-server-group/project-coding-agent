@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>部署マスタ管理画面</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="mockup.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="app-shell">
+<header class="app-header">
+  <div style="display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:8px;">
+    <a class="app-title" href="list.html">営業情報管理システム</a>
+  </div>
+  <div style="flex:1 1 auto;"></div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:6px;padding-top:4px;">
+    <div style="display:inline-flex;align-items:center;gap:8px;font-size:13px;color:#444;">
+      <span class="user-chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" fill="currentColor"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="currentColor"/></svg></span>
+      <span style="font-weight:600;color:#222;">三郎太郎</span><span style="color:#666;">／SSV3部</span>
+    </div>
+    <nav style="display:flex;align-items:flex-end;">
+      <div class="nav-group"><div class="nav-group-label">案件情報</div><div class="nav-group-btns">
+        <a class="nav-btn" href="list.html">一覧・検索</a>
+        <a class="nav-btn" href="register.html">新規登録</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">マスタ管理</div><div class="nav-group-btns">
+        <a class="nav-btn" href="master-company.html">会社マスタ</a>
+        <a class="nav-btn" href="master-user.html">ユーザマスタ</a>
+        <a class="nav-btn active" href="master-dept.html">部署マスタ</a>
+      </div></div>
+      <div class="nav-divider"></div>
+      <div class="nav-group"><div class="nav-group-label">その他</div><div class="nav-group-btns">
+        <a class="nav-btn" href="login.html">ログアウト</a>
+      </div></div>
+    </nav>
+  </div>
+</header>
+  <div class="app-content">
+    <div class="screen-title">部署マスタ管理画面</div>
+    <div style="padding:16px 28px 20px;">
+      
+      <div class="table-toolbar end">
+        <button class="btn btn-soft btn-sm">⬆&nbsp;CSVアップロード</button>
+        <button class="btn btn-primary btn-sm">⬇&nbsp;CSVダウンロード</button>
+      </div>
+      <div class="pager"><span style="justify-self:start;">取得データ件数: 40件</span><div class="pager-nums"><button class="pg-btn" disabled>«</button><button class="pg-btn" disabled>‹</button><button class="pg-btn active">1</button><button class="pg-btn">2</button><button class="pg-btn" >›</button><button class="pg-btn" >»</button></div><div class="pager-ctl"><label><span>表示件数</span><select><option >10件</option><option >20件</option><option selected>30件</option><option >全て</option></select></label><label><span>表示ページ</span><select style="min-width:60px;"><option selected>1 / 2</option><option >2 / 2</option></select></label></div></div>
+      <div class="mk-tablewrap no-pin"><table class="mk-table no-pin" style="width:100%;"><thead><tr><th style="width:50.0000%;">部署ID<span class="mk-sort">▲</span></th><th style="width:50.0000%;">部署名</th></tr></thead><tbody><tr><td style="width:50.0000%;">1</td><td style="width:50.0000%;">SSV営業部</td></tr><tr><td style="width:50.0000%;">2</td><td style="width:50.0000%;">SSV1部</td></tr><tr><td style="width:50.0000%;">3</td><td style="width:50.0000%;">SSV2部</td></tr><tr><td style="width:50.0000%;">4</td><td style="width:50.0000%;">SSV3部</td></tr><tr><td style="width:50.0000%;">5</td><td style="width:50.0000%;">基盤営業部</td></tr><tr><td style="width:50.0000%;">6</td><td style="width:50.0000%;">クラウド営業部</td></tr><tr><td style="width:50.0000%;">7</td><td style="width:50.0000%;">開発1部</td></tr><tr><td style="width:50.0000%;">8</td><td style="width:50.0000%;">開発2部</td></tr><tr><td style="width:50.0000%;">9</td><td style="width:50.0000%;">品質保証部</td></tr><tr><td style="width:50.0000%;">10</td><td style="width:50.0000%;">管理部</td></tr><tr><td style="width:50.0000%;">11</td><td style="width:50.0000%;">人事部</td></tr><tr><td style="width:50.0000%;">12</td><td style="width:50.0000%;">総務部</td></tr><tr><td style="width:50.0000%;">13</td><td style="width:50.0000%;">開発3部</td></tr><tr><td style="width:50.0000%;">14</td><td style="width:50.0000%;">開発4部</td></tr><tr><td style="width:50.0000%;">15</td><td style="width:50.0000%;">インフラ部</td></tr><tr><td style="width:50.0000%;">16</td><td style="width:50.0000%;">ネットワーク部</td></tr><tr><td style="width:50.0000%;">17</td><td style="width:50.0000%;">セキュリティ部</td></tr><tr><td style="width:50.0000%;">18</td><td style="width:50.0000%;">データ基盤部</td></tr><tr><td style="width:50.0000%;">19</td><td style="width:50.0000%;">AI推進部</td></tr><tr><td style="width:50.0000%;">20</td><td style="width:50.0000%;">DX推進部</td></tr><tr><td style="width:50.0000%;">21</td><td style="width:50.0000%;">経営企画部</td></tr><tr><td style="width:50.0000%;">22</td><td style="width:50.0000%;">経理部</td></tr><tr><td style="width:50.0000%;">23</td><td style="width:50.0000%;">財務部</td></tr><tr><td style="width:50.0000%;">24</td><td style="width:50.0000%;">法務部</td></tr><tr><td style="width:50.0000%;">25</td><td style="width:50.0000%;">広報部</td></tr><tr><td style="width:50.0000%;">26</td><td style="width:50.0000%;">マーケティング部</td></tr><tr><td style="width:50.0000%;">27</td><td style="width:50.0000%;">営業企画部</td></tr><tr><td style="width:50.0000%;">28</td><td style="width:50.0000%;">西日本営業部</td></tr><tr><td style="width:50.0000%;">29</td><td style="width:50.0000%;">東日本営業部</td></tr><tr><td style="width:50.0000%;">30</td><td style="width:50.0000%;">中部営業部</td></tr></tbody></table></div>
+      <div class="pager"><span style="justify-self:start;">取得データ件数: 40件</span><div class="pager-nums"><button class="pg-btn" disabled>«</button><button class="pg-btn" disabled>‹</button><button class="pg-btn active">1</button><button class="pg-btn">2</button><button class="pg-btn" >›</button><button class="pg-btn" >»</button></div><div class="pager-ctl"><label><span>表示件数</span><select><option >10件</option><option >20件</option><option selected>30件</option><option >全て</option></select></label><label><span>表示ページ</span><select style="min-width:60px;"><option selected>1 / 2</option><option >2 / 2</option></select></label></div></div>
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px;"><div class="info-card"><span class="icon">i</span><div style="flex:1;min-width:0;"><div class="title">部署の削除について</div><p class="body">部署マスタのデータは削除しないでください。システムが正常に稼働しなくなる恐れがあります。</p></div></div></div>
+    </div>
+  </div>
+</div>
+<script src="mockup.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "shengchen.vscode-checkstyle",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig",
+    "ms-ceintl.vscode-language-pack-ja",
+    "anthropic.claude-code",
+    "vmware.vscode-boot-dev-pack",
+    "redhat.java"
+  ]
+}

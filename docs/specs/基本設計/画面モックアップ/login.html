@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>営業情報管理システム — ログイン</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet"/>
+<link href="mockup.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="center-screen">
+  <form class="login-card" data-login-form>
+    <div class="login-body">
+      <h1 style="text-align:center;margin:0;font-size:24px;font-weight:var(--brand-weight);color:#1a1a1a;letter-spacing:.01em;">営業情報管理システム</h1>
+      <div class="accent-rule"></div>
+      <div style="margin-bottom:18px;">
+        <label class="field-label">ユーザID</label>
+        <input class="fc" placeholder="SM0000" style="height:38px;"/>
+      </div>
+      <div style="margin-bottom:24px;">
+        <label class="field-label">パスワード</label>
+        <div class="input-group">
+          <input id="login-pw" type="password" class="fc" style="height:38px;"/>
+          <button type="button" class="btn-eye" data-pw-toggle="#login-pw" style="height:38px;" aria-label="パスワードを表示"></button>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;">
+        <button type="submit" class="btn btn-primary">ログイン</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="mockup.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system_server.ai_demo.database.mapper.DepartmentsMapper">
+
+    <select id="findAll"
+            resultType="com.system_server.ai_demo.database.entity.DepartmentsEntity">
+        SELECT department_id, department_name
+        FROM departments
+        ORDER BY department_id ASC
+    </select>
+
+    <delete id="deleteAll">
+        DELETE FROM departments
+    </delete>
+
+    <insert id="insert">
+        INSERT INTO departments (department_id, department_name)
+        VALUES (#{departmentId}, #{departmentName})
+    </insert>
+
+    <select id="findByDepartmentId"
+            resultType="com.system_server.ai_demo.database.entity.DepartmentsEntity">
+        SELECT department_id, department_name
+        FROM departments
+        WHERE department_id = #{departmentId}
+    </select>
+</mapper>

@@ -1,0 +1,36 @@
+# =============================================================================
+# 本番系プロファイル (prd)
+#   シークレット情報は開発者に見られないようにするため、実値は環境変数で注入する
+#   (プロジェクト決定 4.)。本ファイルにはプレースホルダーのみ記述する。
+# =============================================================================
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  thymeleaf:
+    cache: true
+
+logging:
+  level:
+    "[com.system_server.ai_demo]": INFO
+
+ai-demo:
+  mail:
+    base-url: ${SIMS_MAIL_BASE_URL}
+    # 本番系の宛先 = 営業部メールリスト (シークレット)。カンマ区切りを環境変数から注入する。
+    recipients: ${SIMS_MAIL_RECIPIENTS}

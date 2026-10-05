@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.system_server.ai_demo.database.mapper.UsersMapper">
+
+    <select id="findAll"
+            resultType="com.system_server.ai_demo.database.entity.UsersEntity">
+        SELECT user_id, user_name, email, department_id, role, password
+        FROM users
+        ORDER BY user_id ASC
+    </select>
+
+    <select id="findByUserId"
+            resultType="com.system_server.ai_demo.database.entity.UsersEntity">
+        SELECT user_id, user_name, email, department_id, role, password
+        FROM users
+        WHERE user_id = #{userId}
+    </select>
+
+    <insert id="insert">
+        INSERT INTO users (user_id, user_name, email, department_id, role, password)
+        VALUES (#{userId}, #{userName}, #{email}, #{departmentId}, #{role}, #{password})
+    </insert>
+
+    <update id="update">
+        UPDATE users
+        SET user_name = #{userName},
+            email = #{email},
+            department_id = #{departmentId},
+            role = #{role},
+            password = #{password}
+        WHERE user_id = #{userId}
+    </update>
+
+    <delete id="deleteByUserId">
+        DELETE FROM users
+        WHERE user_id = #{userId}
+    </delete>
+</mapper>
